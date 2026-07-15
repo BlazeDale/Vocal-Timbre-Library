@@ -1,0 +1,303 @@
+# Artist Studies — Inspirations Mode
+
+Companion to `vocal_timbre_library_v8_211.html`. These prompts live **outside the numbered library** unless promoted. Method: describe the artist's ancestral ingredients (genres, eras, gear, scenes, constraints), never their sound or name. Standard set per artist: one **blend** + isolated **roots**, mixable pairwise to triangulate specific songs. Temperament rule: encode the attitude the artist brought to the ancestors, or you get their politest cousin. All character counts bash-verified. The doc's five mandated negatives are assumed appended; neg fields below exclude them.
+
+---
+
+## Study 1 — Garage blues-rock duo (blend + 10 roots)
+
+### Blend (915)
+
+```
+Garage blues-rock duo built from its ancestors, not its era: Mississippi Delta bottleneck blues — one man, one resonator, stomped floorboard time — collided with mid-60s Detroit garage punk played through cheap department-store gear. A unique and specific vocalist, high keening tenor timbre cracking into yelps, phrasing borrowed from prewar field-holler blues, urgency from proto-punk. Guitar is a hollow plastic-bodied thing through a vintage tube combo cranked to splatter, riffs built on open tunings and slide, childlike pentatonic simplicity. Drums primitive and thunderous, no fills beyond what a beginner would dare, cymbals crashed not ridden. Strict two-piece economy — red-white-black minimalism as an arrangement rule: nothing plays that isn't essential. All-analog room sound, tape saturation, bleed left in. Occasional detour into country waltz or piano-stomp vaudeville, same rawness.
+```
+
+```
+polished modern production, bass guitar, layered overdubs, drum fills, quantized timing, clean vocals, full band arrangement, synthesizers
+```
+
+### Root 1 · Prewar Delta blues (823)
+
+```
+Prewar country blues resurrected with electricity: the songbook of 1930s Mississippi — bottleneck resonator figures, dead-thumb bass strings, spirituals moaned more than sung — carried whole into a loud modern room. A unique and specific vocalist, raw keening tenor timbre, slipping between conversational mutter and full holler the way field recordings do, unpolished pitch worn as authority. One electric slide guitar in open tuning does everything: bassline, riff, answer-phrase to every vocal line, call-and-response as the whole architecture. Percussion is a stomped floor and a tambourine, or a bare kick and snare hit like a porch plank. Songs short, verses traded with the guitar, endings abrupt. Recorded to tape in one room, one or two takes, hiss and chair-creak left in. Reverence expressed as volume.
+```
+
+```
+polished production, full band, drum kit grooves, clean modern vocals, bass guitar, layered arrangement, long solos, synthesizers
+```
+
+### Root 2 · Detroit garage punk (852)
+
+```
+Mid-60s Detroit garage punk lineage: teenage bands in echoey basements chasing British invasion swagger with American violence, then the late-60s proto-punk that stripped it meaner — two-chord vamps hammered past the point of reason, treble-heavy fuzz, tempos that rush. A unique and specific vocalist, sneering high tenor timbre pushed to a shredded yelp, more attitude than accuracy, phrases spat ahead of the beat. Guitar through a fuzz pedal into a small cranked amp, riffs monolithic and repetitive, solos that are one note strangled. Drums flat-out primitive: caveman quarter-note stomp, crash cymbal ridden like a threat, fills forbidden. Two-piece density trick — octave-splitting fuzz fattens the low end where a bass would be. Under three minutes, no bridge, count-in left on tape. Garage echo, red-lined levels, glorious mono feel.
+```
+
+```
+polished production, quantized timing, clean vocals, ballad tempo, acoustic instruments, complex arrangement, drum fills, wide stereo sheen
+```
+
+### Root 3 · Heavy blues-rock (849)
+
+```
+Heavy blues-rock as the loud grandchild of acoustic sorrow: British-style late-60s riff worship — detuned electric blues scaled up to arena weight — but built on a duo's economy, so every riff carries alone. A unique and specific vocalist, high wailing tenor timbre with a cracked upper register, octave leaps and unaccompanied a cappella bars used as dynamite. Guitar alternates whisper and avalanche: fingerpicked open-tuned acoustic verses that detonate into slabbed power-chord slide choruses, whole-step bends wide as sirens. Drums huge and behind the beat, more toms than cymbals, halting stop-time breaks where the riff hangs in the air. Dynamics as structure — silence weaponized, drops to nothing before each return. Analog warmth, room mics distant, drums bleeding into everything. A folk melody hiding inside the heaviness.
+```
+
+```
+bass guitar, polished modern production, quantized grid, constant loudness, synthesizers, clean restrained vocals, busy cymbal work
+```
+
+### Root 4 · Country/folk (817)
+
+```
+Country and hill-folk sincerity played by a garage band: coal-country balladry, honky-tonk heartbreak waltzes, and dust-bowl folk narrative carried on cheap electric instruments instead of Nashville polish. A unique and specific vocalist, plaintive reedy tenor timbre, unaffected and close, phrasing plainspoken like a story told across a kitchen table, harmony from a second untrained voice in loose thirds. Acoustic guitar strummed simple, electric slide answering in a weeping high register, occasional mandolin-thin figure. Drums brushed or barely there — a waltz sway or a soft train-beat, never rock weight. Songs about wronged women, small towns, and stubborn loyalty, verses long and chorus modest. One-room recording, warm tape, everything slightly too honest. Sweetness with dirt under its fingernails.
+```
+
+```
+Nashville polish, pedal steel gloss, big drums, choir backing, orchestral strings, autotune, stadium dynamics, fast punk tempo
+```
+
+### Root 5 · Vaudeville piano-showman (858)
+
+```
+Vaudeville and saloon-piano pop-craft roughed up by a rock duo: pre-rock songwriting — music-hall stomp, ragtime-tinged upright piano, torch-song melodrama, even a border-brass fanfare feel — arranged with garage bluntness. A unique and specific vocalist, theatrical high tenor timbre swinging between croon and bark, diction crisp, winking showman phrasing over genuine menace. Upright piano is the lead instrument, hammered percussive and slightly out of tune, left hand doing the bass work; guitar appears only as punctuation stabs. Drums do a burlesque strut — rimshots, choked cymbal, kick on the theatrical accents. Marimba or tack-piano color in one section only. Structures from the old songbook: verse-chorus with a stop-time tag, big held ending. Red-curtain drama recorded dry and close, analog, a stage-play in under three minutes.
+```
+
+```
+modern pop production, synthesizers, drum machine, heavy guitar wall, screamed vocals, EDM structure, quantized grid, lo-fi murk
+```
+
+### Root 6 · Schoolyard-song primitivism (837)
+
+```
+Schoolyard song sincerity as a compositional creed: nursery-simple melody, playground chant cadence, the first three chords anyone learns — treated not as beginner limits but as sacred rules. A unique and specific vocalist, gentle unforced tenor timbre, sung small and kind like reading to a child, no vibrato, no push. Acoustic guitar strummed in whole open chords, a recess-bell glockenspiel or single-finger piano doubling the tune, melody so plain it feels remembered rather than written. Percussion is a soft brushed pat or handclaps, nothing more. Lyrics concrete and small: chalk, lunchboxes, walking to school, one true feeling stated without decoration. Verse-chorus short and round like a song passed between children. Warm close tape recording, one take honesty, imperfections kept. Sophistication expressed as restraint.
+```
+
+```
+distortion, drums kit weight, belting, complex chords, dense arrangement, synthesizers, dramatic dynamics, polished production
+```
+
+### Root 7 · Talking-blues troubadour (828)
+
+```
+Talking-blues folk narrative plugged into a garage amp: dust-road troubadour storytelling — tumbling verse lines that overstuff the meter, wry conversational delivery, harmonica bursts between stanzas — driven by a two-piece rock engine. A unique and specific vocalist, nasal expressive tenor timbre, half-spoken and rushing the syllables, dropping to deadpan for the punchlines, rising to a ragged shout when the story turns. Strummed electric rhythm guitar in open position, harmonica on a rack squalling at verse-ends, a slide figure quoting the melody. Drums keep a loping train-beat shuffle, brushes to sticks as the tale escalates. Long verses, refrain more spoken tag than chorus, structure serving the story. Room-live analog recording, guitar buzz and breath left in, a folk revival basement wired for volume.
+```
+
+```
+polished vocals, quantized grid, synthesizers, big chorus hooks, orchestral arrangement, autotune, dance beat, clean sterile mix
+```
+
+### Root 8 · Bolero/mariachi drama (834)
+
+```
+Bolero and mariachi drama through a garage lens: border-town brass fanfare, castanet-crack rhythm, the operatic rise-and-fall of a bullring serenade — played with rock instrumentation standing in for the orquesta. A unique and specific vocalist, dramatic high tenor timbre with rolled attack and long-held pleading notes, delivery all matador flourish, sudden hushes before each declaration. Trumpet fanfare figures answered by fuzz guitar imitating the horn line, tremolo-picked passages like rattling strings, castanets and floor-tom gallop underneath. Tempo surges and halts theatrically, stop-time silences before the final cry. Arrangement lean — duo plus one brass voice — so the drama comes from dynamics, not density. Dry close analog recording, red-curtain intensity, a love-as-conquest melodrama in miniature.
+```
+
+```
+full mariachi orchestra, polished Latin pop production, synthesizers, four-on-floor, quantized timing, soft crooning throughout, dense mix
+```
+
+### Root 9 · Broken-blues skronk (854)
+
+```
+Avant-blues skronk lineage: the desert-cracked corner of blues where the form gets bent — angular riffs that lurch off-grid, slide guitar as animal noise, time signatures that limp on purpose — filtered through a duo's brute simplicity. A unique and specific vocalist, wild-eyed growl-to-falsetto tenor timbre, phrasing unpredictable, words barked, muttered, and howled as texture as much as meaning. Guitar detuned and hostile: seasick slide intervals, stabbing atonal accents, feedback held as a note, riffs that repeat wrong on purpose. Drums tumble and interrupt — stumbling fills, dropped beats, cymbal chokes — primitive but deliberately broken. Structures collapse and reassemble; a straight blues bar appears just long enough to be destroyed. Raw analog room recording, red-lined, gloriously ugly, chaos with a blues skeleton.
+```
+
+```
+smooth production, quantized grid, pop structure, clean melodic vocals, synthesizers, gentle dynamics, radio polish, lounge smoothness
+```
+
+### Root 10 · Bubblegum-punk melodic (856)
+
+```
+British Invasion bubblegum melody at punk velocity: two-minute beat-group pop — handclap hooks, la-la choruses, boy-meets-girl directness — played twice as fast and twice as loud by a scrappy two-piece. A unique and specific vocalist, bright eager tenor timbre, melodic even at a shout, doubling its own hook in loose unison, breathless as a first crush. Fuzz guitar plays the entire pop arrangement at once — jangling chord chime compressed into distorted downstrokes, riff and rhythm collapsed together. Drums gallop straight ahead, snare on the run, one crash reserved for the chorus lift. Handclaps on the hook, a shouted count-in, maybe a hummed bridge. Song built purely on melody: verse hooks into chorus in under twenty seconds, out before the second bridge could exist. Garage-bright analog sound, joyous, sub-two-minute sugar rush.
+```
+
+```
+slow tempo, ballad structure, synthesizers, long songs, clean quiet guitars, orchestral arrangement, moody atmosphere, autotune sheen
+```
+
+---
+
+## Study 2 — Mid-90s spiritual alt-rock (blend v2 + 5 roots)
+
+Note: blend v1 rejected — too jangle-forward ("politest cousin" failure). v2 is grit-forward; temperament rule originated here.
+
+### Blend v2 (975)
+
+```
+Mid-90s alternative rock with menace in its bloodline: arena-rock spirituality — chiming delayed guitars, songs that pray at stadium volume — crossed with post-punk coil and the era's heaviest quiet-loud violence, verses wound tight as a held breath before choruses that detonate rather than lift. A unique and specific vocalist, muscular tenor timbre with a guttural edge, moving from clenched-teeth murmur to a raw evangelical roar, sustained notes cracked open at the top, vowels torn wide — a preacher mid-exorcism, mantra repetition turning threatening as it builds. Guitars serrated more than jangled: palm-muted seething figures that erupt into slabbed dropped-tuning riffs, feedback allowed to hang. Bass melodic and prowling, drums tribal floor-tom builds crashing into a punishing anthemic backbeat, cymbals riding hard at peaks. Tension is the engine — every soft passage is a fuse. Big natural room sound, analog heat, fervor with its jaw set.
+```
+
+```
+gentle jangle pop, soft rock smoothness, folk strumming, screamed hardcore vocals, punk speed, synthesizers, quantized modern polish, rap verses, flat dynamics
+```
+
+### Root 1 · Arena spirituality (884)
+
+```
+Late-80s Irish arena-rock spirituality isolated: dotted-eighth delayed guitar chime ringing like cathedral bells, anthems constructed as prayers, the conviction that a rock song can be an act of worship — inherited by a heavier 90s hand. A unique and specific vocalist, muscular tenor timbre singing upward, phrases launched at the sky and held, sustained climax notes with a raw torn edge, verses hushed and reverent before choruses that arrive like sunrise over a stadium. Guitar all shimmer and cascade, delay throbbing in rhythm, one repeating figure elevated into a hook by sheer repetition and rise. Bass melodic and hymn-steady, drums martial-to-anthemic, snare cracking wide on the lift. Structure is ascent: each section a step higher, false summit before the true one, coda sung wordless and communal. Vast natural reverb, analog warmth, sincerity absolutely unguarded.
+```
+
+```
+grunge murk, screamed vocals, punk speed, synthesizers, lo-fi production, ironic detachment, flat dynamics, sludge tempo
+```
+
+### Root 2 · College-rock earnestness (861)
+
+```
+80s American college-rock earnestness with its intensity intact: minor-key arpeggios ringing on clean electric guitar, cryptic imagistic lyrics half-swallowed then suddenly clear, small-town melancholy carried at driving mid-tempo — the jangle lineage but urgent, never polite. A unique and specific vocalist, warm grainy tenor timbre, mumbled intimacy in verses opening into an aching full-voice chorus, phrasing that hides meaning then confesses it, harmonies from a darker second voice in loose fourths. Guitars interlocked: one ringing arpeggio pattern, one low driving eighth-note strum, no solos, texture as lead. Bass counter-melodic and high in the mix, drums insistent and dry, hi-hat pushing. Songs about faith, rivers, and leaving, chorus lyric plain as the verses are oblique. Mid-size room sound, analog, jangle with a clenched fist inside it.
+```
+
+```
+soft rock smoothness, acoustic folk gentleness, synthesizers, stadium bombast, screamed vocals, quantized polish, slow ballad drag
+```
+
+### Root 3 · Quiet-loud detonation (851)
+
+```
+The quiet-loud violence of the late-80s underground isolated: whisper verses over a lone prowling bassline, then a full-band detonation with zero transition — dynamics as ambush, softness existing only to make the eruption hurt. A unique and specific vocalist, tenor timbre split in two — a flat, eerie deadpan murmur in the quiet, an unhinged throat-tearing howl in the loud — the switch instant, no ramp. Guitar silent or skeletal in verses, then a wall of serrated distortion, atonal stabs and bent notes screaming across the chorus. Bass carries the verses alone, melodic and ominous; drums drop out to rimclicks then slam in at full violence, crash-heavy. Song built on the cut: four bars of menace, four of chaos, repeat until the last chorus refuses to end. Dry close verses, blown-out choruses, analog room caught mid-explosion.
+```
+
+```
+smooth transitions, constant loudness, gentle dynamics, synthesizers, polished modern production, rap verses, acoustic balladry, autotune
+```
+
+### Root 4 · Mantra/mysticism (920)
+
+```
+Eastern-mysticism devotional rock: the meditative root isolated — mantra repetition as song structure, lyrics of dissolution and awakening, stillness treated as a destination rather than a pause. A unique and specific vocalist, warm tenor timbre at its most controlled, long unhurried phrases floated on breath, a single line repeated with deepening weight until it becomes incantation, rising near the end to a devotional peak that releases rather than explodes. Guitars sustained and glassy, volume-swelled chords blooming without attack, one drone note held under entire sections. Bass a slow pulse like a heartbeat at rest, drums entering late — soft mallet toms, a patient build measured in minutes, the backbeat arriving only for the final ascent. Structure circular, verse and chorus dissolving into each other. Deep natural reverb, analog warmth, a rock band conducting a meditation that ends in tears.
+```
+
+```
+aggressive riffs, screamed vocals, fast tempo, punk energy, dense busy arrangement, quantized grid, bright pop tone, abrupt sections
+```
+
+### Root 5 · Post-punk coil (941)
+
+```
+Post-punk coil isolated: the seething, gothic-adjacent tension underneath — hypnotic bass-driven repetition, drums like a machine losing patience, songs that tighten instead of release. A unique and specific vocalist, low clenched tenor timbre, delivery compressed and threatening, syllables bitten off, volume rising across the song in barely measurable increments so the menace accumulates without a single cathartic break until the final minute tears open. Bassline is the song: circular, prowling, unchanging while everything around it destabilizes. Guitar a rhythmic scrape and needling single-note figures, dissonant intervals held too long, feedback creeping in at the edges. Drums motorik and dry, hi-hat relentless, fills refused until the breach. Structure a ratchet — each cycle adds one element, removes no tension. Close dry recording, analog, claustrophobic, the held breath of a mid-90s rock band refusing to exhale.
+```
+
+```
+big anthemic choruses, bright tone, gentle jangle, synth-pop sheen, early catharsis, loose swung feel, acoustic warmth, cheerful delivery
+```
+
+---
+
+## Study 3 — Mid-70s California rock (blend + 5 member-lineage roots)
+
+Rumours-era framing. Late-60s British-blues incarnation reserved as an optional bonus root, unwritten.
+
+### Blend (993)
+
+```
+Mid-70s California rock built from a strange marriage of ancestors: a British blues-boom rhythm section — unhurried, deep-pocketed, swing hiding inside restraint — carrying Laurel Canyon harmony pop, close-stacked vocal blends from the folk-rock and brother-duo tradition, and a studio-obsessive pop-craft lineage of layered guitars and headphone detail. Three writer-voices in one band: a unique and specific vocalist with a husky mystic rasp trading songs with a smoky warm alto-leaning timbre and a bright tenor timbre singing in taut falsetto-edged bursts, all three converging in shimmering three-part harmony on choruses. Fingerpicked electric figures rippling over chugging acoustic strums, keyboard warmth from electric piano and organ, bass melodic and round, drums patient and enormous — fills like slow waves, groove first always. Heartbreak written as radiant pop, tension inside the harmony. Pristine 70s analog studio sound, sun-warmed, every layer placed by hand.
+```
+
+```
+punk aggression, synthesizer-driven arrangement, screamed vocals, lo-fi murk, quantized modern production, rap verses, heavy distortion wall, disco four-on-floor
+```
+
+### Root 1 · Laurel Canyon harmony pop (893)
+
+```
+Laurel Canyon harmony pop isolated: the California folk-rock lineage of close-stacked voices — brother-duo thirds widened into radiant three-part blends — where the harmony itself is the hook and the sunshine has an ache inside it. A unique and specific vocalist, clear warm mid-range timbre, leading with conversational ease before two companion voices fold in on the chorus, one darker and one brighter, blend so tight the chords seem to come from one throat. Chugging acoustic rhythm guitar as the engine, fingerpicked electric filigree on top, electric piano pads warm underneath. Bass round and singing, drums relaxed and buoyant, backbeat soft as a screen door. Melodies stepwise and inevitable, choruses that lift by widening the harmony rather than the volume. Songs about leaving gracefully. Pristine 70s analog studio sound, golden-hour warmth, sadness dressed in sunlight.
+```
+
+```
+heavy distortion, punk energy, screamed vocals, synthesizers, quantized modern production, auto-tuned harmony stacks, disco beat, lo-fi murk
+```
+
+### Root 2 · Blues rhythm section (915)
+
+```
+British blues-boom rhythm section isolated: the deep-pocket lineage — players raised on Chicago electric blues who learned restraint as a religion — laying a groove so patient it feels geological under whatever song sits on top. A unique and specific vocalist, unhurried smoky timbre, phrasing behind the beat, never crowding the pocket, letting whole bars pass unsung. Bass melodic but disciplined, walking only when the song asks, locked to a kick drum placed like a heartbeat; drums enormous and calm, fills arriving like slow waves, cymbals kept low, the shuffle hiding inside straight time. Guitar spare and blues-rooted — stinging single-note replies, a slide moan at phrase ends, tone clean with hair on it. Keys comping church-warm chords. The arrangement breathes: space treated as an instrument, dynamics moved by feel not force. Big live room, 70s analog warmth, groove first, groove last.
+```
+
+```
+busy fills, rushed tempo, quantized grid, synthesizers, dense wall of sound, punk speed, screamed vocals, thin trebly mix
+```
+
+### Root 3 · Mystic folk (895)
+
+```
+Mystic folk-rock isolated: the twirling-candlelit lane — folk balladry filtered through dream imagery, fortune-teller symbolism, and a rasped-velvet delivery that makes every song a spell. A unique and specific vocalist, husky low-worn timbre with a cracked edge and a fast fluttering vibrato, phrasing that swoops and drags against the beat, incantatory repetition at climaxes, ad-libbed wails circling the final choruses. Mid-tempo canter or slow waltz, acoustic guitar and electric piano braided, a chiming electric figure recurring like a charm, tambourine on the offbeat. Harmonies enter like weather — low doubles first, then a high keening third. Lyrics of birds, mirrors, mountains, and women who see the future, heartbreak told as myth. Builds that gather rather than explode, ending on a repeated mantra fading unresolved. Warm 70s analog sound, candle-lit, gauze over steel.
+```
+
+```
+bright cheerful pop tone, punk aggression, synthesizer sheen, quantized modern production, screamed vocals, EDM structure, clean vibrato-free delivery
+```
+
+### Root 4 · Studio-craft (956)
+
+```
+Studio-obsessive pop-craft isolated: the headphone-architecture lineage — pop as a hand-built machine of interlocking parts, every guitar layered and placed, percussion invented from found objects, the arrangement itself the genius. A unique and specific vocalist, taut bright tenor timbre, precise and percussive, clipped syllables riding the groove like another instrument, bursting into strained falsetto at the hooks, stacked into one-person choirs panned wide. Fingerpicked electric guitar as engine — galloping, hypnotic, no pick, nails on nickel — doubled and tripled in interlocking patterns. Bass minimal and staccato, drums dry and tight, handclaps, thigh-slaps, and studio-object percussion threaded through. Sudden dynamic cuts: full mix to lone voice and back. Songs wound tight, obsession disguised as pop perfection, three minutes of controlled mania. Crisp 70s analog detail, every element placed by hand, nothing accidental.
+```
+
+```
+loose jam feel, murky lo-fi, long improvised solos, synthesizer pads, quantized modern polish, screamed vocals, sparse empty arrangement, sludge tempo
+```
+
+### Root 5 · British R&B piano (919)
+
+```
+British R&B piano-pop isolated: the smoky pub-blues lineage — a writer raised on boogie-woogie and Chicago blues piano who learned to fold that warmth into perfect unhurried pop songs. A unique and specific vocalist, smoky warm low-mezzo timbre, effortlessly level, tender without sweetness, phrasing plainspoken and kind, the sound of the calmest heart in a turbulent room. Electric piano leads — round chords voiced like a hug, a blues curl at the end of phrases, organ swelling underneath the choruses. Guitar supportive, clean arpeggios and one restrained melodic solo. Bass warm and singing, drums steady and soft-handed, brushed backbeat, groove like a slow exhale. Songwriting direct: love stated simply, longing without melodrama, choruses that resolve like forgiveness. Mid-tempo sway or gentle shuffle. Warm 70s analog studio sound, lamplight instead of sunlight, comfort with a blue note inside it.
+```
+
+```
+belting, melodrama, heavy guitars, punk tempo, synthesizer-driven sound, autotune, dense orchestration, screamed vocals, disco four-on-floor
+```
+
+---
+
+## Chassis swap — Root 5 (British R&B piano) → space techno
+
+**Preferred base: v2.** (v1 too percussive/acoustic; v3 complextro and v4 high-register layer both rejected.)
+
+### v2 — preferred (992)
+
+```
+Space techno carrying a British R&B piano soul: deep hypnotic techno near 120 BPM, vast and starlit, percussion reduced to almost nothing — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by pulsing sidechained pads and slow filter movement. The heart is a smoky pub-blues lineage rendered in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, organ swells resynthesized into glassy drones orbiting the stereo field. A unique and specific vocalist, smoky warm low-mezzo timbre, effortlessly level, tender without sweetness, phrases floating long over the pulse, lightly vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Longing without melodrama, resolution dissolving like forgiveness into static and starlight. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+```
+drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time techno energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
+```
+
+### Dialect variants on the v2 skeleton (vocal, kick philosophy, sub-anchor, reese line held constant)
+
+**A · Dub techno** (992)
+
+```
+Space techno with a British R&B piano soul, dubbed out: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chord stabs fired into cavernous tape delay, each repeat darker and more filtered than the last, the blues curl at phrase ends surviving as an echo trail, analog hiss and dub-chamber space wrapping everything. Chords bloom, smear, recede like weather. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice, occasional words caught in the delay and sent orbiting. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**B · Detroit strings** (976) — *flagged promising*
+
+```
+Space techno with a British R&B piano soul, Detroit-strung: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint — and above it, high-tech soul machinery: silvery machine strings sweeping in slow arcs, hopeful synthetic string stabs voiced like a question, pads with that bittersweet future-nostalgia hue. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**C · Clicks-and-cuts** (956)
+
+```
+Space techno with a British R&B piano soul, microsound-detailed: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and clicks-and-cuts microtexture, tiny glitch particles ticking at the edge of hearing. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, note-dust and fizzing grain-tails audible inside every sustain. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice, breath sounds resampled into the texture bed. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**D · Modular drift** (954) — *flagged promising*
+
+```
+Space techno with a British R&B piano soul, modular-drifted: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and a slow modular sequence undulating beneath, its pattern generative and never quite repeating, pitch drifting a few cents like hardware warming up. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, slow LFO movement breathing through every layer. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**E · Progressive layering** (992)
+
+```
+Space techno with a British R&B piano soul, progressive-layered: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint — while a patient arpeggio fades in one harmonic at a time, layers stacking by increments, tension accruing through addition rather than drops, one long filter opening measured over the track's full arc. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**Shared dialect neg** (add `glitch clicks` for A/B/D/E if C should stay the only glitchy one):
+
+```
+drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
+```
