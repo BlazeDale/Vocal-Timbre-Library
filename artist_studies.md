@@ -301,3 +301,59 @@ Space techno with a British R&B piano soul, progressive-layered: deep hypnotic t
 ```
 drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
 ```
+
+---
+
+## Study 4 — Machine-gospel darkwave (blend + 4 roots)
+
+Temperament is the whole game here: devotion and sleaze fused — sin sung as worship, a dark seductive croon answered by a fragile pleading falsetto. Drop the menace and eroticism and you get a polite synth-pop cousin. Roots 1 (robotic electro) and 4 (gothic darkwave) triangulate the cold-machine hits; roots 2 (industrial) and 3 (blues-gospel) triangulate the clang-and-flesh era.
+
+### Blend (981)
+
+```
+Machine-gospel built from its ancestors, not its hits: pristine German robot-pop sequencing married to industrial musique-concrète — sampled metal clangs and factory percussion struck like sacred bells — then baptised in Delta blues and gospel fervour, all wrapped in gothic post-punk menace. A unique and specific vocalist, dark velvet baritone-croon timbre, grave and seductive, sin delivered as worship, trading with a fragile high tenor timbre that breaks into pleading falsetto on the confessions. Synths cold and precise: analogue bass sequences pulsing like circuitry, glassy new-romantic chords, one hymnal pad holding cathedral space. Rhythm from struck metal and tape-looped concrete — no organic kit, the groove a foundry at prayer. A blues slide moans through the wires; a choir swells under the choruses. Eroticism and dread fused, the sacred and profane in one bed. Analogue warmth over digital cold, all leather and candlelight, devotion that sounds like temptation.
+```
+
+```
+cheerful synth-pop, twee new-wave brightness, sunny major-key innocence, clean pop gloss, organic rock drum kit, acoustic band warmth, guitar-led arrangement, chirpy delivery, ironic detachment
+```
+
+### Root 1 · Robotic electro-pop (886)
+
+```
+German robot-pop lineage isolated: late-70s Düsseldorf machine music — man-machine precision, sequenced arpeggios ticking like clockwork, melody stated with childlike synth purity — inherited by a young Essex new-romantic band with cheap monosynths and outsized ambition. A unique and specific vocalist, cool detached mid-baritone timbre, deadpan and precise, emotion held just under the surface, phrasing clipped to the grid. Every sound electronic: a stepped bass sequence as the spine, bright bell-tone leads, glassy chordal stabs on the offbeat, no acoustic instrument anywhere. Drum machine spare and mechanical — a clicking hat, a hand-clap snare, four-square and unhurried. Structures pop-tight, hooks built from repetition and one rising modulation. Melancholy hiding inside the shine, a factory that dreams. Clean analogue-synth production, early-80s cold, catchy as a warning.
+```
+
+```
+guitars, live drum kit, blues inflection, gospel choir, belting, industrial clang, distorted vocals, orchestral strings, swung groove
+```
+
+### Root 2 · Industrial musique-concrète (834)
+
+```
+Industrial musique-concrète isolated: the early-80s tape-splice underground — Sheffield electronic agitators and Belgian body-music stomp — where percussion is sampled from the physical world: sledgehammer on anvil, scrap metal, slammed doors, factory hiss looped into rhythm. A unique and specific vocalist, hard clenched baritone timbre, half-chanted and threatening, syllables bitten and bounced through metallic delay, a protest hollered inside a machine. No kit and no guitars — the beat is struck steel and concrete over a four-on-the-floor body-music pulse, sequenced bass grinding low and distorted. One glassy synth line cuts across the noise like a siren. Rhythms mechanical and punishing, agit-prop severity, beauty found in brutal repetition. Cold room, tape saturation, red-lined samples — the sound of labour weaponised.
+```
+
+```
+soft synth-pop prettiness, acoustic drums, guitar band, gospel warmth, gentle crooning, major-key cheer, orchestral polish, lo-fi twee
+```
+
+### Root 3 · Delta blues & gospel devotion (879)
+
+```
+Delta blues and gospel devotion isolated: the sin-and-salvation lineage — bottleneck slide moan, church-organ swell, hand-clap gospel fervour — dragged into an electronic cathedral. A unique and specific vocalist, raw grainy baritone timbre cracked open with soul, rising from a low seductive murmur to an evangelical rasp, testifying at the edge of breaking, a fragile falsetto answering like a fallen angel. A real blues slide guitar cries through the circuitry, distorted and holy; a choir stacks behind the choruses, wordless and swaying. The machine remains — a slow heavy electronic pulse, sampled kick like a stomped floorboard, hymnal analogue pads — but the feeling is flesh: lust and redemption confused on purpose. Mid-tempo and smouldering, dynamics building like a revival. Warm analogue heat over digital bones, leather-clad worship, faith that reeks of temptation.
+```
+
+```
+clean synth-pop gloss, twee brightness, robotic deadpan, cheerful pop, sterile machine coldness, acoustic folk gentleness, orchestral strings, ironic distance
+```
+
+### Root 4 · Gothic post-punk darkwave (893)
+
+```
+Gothic post-punk menace isolated: the early-80s darkwave lineage — cold chorused bass prowling high, cathedral-reverb guitar chime, drum-machine chill, sexual-spiritual dread — the leather-and-eyeliner attitude that turns a love song into an exorcism. A unique and specific vocalist, deep sepulchral baritone-croon timbre, velvet and grave, seductive as a threat, sustained low notes swelling with vibrato, a colder falsetto haunting the edges. Synths glacial and widescreen: a hymn-like organ pad, icy analogue strings, one brittle arpeggio needling underneath. Bass melodic and gothic, drum machine sparse and funereal, a slow processional pulse, rimshot cracks echoing in stone. Guitar only as atmosphere — a single delayed chime, feedback held like incense. Tempo grave and hypnotic, tension coiled and never fully released. Vast dark reverb, analogue cold, romance rewritten as damnation.
+```
+
+```
+cheerful major-key pop, bright synth-pop bounce, gospel choir, blues slide, upbeat tempo, sunny delivery, acoustic warmth, busy fills, ironic lightness
+```
