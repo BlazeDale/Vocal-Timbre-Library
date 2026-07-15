@@ -45,6 +45,15 @@
   #recentcards{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
   #recentcards .card{margin:0}
   @media(max-width:640px){#recentcards{grid-template-columns:1fr}}
+  /* inspirations-mode studies */
+  #studies{margin:20px 0 34px}
+  #studymeta{font-family:var(--mono);font-size:12px;color:var(--dim)}
+  .study-head{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:.04em;margin:20px 0 4px}
+  .study-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 12px}
+  .studygrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  .studygrid .card{margin:0}
+  .studygrid .card.blend{border-left-color:var(--amber);grid-column:1/-1}
+  @media(max-width:640px){.studygrid{grid-template-columns:1fr}}
   .conv{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
   .conv h3{font-size:13px;margin:0 0 6px;color:var(--amber);font-family:var(--mono);letter-spacing:.04em}
   .conv ul{margin:0 0 14px;padding-left:18px;font-size:13.5px;color:var(--text)}
@@ -187,6 +196,14 @@
     <div id="recentcards"></div>
   </section>
 
+  <section id="studies">
+    <div class="recent-bar">
+      <h2 class="shead">Inspirations mode — artist studies</h2>
+      <span id="studymeta"></span>
+    </div>
+    <div id="studycards"></div>
+  </section>
+
   <section>
     <h2 class="shead">Prompt library</h2>
     <div class="controls">
@@ -220,6 +237,25 @@ const RECENT = {
   date:  '2026-07-15',
   entries: [131, 132, 133, 134, 135, 136]
 };
+
+/* ---------- INSPIRATIONS-MODE ARTIST STUDIES ----------
+   Blend + isolated roots per artist (descriptor-only, no names). Mirrors
+   artist_studies.md; edit both when adding a study. Rendered as cards in
+   the "Inspirations mode" section. Newest study first. */
+const STUDIES = [
+{
+  artist: 'Machine-gospel darkwave',
+  note: 'devotional-sleaze temperament · roots 1+4 → cold-machine era, 2+3 → clang-and-flesh era',
+  date: '2026-07-15',
+  items: [
+    {role:'Blend', name:'All four roots married', chars:981, style:`Machine-gospel built from its ancestors, not its hits: pristine German robot-pop sequencing married to industrial musique-concrète — sampled metal clangs and factory percussion struck like sacred bells — then baptised in Delta blues and gospel fervour, all wrapped in gothic post-punk menace. A unique and specific vocalist, dark velvet baritone-croon timbre, grave and seductive, sin delivered as worship, trading with a fragile high tenor timbre that breaks into pleading falsetto on the confessions. Synths cold and precise: analogue bass sequences pulsing like circuitry, glassy new-romantic chords, one hymnal pad holding cathedral space. Rhythm from struck metal and tape-looped concrete — no organic kit, the groove a foundry at prayer. A blues slide moans through the wires; a choir swells under the choruses. Eroticism and dread fused, the sacred and profane in one bed. Analogue warmth over digital cold, all leather and candlelight, devotion that sounds like temptation.`, neg:`cheerful synth-pop, twee new-wave brightness, sunny major-key innocence, clean pop gloss, organic rock drum kit, acoustic band warmth, guitar-led arrangement, chirpy delivery, ironic detachment`},
+    {role:'Root 1', name:'Robotic electro-pop', chars:886, style:`German robot-pop lineage isolated: late-70s Düsseldorf machine music — man-machine precision, sequenced arpeggios ticking like clockwork, melody stated with childlike synth purity — inherited by a young Essex new-romantic band with cheap monosynths and outsized ambition. A unique and specific vocalist, cool detached mid-baritone timbre, deadpan and precise, emotion held just under the surface, phrasing clipped to the grid. Every sound electronic: a stepped bass sequence as the spine, bright bell-tone leads, glassy chordal stabs on the offbeat, no acoustic instrument anywhere. Drum machine spare and mechanical — a clicking hat, a hand-clap snare, four-square and unhurried. Structures pop-tight, hooks built from repetition and one rising modulation. Melancholy hiding inside the shine, a factory that dreams. Clean analogue-synth production, early-80s cold, catchy as a warning.`, neg:`guitars, live drum kit, blues inflection, gospel choir, belting, industrial clang, distorted vocals, orchestral strings, swung groove`},
+    {role:'Root 2', name:'Industrial musique-concrète', chars:834, style:`Industrial musique-concrète isolated: the early-80s tape-splice underground — Sheffield electronic agitators and Belgian body-music stomp — where percussion is sampled from the physical world: sledgehammer on anvil, scrap metal, slammed doors, factory hiss looped into rhythm. A unique and specific vocalist, hard clenched baritone timbre, half-chanted and threatening, syllables bitten and bounced through metallic delay, a protest hollered inside a machine. No kit and no guitars — the beat is struck steel and concrete over a four-on-the-floor body-music pulse, sequenced bass grinding low and distorted. One glassy synth line cuts across the noise like a siren. Rhythms mechanical and punishing, agit-prop severity, beauty found in brutal repetition. Cold room, tape saturation, red-lined samples — the sound of labour weaponised.`, neg:`soft synth-pop prettiness, acoustic drums, guitar band, gospel warmth, gentle crooning, major-key cheer, orchestral polish, lo-fi twee`},
+    {role:'Root 3', name:'Delta blues & gospel devotion', chars:879, style:`Delta blues and gospel devotion isolated: the sin-and-salvation lineage — bottleneck slide moan, church-organ swell, hand-clap gospel fervour — dragged into an electronic cathedral. A unique and specific vocalist, raw grainy baritone timbre cracked open with soul, rising from a low seductive murmur to an evangelical rasp, testifying at the edge of breaking, a fragile falsetto answering like a fallen angel. A real blues slide guitar cries through the circuitry, distorted and holy; a choir stacks behind the choruses, wordless and swaying. The machine remains — a slow heavy electronic pulse, sampled kick like a stomped floorboard, hymnal analogue pads — but the feeling is flesh: lust and redemption confused on purpose. Mid-tempo and smouldering, dynamics building like a revival. Warm analogue heat over digital bones, leather-clad worship, faith that reeks of temptation.`, neg:`clean synth-pop gloss, twee brightness, robotic deadpan, cheerful pop, sterile machine coldness, acoustic folk gentleness, orchestral strings, ironic distance`},
+    {role:'Root 4', name:'Gothic post-punk darkwave', chars:893, style:`Gothic post-punk menace isolated: the early-80s darkwave lineage — cold chorused bass prowling high, cathedral-reverb guitar chime, drum-machine chill, sexual-spiritual dread — the leather-and-eyeliner attitude that turns a love song into an exorcism. A unique and specific vocalist, deep sepulchral baritone-croon timbre, velvet and grave, seductive as a threat, sustained low notes swelling with vibrato, a colder falsetto haunting the edges. Synths glacial and widescreen: a hymn-like organ pad, icy analogue strings, one brittle arpeggio needling underneath. Bass melodic and gothic, drum machine sparse and funereal, a slow processional pulse, rimshot cracks echoing in stone. Guitar only as atmosphere — a single delayed chime, feedback held like incense. Tempo grave and hypnotic, tension coiled and never fully released. Vast dark reverb, analogue cold, romance rewritten as damnation.`, neg:`cheerful major-key pop, bright synth-pop bounce, gospel choir, blues slide, upbeat tempo, sunny delivery, acoustic warmth, busy fills, ironic lightness`},
+  ]
+}
+];
 
 const LIB=[
 {n:1,name:`Swamp blues-rock rasp`,fam:`blues-rock · swamp`,cat:`acoustic`,reg:3,grit:7,aff:`B`,style:`Swamp-soaked blues rock, slow heavy shuffle around 72 BPM, humid and smoldering. Lead male vocal is a low chest-driven baritone, gravel-thick and smoke-cured, edges fraying into a controlled growl on every held note, throat-forward and pushed hard against the limit of breath. Vintage ribbon mic into overdriven tube preamp, light tape saturation on the voice. Roomy live tracking, raw and close to the floor. Slide guitar through cranked valve amp, dirty Wurlitzer, walking upright-adjacent bass, lazy behind-the-beat drums, brushed-then-struck snare. 1970s analog studio grit, mono-leaning, dusty. Sweat, whiskey, late-set exhaustion in the delivery.`,neg:`clean polished vocal, autotune, pitch correction, modern compression, breathy close-mic, falsetto, choir layering, reverb wash, bright treble sheen`},
@@ -588,6 +624,24 @@ if(recentItems.length){
 }else{
   recentMeta.innerHTML=`<span class="empty">no batch set — edit RECENT at the top of the script</span>`;
 }
+
+/* inspirations-mode studies — blend + roots as cards */
+const MANDATED=', Harmonic stagnation, Dynamic flattening, Quantized sterility, Structural monotony, Predictability';
+function studyCardHTML(it){
+  const blend=/blend/i.test(it.role);
+  let h=`<div class="card${blend?' blend':''}" data-blob="${esc((it.name+' '+it.style).toLowerCase())}">`;
+  h+=`<div class="top"><span class="num">${esc(it.role)}</span><span class="name">${esc(it.name)}</span><span class="fam">${it.chars} chars</span></div>`;
+  h+=`<div class="blk"><div class="lab"><span>Style prompt</span>${copyBtn(it.style)}</div><pre>${esc(it.style)}</pre></div>`;
+  h+=`<div class="blk"><div class="lab"><span>Negative + 5 mandated</span>${copyBtn(it.neg+MANDATED)}</div><pre class="neg">${esc(it.neg)}${esc(MANDATED)}</pre></div>`;
+  h+=`</div>`; return h;
+}
+const studyEl=document.getElementById('studycards'), studyMeta=document.getElementById('studymeta');
+studyEl.innerHTML=STUDIES.map(s=>
+  `<div class="study-head">${esc(s.artist)}${s.date?' · '+esc(s.date):''}</div>`
+  +(s.note?`<p class="study-note">${esc(s.note)}</p>`:'')
+  +`<div class="studygrid">${s.items.map(studyCardHTML).join('')}</div>`
+).join('');
+studyMeta.textContent=STUDIES.length+' stud'+(STUDIES.length===1?'y':'ies')+' · '+STUDIES.reduce((n,s)=>n+s.items.length,0)+' prompts';
 
 /* copy handling (delegated at document level so recent + main cards both work) */
 document.addEventListener('click',e=>{
