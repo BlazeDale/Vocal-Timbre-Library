@@ -25,12 +25,16 @@
   .count-tag{font-family:var(--mono);font-size:12px;color:var(--dim)}
   section{margin:34px 0}
   h2.shead{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-left:2px solid var(--amber);padding-left:10px;margin:0 0 16px}
-  details.fold{margin:34px 0}
-  details.fold>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-left:2px solid var(--amber);padding-left:10px;margin:0;display:flex;align-items:center;gap:8px;user-select:none}
-  details.fold>summary::-webkit-details-marker{display:none}
-  details.fold>summary::before{content:'▸';color:var(--amber);font-size:10px;transition:transform .15s;display:inline-block}
-  details.fold[open]>summary::before{transform:rotate(90deg)}
-  details.fold[open]>summary{margin-bottom:16px}
+  .folds{margin:34px 0}
+  .fold-tabs{display:flex;gap:8px}
+  .fold-tab{flex:1;min-width:0;display:flex;align-items:center;gap:8px;text-align:left;cursor:pointer;user-select:none;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--amber);border-radius:8px;padding:12px 14px}
+  .fold-tab:hover{color:var(--text);border-color:var(--amber);border-left-color:var(--amber)}
+  .fold-tab::before{content:'▸';color:var(--amber);font-size:10px;transition:transform .15s;display:inline-block;flex:none}
+  .fold-tab.on{color:var(--text);background:var(--panel2)}
+  .fold-tab.on::before{transform:rotate(90deg)}
+  .fold-panel{display:none;margin-top:12px}
+  .fold-panel.on{display:block}
+  @media(max-width:640px){.fold-tabs{flex-direction:column}}
   .conv{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
   .conv h3{font-size:13px;margin:0 0 6px;color:var(--amber);font-family:var(--mono);letter-spacing:.04em}
   .conv ul{margin:0 0 14px;padding-left:18px;font-size:13.5px;color:var(--text)}
@@ -86,16 +90,21 @@
     <p class="sub">136 numbered entries (acoustic wing, female wing, electronic shelf) plus 75 ungendered suite prompts with memory seeds — mapped across register, grit, and affect. <span class="count-tag">Built for the latest Suno.</span></p>
   </header>
 
-  <details class="fold">
-    <summary>Purpose</summary>
+  <div class="folds">
+    <div class="fold-tabs">
+      <button type="button" class="fold-tab" data-fold="0">Purpose</button>
+      <button type="button" class="fold-tab" data-fold="1">Standing conventions</button>
+      <button type="button" class="fold-tab" data-fold="2">Register × grit map</button>
+    </div>
+
+    <div class="fold-panel" data-panel="0">
     <div class="conv">
       <p style="margin:0;max-width:72ch">The library exists so we always know what vocal ground we’ve already covered — by genre and sub-genre. Every entry records an ungendered timbre we’ve used and the sub-genre it came through, which frees us to keep reaching for something genuinely different each time instead of unknowingly repeating a voice, a genre, or a sub-genre we’ve already done. The genre and sub-genre are the vehicle; the real target is a distinct vocal timbre, and tracking is what lets us spread those voices deliberately across registers, grit, affect, and an ever-widening range of genres and sub-genres rather than clustering. In short: it’s a map of explored territory — voices and sub-genres alike — that keeps pushing us into unexplored ground.</p>
       <p style="margin:10px 0 0;max-width:72ch;color:var(--muted)">Exploration, not prohibition: repeats of genre, sub-genre, or timbre are acceptable and expected — the same prompt can yield different results, and popular ground gets revisited on request. Tracking informs; it doesn’t block.</p>
     </div>
-  </details>
+    </div>
 
-  <details class="fold">
-    <summary>Standing conventions</summary>
+    <div class="fold-panel" data-panel="1">
     <div class="conv">
       <div class="cols">
         <div>
@@ -140,10 +149,10 @@
         </div>
       </div>
     </div>
-  </details>
+    </div>
 
-  <section>
-    <h2 class="shead">Register × grit map · acoustic 1–80, 96–105, 126–130 · female wing 121–125 (ringed)</h2>
+    <div class="fold-panel" data-panel="2">
+    <h2 class="shead" style="margin-bottom:12px">Register × grit map · acoustic 1–80, 96–105, 126–130 · female wing 121–125 (ringed)</h2>
     <div id="mapwrap">
       <div class="legend">
         <span><i class="dot" style="background:var(--A)"></i>cool / detached</span>
@@ -157,7 +166,8 @@
       <svg id="tmap" viewBox="0 0 680 520" width="100%"></svg>
       <div id="tip"></div>
     </div>
-  </section>
+    </div>
+  </div>
 
   <section>
     <h2 class="shead">Prompt library</h2>
@@ -576,6 +586,19 @@ tb.innerHTML=LIB.filter(v=>v.cat==='techno'||v.cat==='lyrical').map(v=>`<tr><td 
 const ac=LIB.filter(v=>v.cat==='acoustic').length, tc=LIB.filter(v=>v.cat==='techno').length, lc=LIB.filter(v=>v.cat==='lyrical').length, fc=LIB.filter(v=>v.cat==='female').length, sc=LIB.filter(v=>v.cat==='suite').length;
 document.getElementById('foot').textContent=`${LIB.length} entries · ${ac} acoustic + ${fc} female wing (mapped) · ${tc} techno treatment-vocals · ${lc} lyrical-electronic leads · ${sc} suite prompts (gender-unspecified, with memory seeds) · descriptor-only, latest Suno · v8 · 2026-07-15`;
 
+/* ---------- SECTION FOLDS (accordion — one open at a time, default all closed) ---------- */
+const foldTabs=[].slice.call(document.querySelectorAll('.fold-tab'));
+const foldPanels=[].slice.call(document.querySelectorAll('.fold-panel'));
+function setFold(idx){                    // idx<0 or null → close all
+  foldTabs.forEach((t,i)=>t.classList.toggle('on',i===idx));
+  foldPanels.forEach((p,i)=>p.classList.toggle('on',i===idx));
+}
+function openFoldIdx(){ return foldTabs.findIndex(t=>t.classList.contains('on')); }
+foldTabs.forEach((t,i)=>t.addEventListener('click',()=>{
+  setFold(t.classList.contains('on')?-1:i);   // clicking the open one closes it
+}));
+window.__setFold=setFold; window.__openFoldIdx=openFoldIdx;
+
 /* ---------- DEV AUTO-RELOAD (state-preserving) ----------
    Refreshes this tab so a saved edit shows without a manual reload.
    file:// can't detect file changes from JS, so it reloads on refocus
@@ -590,15 +613,14 @@ document.getElementById('foot').textContent=`${LIB.length} entries · ${ac} acou
         y:window.scrollY,
         q:(document.getElementById('q')||{}).value||'',
         cat:(document.querySelector('.tab.on')||{}).dataset?document.querySelector('.tab.on').dataset.cat:'all',
-        folds:[].map.call(document.querySelectorAll('details.fold'),d=>d.open?1:0)
+        fold:window.__openFoldIdx?window.__openFoldIdx():-1
       }));
     }catch(e){}
   }
   function restoreState(){
     let s; try{ s=JSON.parse(sessionStorage.getItem(KEY)||'null'); }catch(e){}
     if(!s) return;
-    const ds=document.querySelectorAll('details.fold');
-    if(s.folds) s.folds.forEach((v,i)=>{ if(ds[i]) ds[i].open=!!v; });
+    if(typeof s.fold==='number'&&s.fold>=0&&window.__setFold) window.__setFold(s.fold);
     if(s.cat&&s.cat!=='all'){ const b=document.querySelector('.tab[data-cat="'+s.cat+'"]'); if(b) b.click(); }
     const q=document.getElementById('q');
     if(q&&s.q){ q.value=s.q; q.dispatchEvent(new Event('input')); }
