@@ -35,6 +35,13 @@
   .fold-panel{display:none;margin-top:12px}
   .fold-panel.on{display:block}
   @media(max-width:640px){.fold-tabs{flex-direction:column}}
+  /* most recent batch */
+  #recent{margin:20px 0 34px}
+  .recent-bar{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .recent-bar .shead{margin:0}
+  #recentmeta{font-family:var(--mono);font-size:12px;color:var(--amber)}
+  #recentmeta b{color:var(--text)}
+  #recentmeta .empty{color:var(--dim)}
   .conv{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
   .conv h3{font-size:13px;margin:0 0 6px;color:var(--amber);font-family:var(--mono);letter-spacing:.04em}
   .conv ul{margin:0 0 14px;padding-left:18px;font-size:13.5px;color:var(--text)}
@@ -169,6 +176,14 @@
     </div>
   </div>
 
+  <section id="recent">
+    <div class="recent-bar">
+      <h2 class="shead">Most recent batch</h2>
+      <span id="recentmeta"></span>
+    </div>
+    <div id="recentcards"></div>
+  </section>
+
   <section>
     <h2 class="shead">Prompt library</h2>
     <div class="controls">
@@ -193,6 +208,16 @@
 </div>
 
 <script>
+/* ---------- MOST RECENT BATCH ----------
+   Update this after each run: label + date + the entry numbers/ids
+   (numbers for library entries, e.g. 133; suite ids like 'Q5' also work).
+   These render as full cards in the "Most recent batch" strip up top. */
+const RECENT = {
+  label: 'Electronic shelf expansion',
+  date:  '2026-07-15',
+  entries: [131, 132, 133, 134, 135, 136]
+};
+
 const LIB=[
 {n:1,name:`Swamp blues-rock rasp`,fam:`blues-rock · swamp`,cat:`acoustic`,reg:3,grit:7,aff:`B`,style:`Swamp-soaked blues rock, slow heavy shuffle around 72 BPM, humid and smoldering. Lead male vocal is a low chest-driven baritone, gravel-thick and smoke-cured, edges fraying into a controlled growl on every held note, throat-forward and pushed hard against the limit of breath. Vintage ribbon mic into overdriven tube preamp, light tape saturation on the voice. Roomy live tracking, raw and close to the floor. Slide guitar through cranked valve amp, dirty Wurlitzer, walking upright-adjacent bass, lazy behind-the-beat drums, brushed-then-struck snare. 1970s analog studio grit, mono-leaning, dusty. Sweat, whiskey, late-set exhaustion in the delivery.`,neg:`clean polished vocal, autotune, pitch correction, modern compression, breathy close-mic, falsetto, choir layering, reverb wash, bright treble sheen`},
 {n:2,name:`Noir-jazz croon`,fam:`jazz · noir ballad`,cat:`acoustic`,reg:3.2,grit:1,aff:`A`,style:`Late-night noir jazz ballad, brushed and unhurried near 60 BPM, dim and smoke-ringed. Lead male vocal is a deep velvet bass-baritone, round and resonant, fully supported from the chest, legato phrasing with long even sustain, clean and unbroken. Smooth vibrato arriving only at phrase ends. Warm vintage condenser, valve signal path, wood-paneled room with natural plate ambience. Muted trumpet, brushed kit, soft walking double bass, sparse felt-piano comping, ghosted ride. 1950s supper-club intimacy, analog and unhurried. Delivery composed, knowing, effortless — a voice held in easy control.`,neg:`rasp, grit, distortion, breathy whisper, falsetto, belting, autotune, modern pop production, bright digital sheen, heavy reverb, vocal doubling`},
@@ -551,8 +576,18 @@ function cardHTML(v){
 }
 cardsEl.innerHTML=LIB.map(cardHTML).join('');
 
-/* copy handling */
-cardsEl.addEventListener('click',e=>{
+/* most recent batch — full cards for RECENT.entries */
+const recentEl=document.getElementById('recentcards'), recentMeta=document.getElementById('recentmeta');
+const recentItems=(RECENT.entries||[]).map(n=>LIB.find(v=>String(v.n)===String(n))).filter(Boolean);
+recentEl.innerHTML=recentItems.map(cardHTML).join('');
+if(recentItems.length){
+  recentMeta.innerHTML=`<b>${esc(RECENT.label||'')}</b> · ${esc(RECENT.date||'')} · ${recentItems.length} entr${recentItems.length===1?'y':'ies'} (#${recentItems.map(v=>v.n).join(', #')})`;
+}else{
+  recentMeta.innerHTML=`<span class="empty">no batch set — edit RECENT at the top of the script</span>`;
+}
+
+/* copy handling (delegated at document level so recent + main cards both work) */
+document.addEventListener('click',e=>{
   const b=e.target.closest('.copy'); if(!b)return;
   const txt=decodeURIComponent(b.dataset.copy);
   const done=()=>{b.textContent='Copied';b.classList.add('done');setTimeout(()=>{b.textContent='Copy';b.classList.remove('done');},1200);};
@@ -565,7 +600,7 @@ function fallback(txt){const ta=document.createElement('textarea');ta.value=txt;
 let curCat='all', curQ='';
 function applyFilter(){
   let shown=0;
-  document.querySelectorAll('.card').forEach(c=>{
+  cardsEl.querySelectorAll('.card').forEach(c=>{
     const okCat=curCat==='all'||c.dataset.cat===curCat;
     const okQ=!curQ||c.dataset.blob.includes(curQ)||('#'+c.dataset.n)===curQ||c.dataset.n===curQ.replace('#','');
     const show=okCat&&okQ; c.style.display=show?'':'none'; if(show)shown++;
