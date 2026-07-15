@@ -1,6 +1,8 @@
 # Artist Studies — Inspirations Mode
 
-Companion to `vocal_timbre_library.html`. These prompts live **outside the numbered library** unless promoted. Method: describe the artist's ancestral ingredients (genres, eras, gear, scenes, constraints), never their sound or name. Standard set per artist: one **blend** + isolated **roots**, mixable pairwise to triangulate specific songs. Temperament rule: encode the attitude the artist brought to the ancestors, or you get their politest cousin. All character counts bash-verified. The doc's five mandated negatives are assumed appended; neg fields below exclude them.
+Companion to `vocal_timbre_library.html`. These prompts live **outside the numbered library** unless promoted. Method: describe the artist's ancestral ingredients (genres, eras, gear, scenes, constraints), never their sound or name. Standard set per artist: one **blend** + isolated **roots**, mixable pairwise to triangulate specific songs. Temperament rule: encode the attitude the artist brought to the ancestors, or you get their politest cousin. The doc's five mandated negatives are assumed appended; neg fields below exclude them.
+
+Studies 1–3 are hand-authored here. Everything inside the **`GENERATED`** markers is a **promoted** study built from the library by `tools/build.mjs` — edit those prompts in `data.js` (the `inspiration` entries), then run `node tools/build.mjs`; don't hand-edit below the marker. Character counts are computed by the tool.
 
 ---
 
@@ -304,9 +306,11 @@ drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time energy,
 
 ---
 
+<!-- BEGIN GENERATED — promoted inspirations studies · edit data.js then run: node tools/build.mjs -->
+
 ## Study 4 — Machine-gospel darkwave (blend + 4 roots)
 
-**Promoted into the numbered library as entries #137–141** (blend = 137, roots 1–4 = 138–141). Kept here as the study writeup; the HTML `LIB` array is the live copy.
+*Generated from library entries #137–141 · 2026-07-15 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
 
 Temperament is the whole game here: devotion and sleaze fused — sin sung as worship, a dark seductive croon answered by a fragile pleading falsetto. Drop the menace and eroticism and you get a polite synth-pop cousin. Roots 1 (robotic electro) and 4 (gothic darkwave) triangulate the cold-machine hits; roots 2 (industrial) and 3 (blues-gospel) triangulate the clang-and-flesh era.
 
@@ -359,3 +363,5 @@ Gothic post-punk menace isolated: the early-80s darkwave lineage — cold chorus
 ```
 cheerful major-key pop, bright synth-pop bounce, gospel choir, blues slide, upbeat tempo, sunny delivery, acoustic warmth, busy fills, ironic lightness
 ```
+
+<!-- END GENERATED -->
