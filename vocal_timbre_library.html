@@ -25,6 +25,12 @@
   .count-tag{font-family:var(--mono);font-size:12px;color:var(--dim)}
   section{margin:34px 0}
   h2.shead{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-left:2px solid var(--amber);padding-left:10px;margin:0 0 16px}
+  details.fold{margin:34px 0}
+  details.fold>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-left:2px solid var(--amber);padding-left:10px;margin:0;display:flex;align-items:center;gap:8px;user-select:none}
+  details.fold>summary::-webkit-details-marker{display:none}
+  details.fold>summary::before{content:'▸';color:var(--amber);font-size:10px;transition:transform .15s;display:inline-block}
+  details.fold[open]>summary::before{transform:rotate(90deg)}
+  details.fold[open]>summary{margin-bottom:16px}
   .conv{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
   .conv h3{font-size:13px;margin:0 0 6px;color:var(--amber);font-family:var(--mono);letter-spacing:.04em}
   .conv ul{margin:0 0 14px;padding-left:18px;font-size:13.5px;color:var(--text)}
@@ -80,16 +86,16 @@
     <p class="sub">136 numbered entries (acoustic wing, female wing, electronic shelf) plus 75 ungendered suite prompts with memory seeds — mapped across register, grit, and affect. <span class="count-tag">Built for the latest Suno.</span></p>
   </header>
 
-  <section>
-    <h2 class="shead">Purpose</h2>
+  <details class="fold">
+    <summary>Purpose</summary>
     <div class="conv">
       <p style="margin:0;max-width:72ch">The library exists so we always know what vocal ground we’ve already covered — by genre and sub-genre. Every entry records an ungendered timbre we’ve used and the sub-genre it came through, which frees us to keep reaching for something genuinely different each time instead of unknowingly repeating a voice, a genre, or a sub-genre we’ve already done. The genre and sub-genre are the vehicle; the real target is a distinct vocal timbre, and tracking is what lets us spread those voices deliberately across registers, grit, affect, and an ever-widening range of genres and sub-genres rather than clustering. In short: it’s a map of explored territory — voices and sub-genres alike — that keeps pushing us into unexplored ground.</p>
       <p style="margin:10px 0 0;max-width:72ch;color:var(--muted)">Exploration, not prohibition: repeats of genre, sub-genre, or timbre are acceptable and expected — the same prompt can yield different results, and popular ground gets revisited on request. Tracking informs; it doesn’t block.</p>
     </div>
-  </section>
+  </details>
 
-  <section>
-    <h2 class="shead">Standing conventions</h2>
+  <details class="fold">
+    <summary>Standing conventions</summary>
     <div class="conv">
       <div class="cols">
         <div>
@@ -134,7 +140,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </details>
 
   <section>
     <h2 class="shead">Register × grit map · acoustic 1–80, 96–105, 126–130 · female wing 121–125 (ringed)</h2>
@@ -569,6 +575,50 @@ tb.innerHTML=LIB.filter(v=>v.cat==='techno'||v.cat==='lyrical').map(v=>`<tr><td 
 /* ---------- FOOTER ---------- */
 const ac=LIB.filter(v=>v.cat==='acoustic').length, tc=LIB.filter(v=>v.cat==='techno').length, lc=LIB.filter(v=>v.cat==='lyrical').length, fc=LIB.filter(v=>v.cat==='female').length, sc=LIB.filter(v=>v.cat==='suite').length;
 document.getElementById('foot').textContent=`${LIB.length} entries · ${ac} acoustic + ${fc} female wing (mapped) · ${tc} techno treatment-vocals · ${lc} lyrical-electronic leads · ${sc} suite prompts (gender-unspecified, with memory seeds) · descriptor-only, latest Suno · v8 · 2026-07-15`;
+
+/* ---------- DEV AUTO-RELOAD (state-preserving) ----------
+   Refreshes this tab so a saved edit shows without a manual reload.
+   file:// can't detect file changes from JS, so it reloads on refocus
+   (returning to the tab) plus a gentle idle timer, preserving UI state.
+   Set AUTO_RELOAD=false to disable. */
+(function(){
+  const AUTO_RELOAD=true, IDLE_MS=3000, CHECK_MS=2000, KEY='vtl_uistate';
+  if(!AUTO_RELOAD) return;
+  function saveState(){
+    try{
+      sessionStorage.setItem(KEY,JSON.stringify({
+        y:window.scrollY,
+        q:(document.getElementById('q')||{}).value||'',
+        cat:(document.querySelector('.tab.on')||{}).dataset?document.querySelector('.tab.on').dataset.cat:'all',
+        folds:[].map.call(document.querySelectorAll('details.fold'),d=>d.open?1:0)
+      }));
+    }catch(e){}
+  }
+  function restoreState(){
+    let s; try{ s=JSON.parse(sessionStorage.getItem(KEY)||'null'); }catch(e){}
+    if(!s) return;
+    const ds=document.querySelectorAll('details.fold');
+    if(s.folds) s.folds.forEach((v,i)=>{ if(ds[i]) ds[i].open=!!v; });
+    if(s.cat&&s.cat!=='all'){ const b=document.querySelector('.tab[data-cat="'+s.cat+'"]'); if(b) b.click(); }
+    const q=document.getElementById('q');
+    if(q&&s.q){ q.value=s.q; q.dispatchEvent(new Event('input')); }
+    requestAnimationFrame(()=>window.scrollTo(0,s.y||0));
+  }
+  restoreState();
+  let last=Date.now();
+  ['mousemove','keydown','wheel','touchstart','scroll'].forEach(ev=>
+    window.addEventListener(ev,()=>{last=Date.now();},{passive:true}));
+  function busy(){
+    const a=document.activeElement;
+    if(a&&(a.id==='q'||a.tagName==='INPUT'||a.tagName==='TEXTAREA')) return true;   // don't interrupt a search edit
+    const sel=window.getSelection&&window.getSelection();
+    if(sel&&String(sel).length) return true;                                        // don't interrupt a copy
+    return false;
+  }
+  function reload(){ if(busy()) return; saveState(); location.reload(); }
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) reload(); });
+  setInterval(()=>{ if(!document.hidden && Date.now()-last>IDLE_MS) reload(); },CHECK_MS);
+})();
 </script>
 </body>
 </html>
