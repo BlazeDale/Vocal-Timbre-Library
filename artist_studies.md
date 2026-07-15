@@ -306,6 +306,8 @@ drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time energy,
 
 ## Study 4 — Machine-gospel darkwave (blend + 4 roots)
 
+**Promoted into the numbered library as entries #137–141** (blend = 137, roots 1–4 = 138–141). Kept here as the study writeup; the HTML `LIB` array is the live copy.
+
 Temperament is the whole game here: devotion and sleaze fused — sin sung as worship, a dark seductive croon answered by a fragile pleading falsetto. Drop the menace and eroticism and you get a polite synth-pop cousin. Roots 1 (robotic electro) and 4 (gothic darkwave) triangulate the cold-machine hits; roots 2 (industrial) and 3 (blues-gospel) triangulate the clang-and-flesh era.
 
 ### Blend (981)
