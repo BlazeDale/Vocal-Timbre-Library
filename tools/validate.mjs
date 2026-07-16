@@ -69,26 +69,26 @@ const suites = LIB.filter(v => v.cat === 'suite');
   missing.length ? fail(`RECENT points at missing entries: ${missing.join(', ')}`) : pass(`RECENT [${ids.join(', ')}] all resolve`);
 }
 
-/* ---------- 4. no artist names in visible/prompt fields (hashed guard + artist-leak) ----------
-   The hidden `artist` field is the ONE sanctioned place for a name (search-only, never
-   rendered, never in a prompt). Visible/prompt fields (name/fam/style/neg) and RECENT.label
-   must stay name-free; and the hidden artist must not leak INTO a visible field. */
+/* ---------- 4. no artist names anywhere on disk (hashed guard + hashed search-key) ----------
+   Visible/prompt fields (name/fam/style/neg) and RECENT.label must stay name-free.
+   The per-entry `artist` search-key must itself be a SHA-256 HASH, never a plaintext
+   name: data.js ships to every visitor's browser, so a name here would leak publicly. */
 {
   const hashes = loadHashes();
-  const hits = [];
+  const hits = [], plaintext = [];
   for (const v of LIB) {
     const visible = `${v.name || ''} ${v.fam || ''} ${v.style || ''} ${v.neg || ''}`;
     const found = findDenied(visible, hashes);
     if (found.length) hits.push(`#${v.n} → ${found.join(', ')}`);
-    if (v.artist) {
-      const re = new RegExp(`\\b${v.artist.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-      if (re.test(visible)) hits.push(`#${v.n} → hidden artist "${v.artist}" leaked into a visible/prompt field`);
-    }
+    if (v.artist && !/^[0-9a-f]{64}$/.test(v.artist)) plaintext.push(`#${v.n} ("${v.artist}")`);
   }
   const inLabel = findDenied(RECENT.label || '', hashes);
   if (inLabel.length) hits.push(`RECENT.label → ${inLabel.join(', ')}`);
   if (!hashes.size) fail(`denylist empty — seed it: node tools/denylist.mjs add "Name"`);
   else hits.length ? fail(`artist name in a visible/prompt field: ${hits.join('; ')}`) : pass(`no artist names visible (${hashes.size} hashed; artist search-key allowed)`);
+  plaintext.length
+    ? fail(`artist key not hashed — plaintext name would ship to browsers: ${plaintext.join(', ')} (run: node tools/denylist.mjs hash "Name")`)
+    : pass(`artist search-keys all SHA-256 hashed (no plaintext names on disk)`);
 }
 
 /* ---------- 5. mandated negatives not pre-baked ---------- */

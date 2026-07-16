@@ -1,5 +1,8 @@
 /* Vocal Timbre Library — data (edit here, not the HTML).
- * LIB         : every entry (numbered wings + suites).
+ * LIB         : every entry (numbered wings + suites). A per-entry `artist` key,
+ *               when present, is a SHA-256 hash of the name (NEVER plaintext — this
+ *               file ships to browsers); powers exact-artist search, never shown.
+ *               Generate one with: node tools/denylist.mjs hash "Artist Name".
  * RECENT      : the most-recent-batch pointer (entry numbers).
  * STUDY_META  : study-level prose for promoted inspirations studies; feeds
  *               tools/build.mjs -> artist_studies.md. The page ignores it.

@@ -254,8 +254,9 @@ function chips(v){
 }
 function cardHTML(v){
   const border=COL[v.aff]||'#2a313d';
-  // data-blob feeds search only (never displayed); v.artist is a hidden search key — see data.js
-  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-artist="${esc((v.artist||'').toLowerCase())}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')+' '+(v.artist||'')).toLowerCase())}" style="border-left-color:${border}">`;
+  // data-blob feeds substring search only (never displayed); v.artist is a hashed
+  // exact-match key (SHA-256 of the name) — the plaintext name never ships. See data.js.
+  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
   h+=`<button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;
@@ -303,21 +304,36 @@ document.addEventListener('click',e=>{
 syncHearts();
 
 /* ---------- SEARCH + FILTER ---------- */
-let curCat='all', curQ='';
-// hidden artist search keys; an exact match isolates that study (so common-word
-// names like "live"/"tool" don't drown in substring hits e.g. "delivery")
+let curCat='all', curQ='', curQHash='';
+// Artist keys are SHA-256 hashes (plaintext names never ship). We hash the typed
+// query the SAME way (norm + SHA-256, matching tools/denylist.mjs) and compare
+// hashes; an exact match isolates that study, so common-word names ("live"/"tool")
+// don't drown in substring hits (e.g. "delivery"). Needs crypto.subtle (present in
+// any secure context — https OR file://); degrades to substring-only if absent.
+const norm=s=>s.toLowerCase().normalize('NFC').replace(/\s+/g,' ').trim();
+async function sha256hex(s){
+  if(!(self.crypto&&self.crypto.subtle)) return '';
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
 const ARTISTS=new Set(LIB.map(v=>(v.artist||'').toLowerCase()).filter(Boolean));
 function applyFilter(){
   let shown=0;
-  const artistMode=curQ&&ARTISTS.has(curQ);
+  const artistMode=!!curQHash&&ARTISTS.has(curQHash);
   cardsEl.querySelectorAll('.card').forEach(c=>{
     const okCat=curCat==='all'?true:(curCat==='liked'?likes.has(c.dataset.n):c.dataset.cat===curCat);
-    const okQ=!curQ||(artistMode?c.dataset.artist===curQ:(c.dataset.blob.includes(curQ)||('#'+c.dataset.n)===curQ||c.dataset.n===curQ.replace('#','')));
+    const okQ=!curQ||(artistMode?c.dataset.artist===curQHash:(c.dataset.blob.includes(curQ)||('#'+c.dataset.n)===curQ||c.dataset.n===curQ.replace('#','')));
     const show=okCat&&okQ; c.style.display=show?'':'none'; if(show)shown++;
   });
   hitsEl.textContent=shown+' / '+LIB.length;
 }
-document.getElementById('q').addEventListener('input',e=>{curQ=e.target.value.trim().toLowerCase();applyFilter();});
+let qToken=0;
+document.getElementById('q').addEventListener('input',async e=>{
+  const raw=e.target.value; curQ=raw.trim().toLowerCase();
+  const my=++qToken; const h=curQ?await sha256hex(norm(raw)):'';
+  if(my!==qToken) return;               // a newer keystroke superseded this one
+  curQHash=h; applyFilter();
+});
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
 }));

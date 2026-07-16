@@ -54,8 +54,13 @@ if (process.argv[1] && process.argv[1].endsWith('denylist.mjs')) {
     console.log(`added ${added}, ${set.size} total (names not stored — only hashes)`);
   } else if (cmd === 'count') {
     console.log(`${loadHashes().size} denylisted hashes`);
+  } else if (cmd === 'hash') {
+    // Print the SHA-256 search-key for an artist name (name stays an ephemeral CLI
+    // arg — never stored). Paste the hex into a data.js entry's `artist` field.
+    if (!rest.length) { console.log('usage: node tools/denylist.mjs hash "Artist Name"'); process.exit(1); }
+    for (const name of rest) console.log(hash(name));
   } else {
-    console.log('usage: node tools/denylist.mjs add "Name" ["Name"...] | count');
+    console.log('usage: node tools/denylist.mjs add "Name" ["Name"...] | hash "Name" | count');
     process.exit(1);
   }
 }
