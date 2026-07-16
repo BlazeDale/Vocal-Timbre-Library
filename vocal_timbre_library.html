@@ -93,13 +93,20 @@
   /* suno demo songs (Option A: artwork thumbnail is the play button; links out to
      Suno since the audio file itself is hotlink-protected) */
   .song{margin-top:12px}
-  .song-tiles{display:flex;gap:8px}
+  .song-tiles{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+  .song-tile{display:flex;flex-direction:column;align-items:center;gap:3px}
   .song-art{position:relative;flex:none;width:52px;height:52px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--panel2);display:block}
   .song-art img{width:100%;height:100%;object-fit:cover;display:block}
   .song-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.30);color:#fff;font-size:15px;text-shadow:0 1px 3px rgba(0,0,0,.7);transition:background .12s}
   .song-art:hover{border-color:var(--amber)}
   .song-art:hover .song-play{background:rgba(0,0,0,.10)}
   .song-g{position:absolute;bottom:2px;right:2px;font-size:15px;font-weight:700;color:#fff;line-height:1;padding:1px 3px;border-radius:5px;background:rgba(0,0,0,.55);text-shadow:0 1px 2px #000}
+  .song-g:empty{display:none}
+  .song-gedit{display:none;gap:4px}
+  body.editgender .song-gedit{display:flex}
+  .gbtn{font-family:var(--mono);font-size:12px;line-height:1;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:2px 6px;cursor:pointer}
+  .gbtn:hover{border-color:var(--amber);color:var(--text)}
+  .gbtn.on{background:var(--amber);color:#1a1206;border-color:var(--amber);font-weight:700}
   /* table */
   table{width:100%;border-collapse:collapse;font-size:12.5px}
   th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -219,6 +226,7 @@
       <button class="tab" data-cat="inspiration">Inspirations 137–169</button>
       <button class="tab" data-cat="suite">Suites</button>
       <select id="sort" title="Sort order"><option value="num">Sort: default</option><option value="likes">Sort: most liked</option></select>
+      <button type="button" class="tab" id="genderedit" title="Assign a vocal gender (♀/♂) to demo songs — saves live">✎ Genders</button>
       <span class="hits" id="hits"></span>
     </div>
     <div id="cards"></div>
@@ -278,27 +286,55 @@ function sunoParse(raw){
   const m=s.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
   const uuid=m?m[0]:'';
   return {
+    uuid,
     link: uuid?`https://suno.com/song/${uuid}`:(/^https?:/.test(s)?s:`https://suno.com/s/${s}`),
     art:  uuid?`https://cdn2.suno.ai/image_${uuid}.jpeg`:''
   };
 }
-function sunoTile(g,raw){
-  const {link,art}=sunoParse(raw);
-  const glyph=g==='f'?'♀':g==='m'?'♂':'';
-  const title=(g==='f'?'Feminine-voiced take':g==='m'?'Masculine-voiced take':'Demo song')+' · Play on Suno';
-  return `<a class="song-art" href="${esc(link)}" target="_blank" rel="noopener" title="${title}" aria-label="${title}">`+
-    (art?`<img src="${esc(art)}" alt="" onerror="this.style.display='none'">`:'')+
-    `<span class="song-play">▶</span>`+
-    (glyph?`<span class="song-g">${glyph}</span>`:'')+
-  `</a>`;
+// `suno` is one id/url, or a list of them. Vocal gender is NOT in Suno's data, so
+// it lives in a Firebase overlay (song_gender/<uuid> = 'f'|'m') set via the ✎ Genders
+// edit mode; the ♀/♂ badge is painted from there, not from data.js.
+function sunoIds(suno){
+  if(!suno) return [];
+  if(typeof suno==='string') return [suno];
+  if(Array.isArray(suno)) return suno.filter(Boolean);
+  return [suno.f, suno.m].filter(Boolean);   // legacy {f,m}
+}
+function sunoTile(raw){
+  const {uuid,link,art}=sunoParse(raw);
+  return `<span class="song-tile">`+
+    `<a class="song-art" href="${esc(link)}" target="_blank" rel="noopener" title="Play on Suno">`+
+      (art?`<img src="${esc(art)}" alt="" onerror="this.style.display='none'">`:'')+
+      `<span class="song-play">▶</span>`+
+      `<span class="song-g" data-gid="${esc(uuid)}"></span>`+
+    `</a>`+
+    `<span class="song-gedit">`+
+      `<button type="button" class="gbtn" data-set="f" data-gid="${esc(uuid)}" title="Mark feminine">♀</button>`+
+      `<button type="button" class="gbtn" data-set="m" data-gid="${esc(uuid)}" title="Mark masculine">♂</button>`+
+    `</span>`+
+  `</span>`;
 }
 function sunoBlock(v){
-  if(!v.suno) return '';
-  const t=[];
-  if(typeof v.suno==='string'){ if(v.suno) t.push(sunoTile('',v.suno)); }
-  else { if(v.suno.f) t.push(sunoTile('f',v.suno.f)); if(v.suno.m) t.push(sunoTile('m',v.suno.m)); }
-  return t.length?`<div class="song"><div class="song-tiles">${t.join('')}</div></div>`:'';
+  const ids=sunoIds(v.suno);
+  return ids.length?`<div class="song"><div class="song-tiles">${ids.map(sunoTile).join('')}</div></div>`:'';
 }
+function renderGenders(){
+  const G=window.__songGender||{};
+  document.querySelectorAll('.song-g').forEach(s=>{const g=G[s.dataset.gid]; s.textContent=g==='f'?'♀':g==='m'?'♂':'';});
+  document.querySelectorAll('.gbtn').forEach(b=>b.classList.toggle('on', G[b.dataset.gid]===b.dataset.set));
+}
+window.__renderGenders=renderGenders;
+// gender picker clicks (delegated); toggles off if you click the active one
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.gbtn'); if(!b) return;
+  e.preventDefault();
+  const id=b.dataset.gid, cur=(window.__songGender||{})[id];
+  const next=cur===b.dataset.set?null:b.dataset.set;
+  window.__songGender=window.__songGender||{};
+  if(next) window.__songGender[id]=next; else delete window.__songGender[id];
+  if(window.__setGender) window.__setGender(id,next);
+  renderGenders();
+});
 function cardHTML(v){
   const border=COL[v.aff]||'#2a313d';
   // data-blob feeds substring search only (never displayed); v.artist is a hashed
@@ -410,7 +446,8 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
 }));
 document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.value;sortCards();});
-applyFilter(); renderCounts();
+document.getElementById('genderedit').addEventListener('click',function(){document.body.classList.toggle('editgender');this.classList.toggle('on');});
+applyFilter(); renderCounts(); renderGenders();
 
 /* ---------- ELECTRONIC SHELF ---------- */
 const tb=document.querySelector('#shelf tbody');
@@ -493,7 +530,7 @@ window.__setFold=setFold; window.__openFoldIdx=openFoldIdx;
    exactly ±1). If the SDK can't load or init (offline, blocked), the page silently
    keeps working with local-only hearts — nothing here is required to render. */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { getDatabase, ref, onValue, runTransaction, set, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 const firebaseConfig={
   apiKey:"AIzaSyBJgYjvHXL69y_7i7qG2qwBzYVUA1lCZuE",
   authDomain:"vocal-timbre-library.firebaseapp.com",
@@ -515,6 +552,9 @@ try{
   window.__bumpLike=(id,delta)=>runTransaction(ref(db,'likes/'+id),cur=>{
     const v=(cur||0)+delta; return v<0?undefined:v;  // undefined aborts — never below 0
   }).catch(e=>console.warn('[likes] write failed',e));
+  // vocal gender overlay (song_gender/<uuid> = 'f'|'m'); set via the ✎ Genders editor
+  onValue(ref(db,'song_gender'),snap=>{ window.__songGender=snap.val()||{}; window.__renderGenders&&window.__renderGenders(); });
+  window.__setGender=(id,g)=>{ const r=ref(db,'song_gender/'+id); return (g?set(r,g):remove(r)).catch(e=>console.warn('[gender] write failed',e)); };
 }catch(e){ console.warn('[likes] Firebase disabled, local-only hearts:',e); }
 </script>
 </body>
