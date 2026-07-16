@@ -404,9 +404,10 @@ window.__setFold=setFold; window.__openFoldIdx=openFoldIdx;
    Refreshes this tab so a saved edit shows without a manual reload.
    file:// can't detect file changes from JS, so it reloads on refocus
    (returning to the tab) plus a gentle idle timer, preserving UI state.
-   Set AUTO_RELOAD=false to disable. */
+   Local-editing only: gated to file:// so it never runs on the hosted site
+   (where it would just flash/re-fetch). Set AUTO_RELOAD=false to disable. */
 (function(){
-  const AUTO_RELOAD=true, IDLE_MS=3000, CHECK_MS=2000, KEY='vtl_uistate';
+  const AUTO_RELOAD=(location.protocol==='file:'), IDLE_MS=3000, CHECK_MS=2000, KEY='vtl_uistate';
   if(!AUTO_RELOAD) return;
   function saveState(){
     try{
