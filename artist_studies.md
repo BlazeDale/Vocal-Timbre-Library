@@ -364,4 +364,60 @@ Gothic post-punk menace isolated: the early-80s darkwave lineage — cold chorus
 cheerful major-key pop, bright synth-pop bounce, gospel choir, blues slide, upbeat tempo, sunny delivery, acoustic warmth, busy fills, ironic lightness
 ```
 
+## Study 5 — Ritual prog-metal catharsis (blend + 4 roots)
+
+*Generated from library entries #142–146 · 2026-07-15 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament is everything: cerebral, ritualistic menace and withheld catharsis — tension coiled across long builds, released only late as an anguished roar. Play it as noodly prog and you get the politest cousin. Roots 1 (odd meter) and 2 (sludge) triangulate the heavy math; roots 3 (tribal dread) and 4 (psychedelic ascent) triangulate the ritual atmosphere.
+
+### Blend (990)
+
+```
+Ritual art-metal built from its ancestors, not its logo: angular progressive-rock architecture — shifting odd time signatures, interlocking polyrhythm, math-precise riffs that refuse the obvious bar — fused to downtuned sludge weight, wrapped in tribal post-punk dread, and floated over long psychedelic ambient builds. A unique and specific vocalist, controlled brooding baritone timbre, meditative and withheld, murmured close in the verses then erupting into a raw anguished roar at the peaks, catharsis rationed. Bass is a lead voice — thick, melodic, prowling low; guitar detuned and serrated, riffs cellular and repeating in uneven groupings; drums the centerpiece, tribal tom patterns and jazz-limbed polyrhythm counting against the riff. Structures are slow ascents: hypnotic loops accreting tension across many minutes, dynamics coiled and released late. Cerebral, esoteric, seething. Vast organic room, analogue heat, sacred-geometry patience — dread resolving into transcendence.
+```
+
+```
+verse-chorus pop structure, cheerful major-key tone, bluesy classic-rock wail, fast thrash tempo, bright polished production, synth-pop sheen, radio brevity, early catharsis, swung groove
+```
+
+### Root 1 · Odd-meter progressive-rock (879)
+
+```
+Progressive-rock odd-meter lineage isolated: the early-70s art-rock school of shifting time signatures and interlocking counterpoint — angular guitar figures that lurch between 7, 5 and 9, precise unison hits, a riff treated as a mathematical cell mutated across a long form. A unique and specific vocalist, cool detached baritone timbre, controlled and cerebral, phrasing laid deliberately across the odd meter so voice and count never quite align. Guitar clean-edged and biting, angular arpeggios and stabbing chords; bass melodic and busy, a second lead; drums intricate and jazz-informed, hi-hat subdividing the strange bars, fills that resolve the polyrhythm. No blues wail, no verse-chorus comfort — the structure is a puzzle box that keeps opening. Warm analogue art-rock production, spacious and precise. Complexity worn as intellect, tension drawn from asymmetry itself.
+```
+
+```
+blues-rock swagger, four-on-the-floor, screamed vocals, downtuned sludge, pop hooks, straight rock backbeat, bright metal sheen, simple square phrasing
+```
+
+### Root 2 · Downtuned sludge-metal (807)
+
+```
+Sludge-metal heaviness isolated: the early-90s downtuned underground — guitars slack and detuned to a groaning low, riffs monolithic and slow, tempo dragged until each chord lands like a slab. A unique and specific vocalist, thick chest-heavy baritone timbre pushed to a strained roar, syllables stretched over the crawling riff, menace in the restraint. Guitar viscous and distorted, palm-muted churn alternating with vast sustained power chords, feedback allowed to hang; bass fused to the guitar, felt in the sternum; drums heavy and deliberate, kick landing like a hammer, cymbals crashing on the downbeat. No speed, no flash — weight and repetition are the whole point, a riff worn into a groove by sheer mass. Raw analogue room, oppressive low end, patience as brutality. Crushing, tar-thick, immense.
+```
+
+```
+fast tempo, technical shredding, bright treble tone, clean singing, major-key uplift, thin mix, polished production, blast beats, cheerful energy
+```
+
+### Root 3 · Tribal post-punk dread (859)
+
+```
+Tribal post-punk dread isolated: the late-70s and early-80s lineage where drums go primal — tom-heavy floor patterns pounded like a rite, atmospheric guitar scrape, an apocalyptic menace chanted more than sung. A unique and specific vocalist, hard clenched baritone timbre, half-chanted and seething, incantatory repetition building to a shouted release, prophet-of-doom conviction. Drums are the engine: relentless tribal toms, no swing, a martial hypnotic pulse; bass driving and circular high in the mix; guitar all texture — chorused scrape, dissonant held chords, feedback as atmosphere, never a solo. A low drone underneath like distant sirens. Structure a ratchet — the same figure tightening, intensity accruing without release until the final breach. Cold, ritual, foreboding. Dry close analogue recording, claustrophobic, a ceremony turning violent.
+```
+
+```
+swung groove, cheerful tone, blues licks, clean melodic crooning, bright pop production, guitar solos, four-on-the-floor dance beat, major-key warmth
+```
+
+### Root 4 · Psychedelic ambient ascent (872)
+
+```
+Psychedelic ambient-rock ascent isolated: the late-60s and 70s space-rock lineage of long hypnotic builds — spacious washes, slow-blooming chords, a track treated as a single patient climb rather than a song. A unique and specific vocalist, warm floating baritone-to-tenor timbre, hushed and meditative, long sustained phrases riding the swell, rising near the end to a wordless cathartic peak that releases rather than shouts. Guitar clean and echo-drenched, volume-swelled figures and one repeating motif elevated by repetition; bass a slow melodic pulse; drums entering late, mallet toms and patient builds measured in minutes, the backbeat arriving only for the ascent. Analogue tape delay, deep reverb, drones and organ pads holding the space. Structure circular and expanding, dissolution into awakening. Esoteric, transcendent, unhurried — a climb toward the light.
+```
+
+```
+fast tempo, heavy distortion, screamed vocals, aggressive riffing, verse-chorus pop, bright compressed loudness, busy percussion throughout, abrupt sections
+```
+
 <!-- END GENERATED -->
