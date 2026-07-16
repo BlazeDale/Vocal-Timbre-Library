@@ -32,13 +32,27 @@ Loads `data.js` and checks:
 - **char caps** — every `style` ≤ 1000, every `lyric` ≤ 5000
 - **numbering** — integer entry numbers unique
 - **RECENT** — every id in the most-recent batch resolves to a real entry
-- **no artist names** — prompt text vs an artist/band denylist (extend `ARTIST_DENYLIST`)
+- **no artist names** — entry name/fam/style/neg **and** `RECENT.label` checked against a hashed denylist (see below); names never appear in the repo
 - **mandated negatives** — the 5 mandated terms must *not* be pre-baked into `neg` (appended at copy time)
-- **header counts** — masthead "N numbered / M suite" match the data
+- **version stamp + masthead** — `VERSION`/`UPDATED` set; title/counts derive at runtime; static `<title>` stays count-free
 - **HTML wiring** — references `data.js`; inline script parses; `<div>`/`<section>` balanced
 - **artist_studies.md** — `(NNN)` labels match their prompts, and the generated region is in sync (`build --check`)
 
 Exit `1` on any failure. Pass a path as arg 1 to validate a different `data.js` (self-testing).
+
+## denylist.mjs — artist-name guard (name-free)
+
+Artist/band names may be **spoken** (chat, CLI args, memory) but are **never written**
+into the tracked files — prompts, labels, metadata, none of it. To keep a guard without
+storing names, `denylist.hashes.json` holds only SHA-256 hashes:
+
+```
+node tools/denylist.mjs add "Some Band" "Another Act"   # append hashes; names are ephemeral CLI args
+node tools/denylist.mjs count
+```
+
+`validate.mjs` hashes the word n-grams of every entry (and `RECENT.label`) and flags any
+match. Add a name here whenever you start a new artist study.
 
 ## pre-commit hook (commit gate)
 

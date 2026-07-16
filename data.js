@@ -17,7 +17,7 @@ const UPDATED = '2026-07-15';
    (numbers for library entries, e.g. 133; suite ids like 'Q5' also work).
    These render as full cards in the "Most recent batch" strip up top. */
 const RECENT = {
-  label: '5e233a782b86db91c4cc9c293fcf60f350fbb5a69985f67e5a36b37072024529 — machine-gospel darkwave (inspirations mode)',
+  label: 'Machine-gospel darkwave (inspirations mode)',
   date:  '2026-07-15',
   entries: [137, 138, 139, 140, 141]
 };
