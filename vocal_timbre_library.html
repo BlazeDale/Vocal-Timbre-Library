@@ -64,13 +64,17 @@
   .tab{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 13px;cursor:pointer}
   .tab.on{background:var(--amber);color:#1a1206;border-color:var(--amber);font-weight:600}
   .hits{font-family:var(--mono);font-size:11px;color:var(--dim)}
+  #sort{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 12px;cursor:pointer}
+  #sort:hover{border-color:var(--amber);color:var(--text)}
   /* cards */
   .card{position:relative;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
-  .card .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-right:26px}
-  .like{position:absolute;top:11px;right:12px;background:transparent;border:none;cursor:pointer;font-size:17px;line-height:1;color:var(--dim);padding:2px 4px;transition:transform .1s,color .12s}
+  .card .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-right:62px}
+  .likewrap{position:absolute;top:9px;right:10px;display:flex;align-items:center;gap:3px}
+  .like{background:transparent;border:none;cursor:pointer;font-size:17px;line-height:1;color:var(--dim);padding:2px 4px;transition:transform .1s,color .12s}
   .like:hover{color:var(--F)}
   .like.on{color:var(--F)}
   .like:active{transform:scale(1.3)}
+  .lcount{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:9px;text-align:right}
   .num{font-family:var(--mono);font-size:12px;color:var(--dim)}
   .name{font-size:16px;font-weight:600}
   .fam{font-family:var(--mono);font-size:11px;color:var(--muted)}
@@ -197,12 +201,14 @@
       <input id="q" placeholder="search name, genre, or prompt text…" autocomplete="off">
       <button class="tab on" data-cat="all">All</button>
       <button class="tab" data-cat="liked">♥ Liked</button>
+      <button class="tab" data-cat="popular">★ Popular</button>
       <button class="tab" data-cat="acoustic">Acoustic 1–80 · 96–105</button>
       <button class="tab" data-cat="techno">Techno 81–85</button>
       <button class="tab" data-cat="lyrical">Lyrical 86–95 · 106–120</button>
       <button class="tab" data-cat="female">Female 121–125</button>
       <button class="tab" data-cat="inspiration">Inspirations 137–169</button>
       <button class="tab" data-cat="suite">Suites</button>
+      <select id="sort" title="Sort order"><option value="num">Sort: default</option><option value="likes">Sort: most liked</option></select>
       <span class="hits" id="hits"></span>
     </div>
     <div id="cards"></div>
@@ -257,7 +263,7 @@ function cardHTML(v){
   // data-blob feeds substring search only (never displayed); v.artist is a hashed
   // exact-match key (SHA-256 of the name) — the plaintext name never ships. See data.js.
   let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
-  h+=`<button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button>`;
+  h+=`<span class="likewrap"><button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button><span class="lcount" data-count="${esc(String(v.n))}"></span></span>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;
   h+=`<div class="blk"><div class="lab"><span>Style prompt</span>${copyBtn(v.style)}</div><pre>${esc(v.style)}</pre></div>`;
@@ -297,14 +303,17 @@ function syncHearts(){document.querySelectorAll('.like').forEach(b=>{const on=li
 document.addEventListener('click',e=>{
   const b=e.target.closest('.like'); if(!b)return;
   const id=b.dataset.like;
-  likes.has(id)?likes.delete(id):likes.add(id);
+  const wasLiked=likes.has(id);
+  wasLiked?likes.delete(id):likes.add(id);
   saveLikes(likes); syncHearts();
-  if(curCat==='liked') applyFilter();
+  if(window.__bumpLike) window.__bumpLike(id, wasLiked?-1:1);   // nudge shared counter (Firebase)
+  if(curCat==='liked'||curCat==='popular') applyFilter();
+  if(curSort==='likes') sortCards();
 });
 syncHearts();
 
-/* ---------- SEARCH + FILTER ---------- */
-let curCat='all', curQ='', curQHash='';
+/* ---------- SEARCH + FILTER + SORT ---------- */
+let curCat='all', curQ='', curQHash='', curSort='num';
 // Artist keys are SHA-256 hashes (plaintext names never ship). We hash the typed
 // query the SAME way (norm + SHA-256, matching tools/denylist.mjs) and compare
 // hashes; an exact match isolates that study, so common-word names ("live"/"tool")
@@ -317,16 +326,37 @@ async function sha256hex(s){
   return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
 }
 const ARTISTS=new Set(LIB.map(v=>(v.artist||'').toLowerCase()).filter(Boolean));
+// shared like counts arrive from Firebase (window.__likeCounts); absent => all 0
+function countOf(c){ return (window.__likeCounts&&+window.__likeCounts[c.dataset.n])||0; }
+[...cardsEl.children].forEach((c,i)=>{c._ord=i;});   // snapshot the default (data) order
 function applyFilter(){
   let shown=0;
   const artistMode=!!curQHash&&ARTISTS.has(curQHash);
   cardsEl.querySelectorAll('.card').forEach(c=>{
-    const okCat=curCat==='all'?true:(curCat==='liked'?likes.has(c.dataset.n):c.dataset.cat===curCat);
+    const okCat=curCat==='all'?true
+      :curCat==='liked'?likes.has(c.dataset.n)
+      :curCat==='popular'?countOf(c)>0
+      :c.dataset.cat===curCat;
     const okQ=!curQ||(artistMode?c.dataset.artist===curQHash:(c.dataset.blob.includes(curQ)||('#'+c.dataset.n)===curQ||c.dataset.n===curQ.replace('#','')));
     const show=okCat&&okQ; c.style.display=show?'':'none'; if(show)shown++;
   });
   hitsEl.textContent=shown+' / '+LIB.length;
 }
+function sortCards(){                                  // reorder #cards by the chosen sort
+  const arr=[...cardsEl.children];
+  arr.sort(curSort==='likes'
+    ? (a,b)=>(countOf(b)-countOf(a))||(a._ord-b._ord)  // most-liked first, ties keep default order
+    : (a,b)=>a._ord-b._ord);
+  const frag=document.createDocumentFragment();
+  arr.forEach(c=>frag.appendChild(c));
+  cardsEl.appendChild(frag);
+}
+function renderCounts(){                               // paint ♥ counts on every card (main + recent)
+  const C=window.__likeCounts||{};
+  document.querySelectorAll('.lcount').forEach(s=>{const n=+C[s.dataset.count]||0; s.textContent=n>0?String(n):'';});
+}
+// the Firebase module (loaded after this script) calls these when counts change
+window.__renderCounts=renderCounts; window.__sortCards=sortCards; window.__applyFilter=applyFilter;
 let qToken=0;
 document.getElementById('q').addEventListener('input',async e=>{
   const raw=e.target.value; curQ=raw.trim().toLowerCase();
@@ -337,7 +367,8 @@ document.getElementById('q').addEventListener('input',async e=>{
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
 }));
-applyFilter();
+document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.value;sortCards();});
+applyFilter(); renderCounts();
 
 /* ---------- ELECTRONIC SHELF ---------- */
 const tb=document.querySelector('#shelf tbody');
@@ -411,6 +442,37 @@ window.__setFold=setFold; window.__openFoldIdx=openFoldIdx;
   document.addEventListener('visibilitychange',()=>{ if(!document.hidden) reload(); });
   setInterval(()=>{ if(!document.hidden && Date.now()-last>IDLE_MS) reload(); },CHECK_MS);
 })();
+</script>
+<script type="module">
+/* ---------- SHARED LIKE COUNTS (Firebase Realtime Database) ----------
+   Holds only a flat map { entryId: count }. The config is public by design; the
+   database is protected by security rules (each write may change a counter by
+   exactly ±1). If the SDK can't load or init (offline, blocked), the page silently
+   keeps working with local-only hearts — nothing here is required to render. */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+const firebaseConfig={
+  apiKey:"AIzaSyBJgYjvHXL69y_7i7qG2qwBzYVUA1lCZuE",
+  authDomain:"vocal-timbre-library.firebaseapp.com",
+  databaseURL:"https://vocal-timbre-library-default-rtdb.firebaseio.com",
+  projectId:"vocal-timbre-library",
+  storageBucket:"vocal-timbre-library.firebasestorage.app",
+  messagingSenderId:"303806829007",
+  appId:"1:303806829007:web:914e3d0d5dc51e697202ba",
+  measurementId:"G-T33BH0E51P"
+};
+try{
+  const db=getDatabase(initializeApp(firebaseConfig));
+  onValue(ref(db,'likes'),snap=>{
+    window.__likeCounts=snap.val()||{};
+    window.__renderCounts&&window.__renderCounts();
+    window.__applyFilter&&window.__applyFilter();   // refresh Popular filter + hit count
+    window.__sortCards&&window.__sortCards();        // keep "most liked" order fresh
+  });
+  window.__bumpLike=(id,delta)=>runTransaction(ref(db,'likes/'+id),cur=>{
+    const v=(cur||0)+delta; return v<0?undefined:v;  // undefined aborts — never below 0
+  }).catch(e=>console.warn('[likes] write failed',e));
+}catch(e){ console.warn('[likes] Firebase disabled, local-only hearts:',e); }
 </script>
 </body>
 </html>
