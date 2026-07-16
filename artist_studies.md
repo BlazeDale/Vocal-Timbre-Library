@@ -1,12 +1,18 @@
 # Artist Studies — Inspirations Mode
 
-Companion to `vocal_timbre_library.html`. These prompts live **outside the numbered library** unless promoted. Method: describe the artist's ancestral ingredients (genres, eras, gear, scenes, constraints), never their sound or name. Standard set per artist: one **blend** + isolated **roots**, mixable pairwise to triangulate specific songs. Temperament rule: encode the attitude the artist brought to the ancestors, or you get their politest cousin. The doc's five mandated negatives are assumed appended; neg fields below exclude them.
+Companion to `vocal_timbre_library.html`. Method: describe the artist's ancestral ingredients (genres, eras, gear, scenes, constraints), never their sound or name. Standard set per artist: one **blend** + isolated **roots**, mixable pairwise to triangulate specific songs. Temperament rule: encode the attitude the artist brought to the ancestors, or you get their politest cousin. The five mandated negatives are assumed appended; neg fields below exclude them.
 
-Studies 1–3 are hand-authored here. Everything inside the **`GENERATED`** markers is a **promoted** study built from the library by `tools/build.mjs` — edit those prompts in `data.js` (the `inspiration` entries), then run `node tools/build.mjs`; don't hand-edit below the marker. Character counts are computed by the tool.
+All studies are now **promoted into the numbered library** and this doc is **generated** from it: everything inside the **`GENERATED`** markers is built by `tools/build.mjs` from the `inspiration` entries in `data.js`. Edit prompts there, then run `node tools/build.mjs`; never hand-edit below the marker. Character counts are computed by the tool. (The chassis-swap section below the marker is a hand-authored appendix.)
 
 ---
 
+<!-- BEGIN GENERATED — promoted inspirations studies · edit data.js then run: node tools/build.mjs -->
+
 ## Study 1 — Garage blues-rock duo (blend + 10 roots)
+
+*Generated from library entries #147–157 · 2026-07-15 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: two-piece primitivism as a creed — nothing that isn't essential, the first three chords anyone learns played with feral conviction. Red-white-black minimalism as an arrangement rule. Roots span the duo's whole record collection (Delta blues to bubblegum to vaudeville), mixable pairwise to triangulate specific songs.
 
 ### Blend (900)
 
@@ -118,13 +124,13 @@ British Invasion bubblegum melody at punk velocity: two-minute beat-group pop �
 slow tempo, ballad structure, synthesizers, long songs, clean quiet guitars, orchestral arrangement, moody atmosphere, autotune sheen
 ```
 
----
+## Study 2 — Mid-90s spiritual alt-rock (blend + 5 roots)
 
-## Study 2 — Mid-90s spiritual alt-rock (blend v2 + 5 roots)
+*Generated from library entries #158–163 · 2026-07-15 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
 
-Note: blend v1 rejected — too jangle-forward ("politest cousin" failure). v2 is grit-forward; temperament rule originated here.
+Blend v1 was rejected — too jangle-forward, the "politest cousin" failure that originated the temperament rule. This is the grit-forward v2. Temperament: arena-rock spirituality crossed with post-punk coil, quiet passages as fuses for choruses that detonate rather than lift — a preacher mid-exorcism.
 
-### Blend v2 (955)
+### Blend (955)
 
 ```
 Mid-90s alternative rock with menace in its bloodline: arena-rock spirituality — chiming delayed guitars, songs that pray at stadium volume — crossed with post-punk coil and the era's heaviest quiet-loud violence, verses wound tight as a held breath before choruses that detonate rather than lift. A unique and specific vocalist, muscular tenor timbre with a guttural edge, moving from clenched-teeth murmur to a raw evangelical roar, sustained notes cracked open at the top, vowels torn wide — a preacher mid-exorcism, mantra repetition turning threatening as it builds. Guitars serrated more than jangled: palm-muted seething figures that erupt into slabbed dropped-tuning riffs, feedback allowed to hang. Bass melodic and prowling, drums tribal floor-tom builds crashing into a punishing anthemic backbeat, cymbals riding hard at peaks. Tension is the engine — every soft passage is a fuse. Big natural room sound, analog heat, fervor with its jaw set.
@@ -184,11 +190,11 @@ Post-punk coil isolated: the seething, gothic-adjacent tension underneath — hy
 big anthemic choruses, bright tone, gentle jangle, synth-pop sheen, early catharsis, loose swung feel, acoustic warmth, cheerful delivery
 ```
 
----
+## Study 3 — Mid-70s California rock (blend + 5 roots)
 
-## Study 3 — Mid-70s California rock (blend + 5 member-lineage roots)
+*Generated from library entries #164–169 · 2026-07-15 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
 
-Rumours-era framing. Late-60s British-blues incarnation reserved as an optional bonus root, unwritten.
+Rumours-era framing: three writer-voices in one band, a British blues-boom rhythm section carrying Laurel Canyon harmony and studio-obsessive pop-craft. The late-60s British-blues incarnation is reserved as an optional bonus root (unwritten). The British R&B piano root also has space-techno chassis swaps — see the appendix below.
 
 ### Blend (978)
 
@@ -249,64 +255,6 @@ British R&B piano-pop isolated: the smoky pub-blues lineage — a writer raised 
 ```
 belting, melodrama, heavy guitars, punk tempo, synthesizer-driven sound, autotune, dense orchestration, screamed vocals, disco four-on-floor
 ```
-
----
-
-## Chassis swap — Root 5 (British R&B piano) → space techno
-
-**Preferred base: v2.** (v1 too percussive/acoustic; v3 complextro and v4 high-register layer both rejected.)
-
-### v2 — preferred (990)
-
-```
-Space techno carrying a British R&B piano soul: deep hypnotic techno near 120 BPM, vast and starlit, percussion reduced to almost nothing — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by pulsing sidechained pads and slow filter movement. The heart is a smoky pub-blues lineage rendered in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, organ swells resynthesized into glassy drones orbiting the field. A unique and specific vocalist, smoky warm low-mezzo timbre, effortlessly level, tender without sweetness, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Longing without melodrama, resolution dissolving like forgiveness into static and starlight. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled imperfect.
-```
-
-```
-drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time techno energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
-```
-
-### Dialect variants on the v2 skeleton (vocal, kick philosophy, sub-anchor, reese line held constant)
-
-**A · Dub techno** (987)
-
-```
-Space techno with a British R&B piano soul, dubbed out: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chord stabs fired into cavernous tape delay, each repeat darker and more filtered than the last, the blues curl at phrase ends surviving as an echo trail, analog hiss and dub-chamber space wrapping everything. Chords bloom, smear, recede like weather. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice, occasional words caught in the delay and sent orbiting. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
-```
-
-**B · Detroit strings** (966) — *flagged promising*
-
-```
-Space techno with a British R&B piano soul, Detroit-strung: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint — and above it, high-tech soul machinery: silvery machine strings sweeping in slow arcs, hopeful synthetic string stabs voiced like a question, pads with that bittersweet future-nostalgia hue. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
-```
-
-**C · Clicks-and-cuts** (951)
-
-```
-Space techno with a British R&B piano soul, microsound-detailed: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and clicks-and-cuts microtexture, tiny glitch particles ticking at the edge of hearing. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, note-dust and fizzing grain-tails audible inside every sustain. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice, breath sounds resampled into the texture bed. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
-```
-
-**D · Modular drift** (949) — *flagged promising*
-
-```
-Space techno with a British R&B piano soul, modular-drifted: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and a slow modular sequence undulating beneath, its pattern generative and never quite repeating, pitch drifting a few cents like hardware warming up. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, slow LFO movement breathing through every layer. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
-```
-
-**E · Progressive layering** (982)
-
-```
-Space techno with a British R&B piano soul, progressive-layered: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint — while a patient arpeggio fades in one harmonic at a time, layers stacking by increments, tension accruing through addition rather than drops, one long filter opening measured over the track's full arc. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
-```
-
-**Shared dialect neg** (add `glitch clicks` for A/B/D/E if C should stay the only glitchy one):
-
-```
-drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
-```
-
----
-
-<!-- BEGIN GENERATED — promoted inspirations studies · edit data.js then run: node tools/build.mjs -->
 
 ## Study 4 — Machine-gospel darkwave (blend + 4 roots)
 
@@ -421,3 +369,57 @@ fast tempo, heavy distortion, screamed vocals, aggressive riffing, verse-chorus 
 ```
 
 <!-- END GENERATED -->
+
+---
+
+## Chassis swap — Root 5 (British R&B piano) → space techno
+
+**Preferred base: v2.** (v1 too percussive/acoustic; v3 complextro and v4 high-register layer both rejected.)
+
+### v2 — preferred (990)
+
+```
+Space techno carrying a British R&B piano soul: deep hypnotic techno near 120 BPM, vast and starlit, percussion reduced to almost nothing — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by pulsing sidechained pads and slow filter movement. The heart is a smoky pub-blues lineage rendered in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, organ swells resynthesized into glassy drones orbiting the field. A unique and specific vocalist, smoky warm low-mezzo timbre, effortlessly level, tender without sweetness, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Longing without melodrama, resolution dissolving like forgiveness into static and starlight. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled imperfect.
+```
+
+```
+drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time techno energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
+```
+
+### Dialect variants on the v2 skeleton (vocal, kick philosophy, sub-anchor, reese line held constant)
+
+**A · Dub techno** (987)
+
+```
+Space techno with a British R&B piano soul, dubbed out: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chord stabs fired into cavernous tape delay, each repeat darker and more filtered than the last, the blues curl at phrase ends surviving as an echo trail, analog hiss and dub-chamber space wrapping everything. Chords bloom, smear, recede like weather. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice, occasional words caught in the delay and sent orbiting. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**B · Detroit strings** (966) — *flagged promising*
+
+```
+Space techno with a British R&B piano soul, Detroit-strung: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint — and above it, high-tech soul machinery: silvery machine strings sweeping in slow arcs, hopeful synthetic string stabs voiced like a question, pads with that bittersweet future-nostalgia hue. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**C · Clicks-and-cuts** (951)
+
+```
+Space techno with a British R&B piano soul, microsound-detailed: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and clicks-and-cuts microtexture, tiny glitch particles ticking at the edge of hearing. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, note-dust and fizzing grain-tails audible inside every sustain. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice, breath sounds resampled into the texture bed. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**D · Modular drift** (949) — *flagged promising*
+
+```
+Space techno with a British R&B piano soul, modular-drifted: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and a slow modular sequence undulating beneath, its pattern generative and never quite repeating, pitch drifting a few cents like hardware warming up. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint, slow LFO movement breathing through every layer. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**E · Progressive layering** (982)
+
+```
+Space techno with a British R&B piano soul, progressive-layered: deep hypnotic techno near 120 BPM, vast and starlit, percussion minimal — a soft distant kick felt more than heard, no hats, no snare, rhythm implied by sidechained pads and slow filter movement. A smoky pub-blues heart in digital matter: electric piano granulated and time-stretched, chords smeared into spectral clouds, the blues curl at phrase ends bit-crushed to a glint — while a patient arpeggio fades in one harmonic at a time, layers stacking by increments, tension accruing through addition rather than drops, one long filter opening measured over the track's full arc. A unique and specific vocalist, smoky warm low-mezzo timbre, level and tender, phrases floating long over the pulse, vocoded doubles ghosting the dry voice. Deep rolling sub as the only anchor. Single reese bass transient at structural breaks only, non-rhythmic, non-repeating. Warmth encoded, transmitted, reassembled slightly imperfect.
+```
+
+**Shared dialect neg** (add `glitch clicks` for A/B/D/E if C should stay the only glitchy one):
+
+```
+drum kit, hi-hats, snare, busy percussion, hard four-on-floor, peak-time energy, acoustic piano realism, belting, melodrama, trance supersaws, rhythmic repeating wobble
+```

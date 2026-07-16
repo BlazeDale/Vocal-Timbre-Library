@@ -29,38 +29,35 @@ export function loadData(dataPath = DATA) {
 
 const roleRank = r => (/blend/i.test(r) ? -1 : parseInt((r.match(/\d+/) || [99])[0], 10));
 
-export function renderRegion(LIB, STUDY_META = {}, startNumber = 1) {
+export function renderRegion(LIB, STUDY_META = {}) {
   const insp = LIB.filter(v => v.cat === 'inspiration');
   const groups = new Map();
   for (const v of insp) (groups.get(v.fam) || groups.set(v.fam, []).get(v.fam)).push(v);
 
-  let studyNo = startNumber;
-  const out = [];
-  for (const [fam, raw] of groups) {
-    const items = raw.slice().sort((a, b) => roleRank(a.role) - roleRank(b.role));
+  // order & number studies by STUDY_META.no (falls back to appearance order)
+  const studies = [...groups.entries()].map(([fam, raw], i) => {
     const slug = fam.replace(/^inspirations · /, '');
-    const title = slug.charAt(0).toUpperCase() + slug.slice(1);
+    const meta = STUDY_META[slug] || {};
+    return { raw, slug, meta, no: meta.no ?? (i + 1) };
+  }).sort((a, b) => a.no - b.no);
+
+  const out = [];
+  for (const { raw, slug, meta, no } of studies) {
+    const items = raw.slice().sort((a, b) => roleRank(a.role) - roleRank(b.role));
+    const title = meta.title || (slug.charAt(0).toUpperCase() + slug.slice(1));
     const roots = items.filter(v => /root/i.test(v.role));
     const nums = items.map(v => v.n).sort((a, b) => a - b);
     const range = nums.length > 1 ? `#${nums[0]}–${nums.at(-1)}` : `#${nums[0]}`;
-    const meta = STUDY_META[slug] || {};
 
-    out.push(`## Study ${studyNo} — ${title} (blend + ${roots.length} roots)`, '');
+    out.push(`## Study ${no} — ${title} (blend + ${roots.length} roots)`, '');
     out.push(`*Generated from library entries ${range}${meta.date ? ` · ${meta.date}` : ''} — edit the \`inspiration\` entries in \`data.js\`, then run \`node tools/build.mjs\`.*`, '');
     if (meta.note) out.push(meta.note, '');
     for (const v of items) {
       const sub = /blend/i.test(v.role) ? 'Blend' : `${v.role} · ${v.name.replace(/\s+root$/i, '')}`;
       out.push(`### ${sub} (${len(v.style)})`, '', '```', v.style, '```', '', '```', v.neg, '```', '');
     }
-    studyNo++;
   }
   return out.join('\n').trimEnd() + '\n';
-}
-
-function startNumberFrom(md) {
-  const head = md.slice(0, md.indexOf(MARK_BEGIN));
-  const nums = [...head.matchAll(/^## Study (\d+)/gm)].map(m => +m[1]);
-  return (nums.length ? Math.max(...nums) : 0) + 1;
 }
 
 export function computeMd() {
@@ -68,7 +65,7 @@ export function computeMd() {
   const md = readFileSync(MD, 'utf8');
   const b = md.indexOf(MARK_BEGIN), e = md.indexOf(MARK_END);
   if (b < 0 || e < 0) throw new Error('generated-region markers not found in artist_studies.md');
-  const region = renderRegion(LIB, STUDY_META, startNumberFrom(md));
+  const region = renderRegion(LIB, STUDY_META);
   const next = md.slice(0, b + MARK_BEGIN.length) + '\n\n' + region + '\n' + md.slice(e);
   return { current: md, next };
 }
