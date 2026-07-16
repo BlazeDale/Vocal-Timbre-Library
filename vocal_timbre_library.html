@@ -64,8 +64,9 @@
   .tab{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 13px;cursor:pointer}
   .tab.on{background:var(--amber);color:#1a1206;border-color:var(--amber);font-weight:600}
   .hits{font-family:var(--mono);font-size:11px;color:var(--dim)}
-  #sort{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 12px;cursor:pointer}
-  #sort:hover{border-color:var(--amber);color:var(--text)}
+  #sort,#gaps{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 12px;cursor:pointer}
+  #sort:hover,#gaps:hover{border-color:var(--amber);color:var(--text)}
+  #gaps.on{background:var(--amber);color:#1a1206;border-color:var(--amber);font-weight:600}
   /* cards */
   .card{position:relative;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
   .card .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-right:62px}
@@ -227,6 +228,7 @@
       <button class="tab" data-cat="suite">Suites</button>
       <select id="sort" title="Sort order"><option value="num">Sort: default</option><option value="likes">Sort: most liked</option></select>
       <button type="button" class="tab" id="genderedit" title="Assign a vocal gender (♀/♂) to demo songs — saves live">✎ Genders</button>
+      <select id="gaps" title="Find entries missing a demo song or a gender take"><option value="">Gaps: —</option><option value="demo">Missing demo</option><option value="m">Missing ♂</option><option value="f">Missing ♀</option></select>
       <span class="hits" id="hits"></span>
     </div>
     <div id="cards"></div>
@@ -334,12 +336,14 @@ document.addEventListener('click',e=>{
   if(next) window.__songGender[id]=next; else delete window.__songGender[id];
   if(window.__setGender) window.__setGender(id,next);
   renderGenders();
+  if(curGap) applyFilter();   // tagging fills a gap → card leaves the missing-gender filter
 });
 function cardHTML(v){
   const border=COL[v.aff]||'#2a313d';
   // data-blob feeds substring search only (never displayed); v.artist is a hashed
   // exact-match key (SHA-256 of the name) — the plaintext name never ships. See data.js.
-  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
+  const sids=sunoIds(v.suno);   // song ids on this entry (empty => no demo)
+  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-suno="${sids.join(',')}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
   h+=`<span class="likewrap"><button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button><span class="lcount" data-count="${esc(String(v.n))}"></span></span>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;
@@ -391,7 +395,7 @@ document.addEventListener('click',e=>{
 syncHearts();
 
 /* ---------- SEARCH + FILTER + SORT ---------- */
-let curCat='all', curQ='', curQHash='', curSort='num';
+let curCat='all', curQ='', curQHash='', curSort='num', curGap='';
 // Artist keys are SHA-256 hashes (plaintext names never ship). We hash the typed
 // query the SAME way (norm + SHA-256, matching tools/denylist.mjs) and compare
 // hashes; an exact match isolates that study, so common-word names ("live"/"tool")
@@ -416,7 +420,15 @@ function applyFilter(){
       :curCat==='popular'?countOf(c)>0
       :c.dataset.cat===curCat;
     const okQ=!curQ||(artistMode?c.dataset.artist===curQHash:(c.dataset.blob.includes(curQ)||('#'+c.dataset.n)===curQ||c.dataset.n===curQ.replace('#','')));
-    const show=okCat&&okQ; c.style.display=show?'':'none'; if(show)shown++;
+    // gaps: missing a demo song, or a song exists but no ♀/♂ take is tagged yet
+    const sids=c.dataset.suno?c.dataset.suno.split(','):[];
+    const G=window.__songGender||{};
+    const okGap=!curGap?true
+      :curGap==='demo'?sids.length===0
+      :curGap==='m'?(sids.length>0&&!sids.some(id=>G[id]==='m'))
+      :curGap==='f'?(sids.length>0&&!sids.some(id=>G[id]==='f'))
+      :true;
+    const show=okCat&&okQ&&okGap; c.style.display=show?'':'none'; if(show)shown++;
   });
   hitsEl.textContent=shown+' / '+LIB.length;
 }
@@ -447,6 +459,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
 }));
 document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.value;sortCards();});
 document.getElementById('genderedit').addEventListener('click',function(){document.body.classList.toggle('editgender');this.classList.toggle('on');});
+document.getElementById('gaps').addEventListener('change',function(){curGap=this.value;this.classList.toggle('on',!!curGap);applyFilter();});
 applyFilter(); renderCounts(); renderGenders();
 
 /* ---------- ELECTRONIC SHELF ---------- */
@@ -553,7 +566,7 @@ try{
     const v=(cur||0)+delta; return v<0?undefined:v;  // undefined aborts — never below 0
   }).catch(e=>console.warn('[likes] write failed',e));
   // vocal gender overlay (song_gender/<uuid> = 'f'|'m'); set via the ✎ Genders editor
-  onValue(ref(db,'song_gender'),snap=>{ window.__songGender=snap.val()||{}; window.__renderGenders&&window.__renderGenders(); });
+  onValue(ref(db,'song_gender'),snap=>{ window.__songGender=snap.val()||{}; window.__renderGenders&&window.__renderGenders(); window.__applyFilter&&window.__applyFilter(); });
   window.__setGender=(id,g)=>{ const r=ref(db,'song_gender/'+id); return (g?set(r,g):remove(r)).catch(e=>console.warn('[gender] write failed',e)); };
 }catch(e){ console.warn('[likes] Firebase disabled, local-only hearts:',e); }
 </script>
