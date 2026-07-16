@@ -1,0 +1,10 @@
+#!/bin/sh
+# Vocal Timbre Library — pre-commit gate.
+# Runs the validator (which also checks artist_studies.md is in sync) and
+# blocks the commit if anything fails. Bypass only when you mean to:
+#   git commit --no-verify
+node tools/validate.mjs || {
+  echo ""
+  echo "commit blocked — tools/validate.mjs failed (fix the issues above, or bypass with: git commit --no-verify)"
+  exit 1
+}

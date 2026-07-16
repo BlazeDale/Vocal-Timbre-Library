@@ -40,9 +40,27 @@ Loads `data.js` and checks:
 
 Exit `1` on any failure. Pass a path as arg 1 to validate a different `data.js` (self-testing).
 
+## pre-commit hook (commit gate)
+
+`tools/hooks/pre-commit` runs `validate.mjs` and blocks the commit if it fails.
+It's wired via `core.hooksPath`, so it's version-controlled — but each clone must
+opt in once:
+
+```
+git config core.hooksPath tools/hooks
+```
+
+Bypass in a pinch with `git commit --no-verify`.
+
+## Version / counts
+
+Bump `VERSION` / `UPDATED` in `data.js` — the only place. The `<title>`, `<meta>`,
+masthead heading, sub-line, and footer all derive from those + `LIB` counts at
+runtime, so entry counts never need hand-editing and can't go stale.
+
 ## Workflow for adding / editing entries
 
-1. Edit `data.js` (and `STUDY_META` if it's a promoted study).
+1. Edit `data.js` (and `STUDY_META` if it's a promoted study; bump `VERSION`/`UPDATED` if releasing).
 2. `node tools/build.mjs` — regenerate `artist_studies.md`.
-3. `node tools/validate.mjs` — must pass.
+3. `node tools/validate.mjs` — must pass (the hook runs this too).
 4. Commit.

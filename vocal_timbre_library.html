@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vocal Timbre Library v6 · 206 entries · 2026-07-12 · Suno reference</title>
-<meta name="library-version" content="v6 · 206 entries · 2026-07-12">
+<title>Vocal Timbre Library · Suno reference</title>
+<meta name="library-version" content="">
 <style>
   :root{
     --ink:#111419; --panel:#181c24; --panel2:#1f2530; --line:#2a313d;
@@ -96,8 +96,8 @@
 <div class="wrap">
   <header class="masthead">
     <p class="eyebrow">Suno · vocal timbre reference</p>
-    <h1>Vocal Timbre Library <span style="font-size:.45em;color:#6b7280;font-weight:400">v8 · 2026-07-15</span></h1>
-    <p class="sub">141 numbered entries (acoustic wing, female wing, electronic shelf, inspirations wing) plus 75 ungendered suite prompts with memory seeds — mapped across register, grit, and affect. <span class="count-tag">Built for the latest Suno.</span></p>
+    <h1>Vocal Timbre Library <span id="ver" style="font-size:.45em;color:#6b7280;font-weight:400"></span></h1>
+    <p class="sub" id="sub">Vocal timbre reference for Suno — mapped across register, grit, and affect. <span class="count-tag">Built for the latest Suno.</span></p>
   </header>
 
   <div class="folds">
@@ -303,7 +303,16 @@ tb.innerHTML=LIB.filter(v=>v.cat==='techno'||v.cat==='lyrical').map(v=>`<tr><td 
 
 /* ---------- FOOTER ---------- */
 const ac=LIB.filter(v=>v.cat==='acoustic').length, tc=LIB.filter(v=>v.cat==='techno').length, lc=LIB.filter(v=>v.cat==='lyrical').length, fc=LIB.filter(v=>v.cat==='female').length, sc=LIB.filter(v=>v.cat==='suite').length, ic=LIB.filter(v=>v.cat==='inspiration').length;
-document.getElementById('foot').textContent=`${LIB.length} entries · ${ac} acoustic + ${fc} female wing (mapped) · ${tc} techno treatment-vocals · ${lc} lyrical-electronic leads · ${ic} inspirations-mode prompts · ${sc} suite prompts (gender-unspecified, with memory seeds) · descriptor-only, latest Suno · v8 · 2026-07-15`;
+document.getElementById('foot').textContent=`${LIB.length} entries · ${ac} acoustic + ${fc} female wing (mapped) · ${tc} techno treatment-vocals · ${lc} lyrical-electronic leads · ${ic} inspirations-mode prompts · ${sc} suite prompts (gender-unspecified, with memory seeds) · descriptor-only, latest Suno · ${VERSION} · ${UPDATED}`;
+
+/* ---------- MASTHEAD / TITLE (derived from VERSION + LIB, never hand-maintained) ---------- */
+{
+  const nNum=LIB.filter(v=>typeof v.n==='number').length, nSuite=sc;
+  document.title=`Vocal Timbre Library ${VERSION} · ${LIB.length} entries · ${UPDATED} · Suno reference`;
+  const meta=document.querySelector('meta[name="library-version"]'); if(meta) meta.content=`${VERSION} · ${LIB.length} entries · ${UPDATED}`;
+  document.getElementById('ver').textContent=`${VERSION} · ${UPDATED}`;
+  document.getElementById('sub').innerHTML=`${nNum} numbered entries (acoustic wing, female wing, electronic shelf, inspirations wing) plus ${nSuite} ungendered suite prompts with memory seeds — mapped across register, grit, and affect. <span class="count-tag">Built for the latest Suno.</span>`;
+}
 
 /* ---------- SECTION FOLDS (accordion — one open at a time, default all closed) ---------- */
 const foldTabs=[].slice.call(document.querySelectorAll('.fold-tab'));

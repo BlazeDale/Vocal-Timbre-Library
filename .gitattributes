@@ -1,0 +1,2 @@
+# The git hook is executed by sh — must stay LF or it breaks with "bad interpreter".
+tools/hooks/pre-commit text eol=lf

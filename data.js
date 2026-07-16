@@ -7,6 +7,11 @@
  * consts are visible to it as globals. Works under file:// (unlike fetch).
  */
 
+/* Version stamp — the ONLY place to bump these. Title, <meta>, masthead, and
+ * footer all derive from here + LIB counts at runtime, so counts never drift. */
+const VERSION = 'v8';
+const UPDATED = '2026-07-15';
+
 /* ---------- MOST RECENT BATCH ----------
    Update this after each run: label + date + the entry numbers/ids
    (numbers for library entries, e.g. 133; suite ids like 'Q5' also work).

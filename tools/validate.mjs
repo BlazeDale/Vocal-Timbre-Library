@@ -32,9 +32,9 @@ const fail = m => fails.push(m);
 const pass = m => passes.push(m);
 
 /* ---------- load data ---------- */
-let LIB, RECENT;
+let LIB, RECENT, VERSION, UPDATED;
 try {
-  ({ LIB, RECENT } = loadData(process.argv[2]));
+  ({ LIB, RECENT, VERSION, UPDATED } = loadData(process.argv[2]));
   pass(`loaded data.js (${LIB.length} entries)`);
 } catch (e) {
   fail(`could not load data.js: ${e.message}`);
@@ -98,13 +98,13 @@ const suites = LIB.filter(v => v.cat === 'suite');
   baked.length ? fail(`mandated negatives already in neg field (appended at copy time — remove): ${baked.join(', ')}`) : pass(`neg fields exclude the 5 mandated negatives`);
 }
 
-/* ---------- 6. header counts match ---------- */
+/* ---------- 6. version stamp + masthead derives at runtime ---------- */
 {
-  const sub = (html.match(/<p class="sub">([^<]*)/) || [, ''])[1];
-  const nEntries = (sub.match(/(\d+)\s+numbered entries/) || [])[1];
-  const nSuite = (sub.match(/(\d+)\s+ungendered suite prompts/) || [])[1];
-  String(numbered.length) === nEntries ? pass(`header numbered count matches (${numbered.length})`) : fail(`header says "${nEntries} numbered entries" but data has ${numbered.length}`);
-  String(suites.length) === nSuite ? pass(`header suite count matches (${suites.length})`) : fail(`header says "${nSuite} suite prompts" but data has ${suites.length}`);
+  VERSION ? pass(`version stamp set (${VERSION} · ${UPDATED})`) : fail(`data.js missing VERSION/UPDATED`);
+  const wired = ['id="ver"', 'id="sub"', 'document.title='].filter(s => html.includes(s));
+  wired.length === 3 ? pass(`masthead/title derive from data at runtime`) : fail(`masthead derivation wiring missing: ${['id="ver"', 'id="sub"', 'document.title='].filter(s => !html.includes(s)).join(', ')}`);
+  // guard against stale hardcoded counts sneaking back into the static head
+  if (/<title>[^<]*\d+ entries/.test(html)) fail(`static <title> hardcodes a count — leave it count-free (derived at runtime)`);
 }
 
 /* ---------- 7. HTML wiring + scripts parse + tags balanced ---------- */
