@@ -90,6 +90,16 @@
   pre{margin:0;background:var(--ink);border:1px solid var(--line);border-radius:7px;padding:11px 12px;font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--text);white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word}
   pre.neg{color:var(--muted)}
   pre.lyr{color:#d8d3c6}
+  /* suno demo songs (Option A: artwork thumbnail is the play button; links out to
+     Suno since the audio file itself is hotlink-protected) */
+  .song{margin-top:12px}
+  .song-tiles{display:flex;gap:8px}
+  .song-art{position:relative;flex:none;width:52px;height:52px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--panel2);display:block}
+  .song-art img{width:100%;height:100%;object-fit:cover;display:block}
+  .song-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.30);color:#fff;font-size:15px;text-shadow:0 1px 3px rgba(0,0,0,.7);transition:background .12s}
+  .song-art:hover{border-color:var(--amber)}
+  .song-art:hover .song-play{background:rgba(0,0,0,.10)}
+  .song-g{position:absolute;bottom:2px;right:2px;font-size:15px;font-weight:700;color:#fff;line-height:1;padding:1px 3px;border-radius:5px;background:rgba(0,0,0,.55);text-shadow:0 1px 2px #000}
   /* table */
   table{width:100%;border-collapse:collapse;font-size:12.5px}
   th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -258,6 +268,37 @@ function chips(v){
   if(v.cat==='inspiration') return `<span class="chip"><b>${esc(v.role)}</b></span><span class="chip">${[...v.style].length} chars</span><span class="chip" style="border-color:${COL[v.aff]}55"><b style="color:${COL[v.aff]}">${AFF[v.aff]}</b></span>`;
   return `<span class="chip"><b>${v.bpm}</b> BPM</span><span class="chip">${esc(v.role)}</span><span class="chip">${esc(v.proc)}</span><span class="chip" style="border-color:${COL[v.aff]}55"><b style="color:${COL[v.aff]}">${AFF[v.aff]}</b></span>`;
 }
+// Suno demo songs (Option A). `suno` may be a string (one take) or {f, m} for the
+// feminine / masculine takes (Suno renders one gender naturally, the other is a
+// re-gen). Each value is a song UUID or any suno URL/short link containing it. The
+// artwork hot-links and is the play button; audio is hotlink-protected so it opens
+// the song on Suno.
+function sunoParse(raw){
+  const s=String(raw).trim();
+  const m=s.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+  const uuid=m?m[0]:'';
+  return {
+    link: uuid?`https://suno.com/song/${uuid}`:(/^https?:/.test(s)?s:`https://suno.com/s/${s}`),
+    art:  uuid?`https://cdn2.suno.ai/image_${uuid}.jpeg`:''
+  };
+}
+function sunoTile(g,raw){
+  const {link,art}=sunoParse(raw);
+  const glyph=g==='f'?'♀':g==='m'?'♂':'';
+  const title=(g==='f'?'Feminine-voiced take':g==='m'?'Masculine-voiced take':'Demo song')+' · Play on Suno';
+  return `<a class="song-art" href="${esc(link)}" target="_blank" rel="noopener" title="${title}" aria-label="${title}">`+
+    (art?`<img src="${esc(art)}" alt="" onerror="this.style.display='none'">`:'')+
+    `<span class="song-play">▶</span>`+
+    (glyph?`<span class="song-g">${glyph}</span>`:'')+
+  `</a>`;
+}
+function sunoBlock(v){
+  if(!v.suno) return '';
+  const t=[];
+  if(typeof v.suno==='string'){ if(v.suno) t.push(sunoTile('',v.suno)); }
+  else { if(v.suno.f) t.push(sunoTile('f',v.suno.f)); if(v.suno.m) t.push(sunoTile('m',v.suno.m)); }
+  return t.length?`<div class="song"><div class="song-tiles">${t.join('')}</div></div>`:'';
+}
 function cardHTML(v){
   const border=COL[v.aff]||'#2a313d';
   // data-blob feeds substring search only (never displayed); v.artist is a hashed
@@ -266,6 +307,7 @@ function cardHTML(v){
   h+=`<span class="likewrap"><button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button><span class="lcount" data-count="${esc(String(v.n))}"></span></span>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;
+  h+=sunoBlock(v);
   h+=`<div class="blk"><div class="lab"><span>Style prompt</span>${copyBtn(v.style)}</div><pre>${esc(v.style)}</pre></div>`;
   h+=`<div class="blk"><div class="lab"><span>Negative + 5 mandated</span>${copyBtn(v.neg+', Harmonic stagnation, Dynamic flattening, Quantized sterility, Structural monotony, Predictability')}</div><pre class="neg">${esc(v.neg)}, Harmonic stagnation, Dynamic flattening, Quantized sterility, Structural monotony, Predictability</pre></div>`;
   if(v.lyric) h+=`<div class="blk"><div class="lab"><span>Demo lyric</span>${copyBtn(v.lyric)}</div><pre class="lyr">${esc(v.lyric)}</pre></div>`;
