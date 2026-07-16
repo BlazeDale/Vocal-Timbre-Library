@@ -449,8 +449,8 @@ document.getElementById('q').addEventListener('input',async e=>{
   if(my!==qToken) return;               // a newer keystroke superseded this one
   curQHash=h; applyFilter();
 });
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
+document.querySelectorAll('.tab[data-cat]').forEach(t=>t.addEventListener('click',()=>{   // real category tabs only — not #genderedit
+  document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
 }));
 document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.value;sortCards();});
 document.getElementById('genderedit').addEventListener('click',function(){document.body.classList.toggle('editgender');this.classList.toggle('on');});
@@ -501,7 +501,7 @@ window.__setFold=setFold; window.__openFoldIdx=openFoldIdx;
       sessionStorage.setItem(KEY,JSON.stringify({
         y:window.scrollY,
         q:(document.getElementById('q')||{}).value||'',
-        cat:(document.querySelector('.tab.on')||{}).dataset?document.querySelector('.tab.on').dataset.cat:'all',
+        cat:(document.querySelector('.tab[data-cat].on')||{}).dataset?document.querySelector('.tab[data-cat].on').dataset.cat:'all',
         fold:window.__openFoldIdx?window.__openFoldIdx():-1
       }));
     }catch(e){}
