@@ -254,7 +254,8 @@ function chips(v){
 }
 function cardHTML(v){
   const border=COL[v.aff]||'#2a313d';
-  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
+  // data-blob feeds search only (never displayed); v.artist is a hidden search key — see data.js
+  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')+' '+(v.artist||'')).toLowerCase())}" style="border-left-color:${border}">`;
   h+=`<button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;

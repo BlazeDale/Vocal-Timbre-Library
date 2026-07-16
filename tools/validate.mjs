@@ -69,19 +69,26 @@ const suites = LIB.filter(v => v.cat === 'suite');
   missing.length ? fail(`RECENT points at missing entries: ${missing.join(', ')}`) : pass(`RECENT [${ids.join(', ')}] all resolve`);
 }
 
-/* ---------- 4. no artist names written anywhere (hashed guard) ---------- */
+/* ---------- 4. no artist names in visible/prompt fields (hashed guard + artist-leak) ----------
+   The hidden `artist` field is the ONE sanctioned place for a name (search-only, never
+   rendered, never in a prompt). Visible/prompt fields (name/fam/style/neg) and RECENT.label
+   must stay name-free; and the hidden artist must not leak INTO a visible field. */
 {
   const hashes = loadHashes();
   const hits = [];
-  const label = RECENT.label || '';
   for (const v of LIB) {
-    const found = findDenied(`${v.name || ''} ${v.fam || ''} ${v.style || ''} ${v.neg || ''}`, hashes);
+    const visible = `${v.name || ''} ${v.fam || ''} ${v.style || ''} ${v.neg || ''}`;
+    const found = findDenied(visible, hashes);
     if (found.length) hits.push(`#${v.n} → ${found.join(', ')}`);
+    if (v.artist) {
+      const re = new RegExp(`\\b${v.artist.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (re.test(visible)) hits.push(`#${v.n} → hidden artist "${v.artist}" leaked into a visible/prompt field`);
+    }
   }
-  const inLabel = findDenied(label, hashes);
+  const inLabel = findDenied(RECENT.label || '', hashes);
   if (inLabel.length) hits.push(`RECENT.label → ${inLabel.join(', ')}`);
   if (!hashes.size) fail(`denylist empty — seed it: node tools/denylist.mjs add "Name"`);
-  else hits.length ? fail(`artist name written down: ${hits.join('; ')}`) : pass(`no artist names in entries/labels (${hashes.size} hashed)`);
+  else hits.length ? fail(`artist name in a visible/prompt field: ${hits.join('; ')}`) : pass(`no artist names visible (${hashes.size} hashed; artist search-key allowed)`);
 }
 
 /* ---------- 5. mandated negatives not pre-baked ---------- */
