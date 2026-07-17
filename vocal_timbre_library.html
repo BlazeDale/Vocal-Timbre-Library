@@ -244,7 +244,7 @@
     <h2 class="shead">Prompt library</h2>
     <div class="controls">
       <input id="q" placeholder="search name, genre, or prompt text…" autocomplete="off">
-      <button class="tab on" data-cat="all">All</button>
+      <button class="tab on" data-cat="all" title="Clear all filters and the search box">✕ Clear</button>
       <button class="tab" data-cat="liked">♥ Liked</button>
       <button class="tab" data-cat="popular">★ Popular</button>
       <button class="tab" data-cat="acoustic">Acoustic 1–80 · 96–105</button>
@@ -294,8 +294,10 @@ const AFF={A:'cool / detached',B:'melancholic / weary',C:'earnest / yearning',D:
     if(already){ curNum=''; if(qbox){qbox.value='';qbox.dispatchEvent(new Event('input'));} return; }
     g.classList.add('sel');
     curNum=String(n);   // drilled-in number: suppress (don't clear) any active affect filter so deselecting restores it
-    const allTab=document.querySelector('.tab[data-cat="all"]');
-    if(allTab&&!allTab.classList.contains('on')) allTab.click();   // clear category so the pin's card can't be hidden
+    if(curCat!=='all'){   // reset category directly (NOT via the All button, which is now a full "Clear") so affect/search survive
+      document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('on'));
+      const at=document.querySelector('.tab[data-cat="all"]'); if(at) at.classList.add('on'); curCat='all';
+    }
     const gaps=document.getElementById('gaps');
     if(gaps&&gaps.value){ gaps.value=''; gaps.dispatchEvent(new Event('change')); }
     if(qbox){ qbox.value='#'+n; qbox.dispatchEvent(new Event('input')); }   // '#'+n hits the exact-number branch (bare n substring-matches BPMs etc.)
@@ -513,10 +515,18 @@ document.getElementById('q').addEventListener('input',async e=>{
   curQHash=h; applyFilter();
 });
 document.querySelectorAll('.tab[data-cat]').forEach(t=>t.addEventListener('click',()=>{   // real category tabs only — not #genderedit
-  const off=t.classList.contains('on')&&t.dataset.cat!=='all';   // click an active non-All tab again -> deselect back to All
+  const isClear=t.dataset.cat==='all';                           // the "✕ Clear" button
+  const off=t.classList.contains('on')&&!isClear;                // click an active non-All tab again -> deselect back to All
   document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('on'));
   const sel=off?document.querySelector('.tab[data-cat="all"]'):t;
-  sel.classList.add('on'); curCat=sel.dataset.cat; applyFilter();
+  sel.classList.add('on'); curCat=sel.dataset.cat;
+  if(isClear){                                                    // Clear also wipes search text, affect, gaps and pin selection
+    const qb=document.getElementById('q'); if(qb) qb.value=''; curQ=''; curQHash='';
+    if(window.__clearAff) window.__clearAff();
+    if(window.__clearPinSel) window.__clearPinSel(); curNum='';
+    const g=document.getElementById('gaps'); if(g&&g.value){ g.value=''; g.classList.remove('on'); curGap=''; }
+  }
+  applyFilter();
 }));
 function updateSortDir(){
   const b=document.getElementById('sortdir');
