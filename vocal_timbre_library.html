@@ -56,6 +56,11 @@
   #tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;max-width:240px;z-index:5;box-shadow:0 6px 22px rgba(0,0,0,.5)}
   #tmap g[data-n]{cursor:pointer}
   #tmap g.sel circle{stroke:var(--amber);stroke-width:3.5}
+  #tmap g.dim{opacity:.13}
+  #tmap g.sel{opacity:1}
+  .legend span[data-aff]{cursor:pointer;padding:2px 6px;border-radius:6px;border:1px solid transparent}
+  .legend span[data-aff]:hover{background:var(--panel2)}
+  .legend span.sel{border-color:var(--amber);background:var(--panel2)}
   /* controls */
   .controls{position:sticky;top:0;background:var(--ink);padding:12px 0;z-index:10;border-bottom:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   #q{flex:1;min-width:200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:13px;padding:9px 12px}
@@ -193,13 +198,13 @@
     <h2 class="shead" style="margin-bottom:12px">Register × grit map · acoustic 1–80, 96–105, 126–130 · female wing 121–125 (ringed)</h2>
     <div id="mapwrap">
       <div class="legend">
-        <span><i class="dot" style="background:var(--A)"></i>cool / detached</span>
-        <span><i class="dot" style="background:var(--B)"></i>melancholic / weary</span>
-        <span><i class="dot" style="background:var(--C)"></i>earnest / yearning</span>
-        <span><i class="dot" style="background:var(--D)"></i>swagger / playful</span>
-        <span><i class="dot" style="background:var(--E)"></i>ecstatic / fervent</span>
-        <span><i class="dot" style="background:var(--F)"></i>anguished / torn</span>
-        <span><i class="dot" style="background:var(--G)"></i>menacing / aggressive</span>
+        <span data-aff="A" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--A)"></i>cool / detached</span>
+        <span data-aff="B" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--B)"></i>melancholic / weary</span>
+        <span data-aff="C" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--C)"></i>earnest / yearning</span>
+        <span data-aff="D" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--D)"></i>swagger / playful</span>
+        <span data-aff="E" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--E)"></i>ecstatic / fervent</span>
+        <span data-aff="F" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--F)"></i>anguished / torn</span>
+        <span data-aff="G" title="Filter by affect — click to toggle"><i class="dot" style="background:var(--G)"></i>menacing / aggressive</span>
       </div>
       <svg id="tmap" viewBox="0 0 680 520" width="100%"></svg>
       <div id="tip"></div>
@@ -265,6 +270,7 @@ const AFF={A:'cool / detached',B:'melancholic / weary',C:'earnest / yearning',D:
     svg.querySelectorAll('g.sel').forEach(x=>x.classList.remove('sel'));
     if(already){ if(qbox){qbox.value='';qbox.dispatchEvent(new Event('input'));} return; }
     g.classList.add('sel');
+    if(window.__clearAff) window.__clearAff();   // a single-pin pick supersedes any affect-group selection
     const allTab=document.querySelector('.tab[data-cat="all"]');
     if(allTab&&!allTab.classList.contains('on')) allTab.click();   // clear category so the pin's card can't be hidden
     const gaps=document.getElementById('gaps');
@@ -277,7 +283,7 @@ const AFF={A:'cool / detached',B:'melancholic / weary',C:'earnest / yearning',D:
     if(qbox.value.trim().replace(/^#/,'')!==sel.getAttribute('data-n')) sel.classList.remove('sel');
   });
   LIB.filter(v=>v.cat==='acoustic'||v.cat==='female').forEach(v=>{
-    const cx=sx(v.grit),cy=sy(v.reg),g=el('g',{'data-n':v.n});
+    const cx=sx(v.grit),cy=sy(v.reg),g=el('g',{'data-n':v.n,'data-aff':v.aff||''});
     g.appendChild(el('circle',{cx,cy,r:12,fill:COL[v.aff],stroke:v.cat==='female'?'#e9e6dd':'none','stroke-width':v.cat==='female'?2:0}));
     const tx=el('text',{x:cx,y:cy+4,'text-anchor':'middle','font-size':11,fill:'#fff','font-weight':600});tx.textContent=v.n;g.appendChild(tx);
     g.addEventListener('mouseenter',()=>{tip.innerHTML=`<div style="font-weight:600;color:#e9e6dd;margin-bottom:2px">${v.n}. ${v.name}</div><div style="color:#98a0ad">${v.fam}</div><div style="color:#6b7280;margin-top:4px">register ${v.reg} · grit ${v.grit} · ${AFF[v.aff]}</div>`;tip.style.opacity=1;let lx=cx+16;if(lx>W-180)lx=cx-180;tip.style.left=(lx/W*100)+'%';tip.style.top=((cy-10)/H*100)+'%';});
@@ -285,6 +291,9 @@ const AFF={A:'cool / detached',B:'melancholic / weary',C:'earnest / yearning',D:
     g.addEventListener('click',()=>selectPin(v.n,g));
     svg.appendChild(g);
   });
+  // dim pins whose affect != aff (empty aff clears dimming); + a way to drop the pin ring
+  window.__mapDimAff=aff=>svg.querySelectorAll('g[data-n]').forEach(g=>g.classList.toggle('dim', !!aff && g.getAttribute('data-aff')!==aff));
+  window.__clearPinSel=()=>svg.querySelectorAll('g.sel').forEach(x=>x.classList.remove('sel'));
 })();
 
 /* ---------- CARDS ---------- */
@@ -362,7 +371,7 @@ function cardHTML(v){
   // data-blob feeds substring search only (never displayed); v.artist is a hashed
   // exact-match key (SHA-256 of the name) — the plaintext name never ships. See data.js.
   const sids=sunoIds(v.suno);   // song ids on this entry (empty => no demo)
-  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-suno="${sids.join(',')}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
+  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-aff="${esc(v.aff||'')}" data-suno="${sids.join(',')}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
   h+=`<span class="likewrap"><button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button><span class="lcount" data-count="${esc(String(v.n))}"></span></span>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;
@@ -418,7 +427,7 @@ document.addEventListener('click',e=>{
 syncHearts();
 
 /* ---------- SEARCH + FILTER + SORT ---------- */
-let curCat='all', curQ='', curQHash='', curSort='num', curDir='asc', curGap='';
+let curCat='all', curQ='', curQHash='', curSort='num', curDir='asc', curGap='', curAff='';
 // Artist keys are SHA-256 hashes (plaintext names never ship). We hash the typed
 // query the SAME way (norm + SHA-256, matching tools/denylist.mjs) and compare
 // hashes; an exact match isolates that study, so common-word names ("live"/"tool")
@@ -451,7 +460,8 @@ function applyFilter(){
       :curGap==='m'?(sids.length>0&&!sids.some(id=>G[id]==='m'))
       :curGap==='f'?(sids.length>0&&!sids.some(id=>G[id]==='f'))
       :true;
-    const show=okCat&&okQ&&okGap; c.style.display=show?'':'none'; if(show)shown++;
+    const okAff=!curAff||c.dataset.aff===curAff;
+    const show=okCat&&okQ&&okGap&&okAff; c.style.display=show?'':'none'; if(show)shown++;
   });
   hitsEl.textContent=shown+' / '+LIB.length;
 }
@@ -491,6 +501,17 @@ document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.v
 document.getElementById('sortdir').addEventListener('click',()=>{curDir=curDir==='desc'?'asc':'desc';updateSortDir();sortCards();});
 document.getElementById('genderedit').addEventListener('click',function(){document.body.classList.toggle('editgender');this.classList.toggle('on');});
 document.getElementById('gaps').addEventListener('change',function(){curGap=this.value;this.classList.toggle('on',!!curGap);applyFilter();});
+// clear the affect-group selection (legend badge + map dimming); leaves other filters alone
+window.__clearAff=()=>{curAff='';document.querySelectorAll('.legend span.sel').forEach(s=>s.classList.remove('sel'));if(window.__mapDimAff)window.__mapDimAff('');};
+// legend affect filter: highlights the badge, dims non-matching map pins, filters the list (toggle off on re-click)
+document.querySelectorAll('.legend span[data-aff]').forEach(sp=>sp.addEventListener('click',()=>{
+  const aff=sp.dataset.aff, already=sp.classList.contains('sel');
+  document.querySelectorAll('.legend span.sel').forEach(s=>s.classList.remove('sel'));
+  if(window.__clearPinSel) window.__clearPinSel();                      // a group pick supersedes a single-pin pick
+  const qb=document.getElementById('q'); if(qb&&qb.value){qb.value='';curQ='';curQHash='';}   // clear any number search
+  if(already){curAff='';if(window.__mapDimAff)window.__mapDimAff('');applyFilter();return;}
+  sp.classList.add('sel'); curAff=aff; if(window.__mapDimAff)window.__mapDimAff(aff); applyFilter();
+}));
 applyFilter(); renderCounts(); renderGenders();
 
 /* ---------- ELECTRONIC SHELF ---------- */
