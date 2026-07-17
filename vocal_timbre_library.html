@@ -50,15 +50,15 @@
   code.k{font-family:var(--mono);font-size:12px;background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--amber)}
   /* map */
   #mapwrap{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
-  .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-bottom:12px;font-size:12px;color:var(--muted)}
-  .legend span{display:flex;align-items:center;gap:5px}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:12px;font-size:11.5px;color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:4px}
   .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
   #tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;max-width:240px;z-index:5;box-shadow:0 6px 22px rgba(0,0,0,.5)}
   #tmap g[data-n]{cursor:pointer}
   #tmap g.sel circle{stroke:var(--amber);stroke-width:3.5}
   #tmap g.dim{opacity:.13}
   #tmap g.sel{opacity:1}
-  .legend span[data-aff]{cursor:pointer;padding:2px 6px;border-radius:6px;border:1px solid transparent}
+  .legend span[data-aff]{cursor:pointer;padding:2px 5px;border-radius:6px;border:1px solid transparent}
   .legend span[data-aff]:hover{background:var(--panel2)}
   .legend span.sel{border-color:var(--amber);background:var(--panel2)}
   /* controls */
@@ -253,7 +253,7 @@
       <button class="tab" data-cat="female">Female 121–125</button>
       <button class="tab" data-cat="inspiration">Inspirations 137–169</button>
       <button class="tab" data-cat="suite">Suites</button>
-      <select id="sort" title="Sort order"><option value="num">Sort: default</option><option value="likes">Sort: most liked</option></select>
+      <select id="sort" title="Sort order"><option value="num">Sort: default</option><option value="likes">Sort: most liked</option><option value="reg">Sort: register #</option><option value="grit">Sort: grit #</option><option value="bpm">Sort: BPM #</option></select>
       <button type="button" class="tab" id="sortdir" title="Ascending — click for descending">↑</button>
       <button type="button" class="tab" id="genderedit" title="Assign a vocal gender (♀/♂) to demo songs — saves live">✎ Genders</button>
       <select id="gaps" title="Find entries missing a demo song or a gender take"><option value="">Gaps: —</option><option value="demo">Missing demo</option><option value="m">Missing ♂</option><option value="f">Missing ♀</option></select>
@@ -397,7 +397,7 @@ function cardHTML(v){
   // data-blob feeds substring search only (never displayed); v.artist is a hashed
   // exact-match key (SHA-256 of the name) — the plaintext name never ships. See data.js.
   const sids=sunoIds(v.suno);   // song ids on this entry (empty => no demo)
-  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-aff="${esc(v.aff||'')}" data-suno="${sids.join(',')}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
+  let h=`<div class="card" data-n="${v.n}" data-cat="${v.cat}" data-aff="${esc(v.aff||'')}" data-reg="${v.reg??''}" data-grit="${v.grit??''}" data-bpm="${(String(v.style||'').match(/(?:near|at) (\d+) ?BPM/i)||[])[1]||''}" data-suno="${sids.join(',')}" data-artist="${esc(v.artist||'')}" data-blob="${esc((v.name+' '+v.fam+' '+v.style+' '+(v.lyric||'')+' '+(v.seed||'')).toLowerCase())}" style="border-left-color:${border}">`;
   h+=`<span class="likewrap"><button class="like" data-like="${esc(String(v.n))}" title="Like this style" aria-label="Like this style">♡</button><span class="lcount" data-count="${esc(String(v.n))}"></span></span>`;
   h+=`<div class="top"><span class="num">#${v.n}</span><span class="name">${esc(v.name)}</span><span class="fam">${esc(v.fam)}</span></div>`;
   h+=`<div class="chips">${chips(v)}</div>`;
@@ -494,9 +494,16 @@ function applyFilter(){
 function sortCards(){                                  // reorder #cards by chosen field + direction
   const arr=[...cardsEl.children];
   const dir=curDir==='desc'?-1:1;
-  arr.sort(curSort==='likes'
-    ? (a,b)=>dir*(countOf(a)-countOf(b))||(a._ord-b._ord)  // by ♥ count; ties keep #order
-    : (a,b)=>dir*(a._ord-b._ord));                          // by entry #
+  const num=(c,k)=>{const v=parseFloat(c.dataset[k]);return isNaN(v)?null:v;};
+  let cmp;
+  if(curSort==='likes') cmp=(a,b)=>dir*(countOf(a)-countOf(b))||(a._ord-b._ord);  // by ♥ count
+  else if(curSort==='reg'||curSort==='grit'||curSort==='bpm')                      // by a numeric field
+    cmp=(a,b)=>{const av=num(a,curSort),bv=num(b,curSort);
+      if(av===null&&bv===null)return a._ord-b._ord;
+      if(av===null)return 1; if(bv===null)return -1;                               // entries lacking the value sink to the end
+      return dir*(av-bv)||(a._ord-b._ord);};
+  else cmp=(a,b)=>dir*(a._ord-b._ord);                                             // by entry #
+  arr.sort(cmp);
   const frag=document.createDocumentFragment();
   arr.forEach(c=>frag.appendChild(c));
   cardsEl.appendChild(frag);
