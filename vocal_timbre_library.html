@@ -226,6 +226,7 @@
       <button class="tab" data-cat="inspiration">Inspirations 137–169</button>
       <button class="tab" data-cat="suite">Suites</button>
       <select id="sort" title="Sort order"><option value="num">Sort: default</option><option value="likes">Sort: most liked</option></select>
+      <button type="button" class="tab" id="sortdir" title="Ascending — click for descending">↑</button>
       <button type="button" class="tab" id="genderedit" title="Assign a vocal gender (♀/♂) to demo songs — saves live">✎ Genders</button>
       <select id="gaps" title="Find entries missing a demo song or a gender take"><option value="">Gaps: —</option><option value="demo">Missing demo</option><option value="m">Missing ♂</option><option value="f">Missing ♀</option></select>
       <span class="hits" id="hits"></span>
@@ -417,7 +418,7 @@ document.addEventListener('click',e=>{
 syncHearts();
 
 /* ---------- SEARCH + FILTER + SORT ---------- */
-let curCat='all', curQ='', curQHash='', curSort='num', curGap='';
+let curCat='all', curQ='', curQHash='', curSort='num', curDir='asc', curGap='';
 // Artist keys are SHA-256 hashes (plaintext names never ship). We hash the typed
 // query the SAME way (norm + SHA-256, matching tools/denylist.mjs) and compare
 // hashes; an exact match isolates that study, so common-word names ("live"/"tool")
@@ -454,11 +455,12 @@ function applyFilter(){
   });
   hitsEl.textContent=shown+' / '+LIB.length;
 }
-function sortCards(){                                  // reorder #cards by the chosen sort
+function sortCards(){                                  // reorder #cards by chosen field + direction
   const arr=[...cardsEl.children];
+  const dir=curDir==='desc'?-1:1;
   arr.sort(curSort==='likes'
-    ? (a,b)=>(countOf(b)-countOf(a))||(a._ord-b._ord)  // most-liked first, ties keep default order
-    : (a,b)=>a._ord-b._ord);
+    ? (a,b)=>dir*(countOf(a)-countOf(b))||(a._ord-b._ord)  // by ♥ count; ties keep #order
+    : (a,b)=>dir*(a._ord-b._ord));                          // by entry #
   const frag=document.createDocumentFragment();
   arr.forEach(c=>frag.appendChild(c));
   cardsEl.appendChild(frag);
@@ -479,7 +481,14 @@ document.getElementById('q').addEventListener('input',async e=>{
 document.querySelectorAll('.tab[data-cat]').forEach(t=>t.addEventListener('click',()=>{   // real category tabs only — not #genderedit
   document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
 }));
-document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.value;sortCards();});
+function updateSortDir(){
+  const b=document.getElementById('sortdir');
+  b.textContent=curDir==='desc'?'↓':'↑';
+  b.title=curDir==='desc'?'Descending — click for ascending':'Ascending — click for descending';
+}
+updateSortDir();
+document.getElementById('sort').addEventListener('change',e=>{curSort=e.target.value;curDir=curSort==='likes'?'desc':'asc';updateSortDir();sortCards();});
+document.getElementById('sortdir').addEventListener('click',()=>{curDir=curDir==='desc'?'asc':'desc';updateSortDir();sortCards();});
 document.getElementById('genderedit').addEventListener('click',function(){document.body.classList.toggle('editgender');this.classList.toggle('on');});
 document.getElementById('gaps').addEventListener('change',function(){curGap=this.value;this.classList.toggle('on',!!curGap);applyFilter();});
 applyFilter(); renderCounts(); renderGenders();
