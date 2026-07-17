@@ -424,6 +424,62 @@ A single patient climb that begins beatless: minutes of pure ambient drone — d
 constant beat from the start, fast tempo, screamed vocals, aggressive rap, modern EDM build, quantized trap hats, clean digital sheen, autotune, bright loudness, busy percussion
 ```
 
+## Study 7 — Nu-disco dance-pop (blend + 4 roots)
+
+*Generated from library entries #180–184 · 2026-07-16 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: cool confidence over a moving floor — sultry restraint, empowerment and heartbreak sung deadpan-warm rather than belted, a danceable melancholy under the glamour. Drop the cool detachment and you get a generic dance-pop cousin. Roots: late-70s disco-funk and French-touch house triangulate the glossy floor; 80s synth-pop and post-disco boogie triangulate the retro-futurist sheen. Vocal anchored ungendered, a cool husky low-alto to lean feminine.
+
+### Blend (882)
+
+```
+Retro-futurist nu-disco dance-pop built from its ancestors: late-70s Studio-54 disco — four-on-the-floor pulse, plucked funk bass, sweeping disco strings and glassy Rhodes — crossed with glossy 80s synth-pop sheen and a French-touch filter, sleek and modern. A unique and specific vocalist, cool husky low-alto timbre, sultry and controlled, deadpan-warm confidence that moves rather than belts, a danceable melancholy under the swagger. Verses restrained and conversational, choruses opening into an effortless hook sung just above the groove. Punchy sidechained four-on-the-floor kick, slap-and-mute bassline as lead, gated retro drums, string stabs and analog pads, tasteful filter sweeps. Bright, wide, glossy retro-futurist production, everything danceable and uncluttered. Empowered heartbreak sung cool — mirror-ball glamour by way of modern pop, transformation on the floor.
+```
+
+```
+belted power-ballad vocals, screamed delivery, rock guitars, trap hi-hats, lo-fi bedroom production, muddy mix, country twang, aggressive edm drop
+```
+
+### Root 1 · Late-70s disco-funk (772)
+
+```
+Late-70s disco and funk revival isolated: the mirror-ball floor rebuilt — four-on-the-floor kick, hi-hat sixteenths, a slapped-and-muted funk bassline carrying the melody, lush sweeping disco strings, wah clavinet and glassy electric piano, brass stabs punctuating the turnarounds. A unique and specific vocalist, cool husky low-alto timbre, sultry and controlled, phrasing laid back in the pocket, deadpan-warm confidence over the groove rather than belting. Song built for continuous motion — verses conversational, chorus an easy repeating hook, a string-and-bass breakdown before the last lift. Warm analog disco production, live-feel rhythm section, tambourine and congas, tape glue. Danceable and glossy, melancholy hiding inside the joy — euphoria with a cool head.
+```
+
+```
+modern trap production, rock guitars, screamed vocals, belted diva runs, lo-fi mix, aggressive edm drop, country twang, cluttered arrangement
+```
+
+### Root 2 · 80s synth-pop sheen (738)
+
+```
+Glossy 80s synth-pop and new wave isolated: gated reverb snares, punchy programmed drums, warm analog polysynth chords and a bright arpeggiated hook, a fat synth-bass pulse, neon sheen over everything. A unique and specific vocalist, cool husky low-alto timbre, sultry and controlled, verses intimate and deadpan, chorus opening to a confident but restrained lift, danceable melancholy at the center. Structure classic pop — verse, pre-chorus, big synth chorus, a middle-eight that pulls back before the final hook. Wide stereo chorus effects, tape saturation, a single tasteful synth-lead motif. Retro-futurist and clean, built to move but tinged blue — heartbreak sung with composure over a bright machine, transformation in the melody.
+```
+
+```
+rock guitars, screamed vocals, belted power ballad, trap hats, lo-fi bedroom mix, muddy low end, country twang, aggressive edm build
+```
+
+### Root 3 · French-touch disco-house (764)
+
+```
+French-touch and disco-house isolated: a chopped disco or soul sample looped and filtered, sidechained pump breathing on the four-on-the-floor, phaser sweeps and a warm compressed groove, a fat filtered bassline, house claps and shakers. A unique and specific vocalist, cool husky low-alto timbre, sultry and controlled, hooks kept short and hypnotically repetitive, deadpan-warm confidence riding the loop rather than belting. Built as a groove that evolves by filter and layering — long intro, the vocal entering as a texture then a hook, a filtered breakdown, the drop a full-spectrum bloom. Warm analog house production, vinyl-sampled glue, wide and glossy. Danceable melancholy, euphoria through repetition and release — cool transformation on the dancefloor.
+```
+
+```
+rock guitars, screamed vocals, belted diva runs, trap hats, lo-fi mix, harsh digital edm, country twang, cluttered busy arrangement
+```
+
+### Root 4 · Post-disco boogie (722)
+
+```
+Early-80s post-disco boogie and electro-funk isolated: a syncopated slap-and-pop bassline as the lead, clavinet and clean funk guitar chops, a drum-machine backbeat with crisp claps, glossy synth-brass stabs and a bright lead motif, mid-tempo and irresistibly grooving. A unique and specific vocalist, cool husky low-alto timbre, sultry and controlled, phrasing tight and rhythmic in the pocket, deadpan-warm confidence, danceable melancholy under the sheen. Song built on the bass groove — verses talky and cool, chorus a compact repeated hook, a stripped bass-and-clav breakdown. Warm analog boogie production, gated drums, wide glossy mix. Retro-futurist and buoyant, heartbreak worn lightly — motion as transformation.
+```
+
+```
+rock guitars, screamed vocals, belted power ballad, trap production, lo-fi mix, muddy bass, country twang, aggressive edm drop
+```
+
 <!-- END GENERATED -->
 
 ---
