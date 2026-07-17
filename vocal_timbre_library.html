@@ -489,7 +489,10 @@ document.getElementById('q').addEventListener('input',async e=>{
   curQHash=h; applyFilter();
 });
 document.querySelectorAll('.tab[data-cat]').forEach(t=>t.addEventListener('click',()=>{   // real category tabs only — not #genderedit
-  document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('on'));t.classList.add('on');curCat=t.dataset.cat;applyFilter();
+  const off=t.classList.contains('on')&&t.dataset.cat!=='all';   // click an active non-All tab again -> deselect back to All
+  document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('on'));
+  const sel=off?document.querySelector('.tab[data-cat="all"]'):t;
+  sel.classList.add('on'); curCat=sel.dataset.cat; applyFilter();
 }));
 function updateSortDir(){
   const b=document.getElementById('sortdir');
