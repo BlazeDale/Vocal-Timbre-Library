@@ -368,6 +368,62 @@ Psychedelic ambient-rock ascent isolated: the late-60s and 70s space-rock lineag
 fast tempo, heavy distortion, screamed vocals, aggressive riffing, verse-chorus pop, bright compressed loudness, busy percussion throughout, abrupt sections
 ```
 
+## Study 6 — Trip-hop space-rock ascent (blend + 4 roots)
+
+*Generated from library entries #170–174 · 2026-07-16 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: a crate-digger's melancholy fused to space-rock patience — an archivist stitching found dust into a single slow climb, the beat always in service of the ascent rather than its own sake. The blend is the full marriage; the four roots isolate one angle each — sample-collage, head-nod pocket, cinematic dust, and drone-into-break — mixable to triangulate a specific track. Vocal anchored ungendered, timbre shifted to a warm floating alto to lean feminine.
+
+### Blend (949)
+
+```
+Psychedelic space-rock ascent married to dusty instrumental trip-hop: the late-60s and 70s lineage of long hypnotic builds — spacious washes, slow-blooming echo-drenched chords, a track treated as a single patient climb — laid over a downtempo boom-bap bed sampled and chopped from crate-dug vinyl, an archivist's melancholy stitched from obscure records. A unique and specific vocalist, warm floating alto timbre, hushed and meditative, long sustained phrases riding the swell, rising near the end to a wordless cathartic peak that releases rather than shouts. Volume-swelled guitar and one repeating motif elevated by repetition; a slow melodic bass pulse; heavy dusty breakbeat drums entering late, mallet toms giving way to a head-nod pocket that opens for the ascent. Analogue tape delay, deep reverb, vinyl crackle and hiss, drones and organ pads holding the space. Circular and expanding, dissolution into awakening — transcendent, unhurried.
+```
+
+```
+fast tempo, aggressive rap delivery, screamed vocals, modern EDM drops, quantized trap hi-hats, clean digital production, autotune, bright compressed loudness, verse-chorus pop, busy percussion throughout
+```
+
+### Root 1 · Sample-collage ascent (907)
+
+```
+A patient psychedelic ascent assembled entirely from chopped vinyl: spacious space-rock washes and slow-blooming chords built not from a band but from crate-dug fragments — a warped soul-organ loop, a lone string stab, a dusty jazz-drum break — layered on an early sampler until they bloom. The one repeating motif is a looped sampled phrase elevated by repetition; faint turntablist scratches and record crackle used as texture, not spectacle. A unique and specific vocalist, warm floating alto timbre, hushed and meditative, long sustained phrases riding the swell, rising near the end to a wordless cathartic peak that releases rather than shouts. Bass a slow melodic pulse; breakbeat drums entering late for the climb. Deep reverb, analogue tape delay, hiss and dust holding the space; the final ascent a collage blooming into one radiant chord. Circular, expanding, esoteric — a climb toward the light.
+```
+
+```
+live full-band rock, fast tempo, screamed vocals, aggressive scratching solos, modern EDM build-and-drop, quantized trap hats, clean digital sheen, autotune, bright loudness, abrupt cuts
+```
+
+### Root 2 · Head-nod boom-bap ascent (901)
+
+```
+Meditative space-rock ascent riding a slow, dusty head-nod pocket the whole way through: the late-60s lineage of hypnotic builds and echo-drenched slow-blooming chords carried over a crate-dug boom-bap groove, gritty sampler-crunch drums and a fat lazy pocket that never hurries. A unique and specific vocalist, warm floating alto timbre, hushed and meditative, long sustained phrases floating over the dusty break, rising near the end to a wordless cathartic peak that releases rather than shouts. Volume-swelled guitar and one repeating motif; a round melodic sub-bass; the drums present from early but patient, the ascent arriving as the beat finally opens and the toms bloom. Analogue tape delay, deep reverb, vinyl crackle and tape hiss, drones and organ pads under everything. Structure circular and expanding, dissolution into awakening — transcendent, unhurried, head-nodding toward the light.
+```
+
+```
+fast tempo, double-time drums, screamed vocals, aggressive rap, modern trap production, quantized hats, clean digital mix, autotune, bright compressed loudness, verse-chorus pop, busy fills
+```
+
+### Root 3 · Cinematic dust ascent (908)
+
+```
+A psychedelic ascent scored like a lost film cue rebuilt from vinyl: spacious space-rock washes and slow-blooming chords woven with dusty sampled strings, muted-horn fragments and library-music melancholy, all crackle and warmth, a cinematic patience assembled by an archivist. A unique and specific vocalist, warm floating alto timbre, hushed and meditative, long sustained phrases riding the swell, rising near the end to a wordless cathartic peak that releases rather than shouts. Echo-drenched guitar and one repeating motif elevated by repetition; a slow melodic bass; heavy, deliberate trip-hop drums entering late, mallet toms building for minutes before a cinematic backbeat lifts the final climb. Analogue tape delay, deep reverb, vinyl hiss, drones and organ pads holding the space. Structure circular and expanding, dissolution into awakening — widescreen, esoteric, a slow climb toward the light.
+```
+
+```
+fast tempo, bombastic orchestral hits, screamed vocals, aggressive brass, modern EDM drop, quantized hats, clean digital production, autotune, bright loudness, abrupt sections
+```
+
+### Root 4 · Drone-to-break ascent (859)
+
+```
+A single patient climb that begins beatless: minutes of pure ambient drone — deep reverb, tape hiss, organ pads and slow-blooming echo-drenched chords, a space-rock wash suspended and unhurried — before one dusty crate-dug breakbeat drops to carry the final ascent. A unique and specific vocalist, warm floating alto timbre, hushed and meditative, long sustained phrases riding the swell from the first drone, rising near the end to a wordless cathartic peak that releases rather than shouts. Volume-swelled guitar and one repeating motif; a slow melodic bass entering with the break; the drums withheld until the climb, then a heavy dusty boom-bap pocket as revelation. Analogue tape delay, deep reverb, vinyl crackle. Structure circular and expanding, silence resolving into groove into awakening — minimal, esoteric, transcendent, a climb toward the light.
+```
+
+```
+constant beat from the start, fast tempo, screamed vocals, aggressive rap, modern EDM build, quantized trap hats, clean digital sheen, autotune, bright loudness, busy percussion
+```
+
 <!-- END GENERATED -->
 
 ---
