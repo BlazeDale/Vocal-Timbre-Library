@@ -592,6 +592,62 @@ Pop-punk and alt-rock isolated: chugging palm-muted distorted guitars, driving e
 clean crooner vocals, orchestral ballad, trap hats, lo-fi murk, country twang, aggressive edm drop, jazz swing, muddy low end
 ```
 
+## Study 10 — Progressive space-rock (blend + 4 roots)
+
+*Generated from library entries #195–199 · 2026-07-17 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: vastness that feels like loneliness — melancholy prog patience where dynamics are the whole drama, hush swelling to a cathartic guitar-and-voice roar and drifting back to silence. Space, breath, and dread held in balance; catharsis withheld until it is earned. The four roots isolate the DNA — psychedelic space-rock drift, anthemic prog art-rock builds, a blues-rock guitar cry, and ambient/experimental soundscape. A weary, restrained ungendered mid-baritone floats over immense reverberant space, more feeling than force. Play it as busy fast rock and it collapses; the point is patience, space, and the ache in the room.
+
+### Blend (914)
+
+```
+Progressive space-rock built from its ancestors: psychedelic echo-drift and prog dynamic architecture crossed with a blues-rooted guitar cry and long ambient soundscape passages — vast, patient, and melancholy, near 68 BPM. A unique and specific vocalist, a weary warm mid-baritone timbre, plainspoken and restrained, a near-conversational calm swelling into a soaring cracked cry, floating high in a huge reverberant space, more feeling than force. Slow-building form — a hushed verse over Rhodes and clean guitar, a long instrumental ascent, a wailing blues-bent guitar solo at the peak, a drift back to silence. Wide analog production, tape echo, sustained organ pads, a smacking gated snare, deep patient bass, wordless choir far off. Space, breath, and dread held in balance; catharsis withheld until the very end. Delivery numb, aching, transcendent — vastness that feels like loneliness and comfort at once.
+```
+
+```
+punchy pop production, trap hats, screamed metal vocals, fast edm build, lo-fi bedroom mix, country twang, cluttered busy arrangement, autotuned vocal
+```
+
+### Root 1 · Psychedelic space-rock (792)
+
+```
+Psychedelic space-rock isolated: echo-drenched clean guitars, slow-blooming chords, a hypnotic drifting groove, swirling organ, tape-delay throws and phased cymbals, near 72 BPM, cosmic and unhurried. A unique and specific vocalist, a cool weary mid-baritone timbre, hushed and detached, floating long sustained notes over the drift, almost spoken, dissolving into wordless melody on the swells. A single motif elevated by repetition, volume-swelled guitar, a slow melodic bass pulse, drones and organ pads holding the space, sparse mallet toms. Late-60s and 70s British psychedelia, analog and spacious, reverb vast. Structure a patient expanding trance — a verse dissolving into an instrumental cosmos. Delivery weightless, drifting, faraway — the sound of a mind unmoored and floating out.
+```
+
+```
+punchy pop production, trap hats, screamed vocals, fast edm build, lo-fi mix, country twang, busy arrangement, autotuned vocal
+```
+
+### Root 2 · Anthemic prog art-rock (800)
+
+```
+Anthemic progressive art-rock isolated: a slow monumental build from near-silence to a towering guitar-solo climax, huge gated drums, sustained synth and organ swells, a lone bent-string blues-rock guitar screaming over the top, near 64 BPM, immense and anguished. A unique and specific vocalist, a warm weary mid-baritone timbre, restrained and numb in the verses, cracking into a soaring anguished cry at the peak, floating high in vast reverb, more ache than power. Dynamic contrast is the whole architecture — hush to cathedral roar. Wide analog production, tape saturation, a wailing lead guitar as a second voice, wordless choir, deep bass, cavernous space. Conceptual, cinematic, cathartic. Delivery detached then broken open — numbness resolving into a wail that finally lets the feeling out.
+```
+
+```
+punchy pop production, trap hats, screamed metal vocals, fast edm build, lo-fi mix, country twang, cluttered arrangement, autotuned vocal
+```
+
+### Root 3 · Blues-rock foundation (754)
+
+```
+Blues-rock foundation isolated: a weeping bent-string electric guitar, a slow 12/8 sway, warm Hammond organ, brushed-then-struck drums, a walking electric bass, near 66 BPM, aching and yearning. A unique and specific vocalist, a warm weary mid-baritone timbre, plainspoken and soulful, phrasing behind the beat with restrained ache, bending into a cracked cry on the peaks like the guitar it answers. Call-and-response between voice and lead guitar, tension-release across long held bends, a slow burn toward one cathartic solo. Vintage analog warmth, valve amps, spring reverb, tape. British blues-boom feeling carried into art-rock patience, unhurried and deep. Delivery weary, tender, yearning — a plain voice reaching for something just out of range.
+```
+
+```
+punchy pop production, trap hats, screamed vocals, fast edm build, lo-fi bedroom mix, country twang, busy arrangement, autotuned vocal
+```
+
+### Root 4 · Ambient soundscape (773)
+
+```
+Ambient experimental soundscape isolated: tape loops and musique-concrete fragments, deep drones, sustained organ and synth pads, treated guitar swells, distant sound-effect textures and wordless voices, near 60 BPM, vast and weightless. A unique and specific vocalist used sparingly, a cool weary mid-baritone timbre, wordless and floating, a long sustained melody surfacing from the drift then dissolving, more texture than song. No drums or a barely-there pulse, everything suspended in enormous reverberant space, slow and evolving. Analog studio experimentation, tape manipulation, panning and phase, deep patient bass swells. Structure a slow bloom and decay, no verse or chorus. Delivery spectral, submerged, faraway — a voice half-dissolved into the room it haunts.
+```
+
+```
+punchy pop production, trap hats, screamed vocals, fast edm build, lo-fi mix, country twang, busy cluttered arrangement, autotuned vocal
+```
+
 <!-- END GENERATED -->
 
 ---
