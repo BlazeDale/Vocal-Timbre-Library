@@ -536,6 +536,62 @@ Late-90s electronica and ambient-techno reinvention isolated: filtered breakbeat
 rock guitars, screamed vocals, belted power ballad, trap production, lo-fi mix, muddy bass, country twang, aggressive brostep drop
 ```
 
+## Study 9 — Ska-pop crossover (blend + 4 roots)
+
+*Generated from library entries #190–194 · 2026-07-17 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: a rude-girl-fronted ska-punk band that kept crossing over — 2-tone upstroke energy welded to new-wave pop gloss, a reggae-dancehall lilt, and pop-punk heartbreak, carried by one unmistakable elastic voice that flips from bratty taunt to keening wail in a single bar. The throughline is the singer, not the genre: playful, pugnacious, and secretly bruised. The four roots isolate the DNA — 2-tone ska, new-wave synth-pop, reggae-dancehall, and pop-punk alt-rock — mixable to place a specific era. Drop the vocal character or the ska bounce and it collapses into generic late-90s pop-rock; the whole point is joy and heartbreak sharing one pogo.
+
+### Blend (857)
+
+```
+Ska-pop crossover built from its ancestors: 2-tone ska upstrokes and pop-punk drive crossed with glossy new-wave synths and a reggae-dancehall lilt — kinetic, bright, and bruised under the bounce, near 108 BPM. A unique and specific vocalist, bright agile elastic mid-alto timbre, characterful and unmistakable, snapping from bratty ska-clipped taunts to a keening cracked wail, quick yodel-adjacent flips into head voice, vibrato shivered at the phrase-ends, playful and pugnacious with a bruised heart beneath. Choppy offbeat guitar skank, a walking-then-driving bassline, blatting horn stabs, punchy new-wave synth chords, a tight kit snapping between one-drop and double-time, handclaps. Late-90s crossover-pop sheen over live ska-band muscle, bright and hooky. Delivery defiant, flirtatious, heartbroken by turns — the class clown who means every word.
+```
+
+```
+belted diva runs, screamed metal vocals, trap hi-hats, lo-fi bedroom murk, country twang, aggressive edm drop, orchestral ballad, muddy low end
+```
+
+### Root 1 · Two-tone ska revival (730)
+
+```
+Two-tone ska revival isolated: fast choppy offbeat guitar skank, a bouncing walking bassline, a blatting horn section, bubbling organ, snare-cracking drums riding the upstroke, near 150 BPM, kinetic and euphoric. A unique and specific vocalist, bright agile elastic mid-alto timbre, clipped and forward, riding the offbeats with rude-girl swagger and quick yodel-adjacent flips, bratty and exuberant, cracking into a keening shout on the hooks. Skanking guitar, driving bass, trombone and trumpet stabs, tight fast drums with rimshot accents, Hammond stabs, tambourine. Late-70s Coventry ska-revival muscle rerun through a mid-90s SoCal garage, hot and live. Delivery pogoing, defiant, joyous — checkerboard energy at full sprint.
+```
+
+```
+screamed metal vocals, belted power ballad, trap hats, lo-fi murk, country twang, aggressive edm drop, orchestral strings, muddy mix
+```
+
+### Root 2 · New-wave synth-pop (695)
+
+```
+Early-80s new-wave synth-pop isolated: bright arpeggiated synths, a fat pulsing synth-bass, gated reverb snare, chiming clean guitar, neon polysynth chords, near 116 BPM, cool and glossy. A unique and specific vocalist, bright agile mid-alto timbre, clipped and deadpan-cool in the verses, snapping into a bratty keening lift on the chorus, quick head-voice flips, characterful and self-possessed. Programmed drum machine blended with a live kit, tambourine, a single hooky synth-lead motif, staccato new-wave guitar, a fat analog bass pulse. Wide early-80s production, chorus-drenched and bright, tape sheen. Delivery detached and stylish, then suddenly stung — a cool surface over a live wire.
+```
+
+```
+rock guitars, screamed vocals, belted diva runs, trap hats, lo-fi murk, country twang, aggressive edm drop, muddy low end
+```
+
+### Root 3 · Reggae-dancehall pop (716)
+
+```
+Reggae and dancehall pop isolated: a deep one-drop giving way to a skipping dancehall riddim, fat rolling bassline, off-beat guitar skank, bubbling organ, digital rimshot and a warm horn pad, near 90 BPM, sunlit and yearning. A unique and specific vocalist, bright agile mid-alto timbre, warm and lilting over the riddim, soft melismatic dips and a gentle reggae bounce in the phrasing, opening into a keening ache on the lifts, tender then defiant. One-drop drums, rolling bass, skank guitar, Rhodes chords, digital dancehall percussion, dubby delay throws. Early-2000s crossover-pop polish over roots warmth, bright and spacious. Delivery flirtatious, lovesick, resilient — heartbreak sung with a smile in the sun.
+```
+
+```
+screamed vocals, belted power ballad, distorted rock guitars, trap hats, lo-fi murk, country twang, aggressive edm drop, muddy mix
+```
+
+### Root 4 · Pop-punk alt-rock (720)
+
+```
+Pop-punk and alt-rock isolated: chugging palm-muted distorted guitars, driving eighth-note bass, fast hard-hitting drums with crashing cymbals, an octave-chord lead hook, near 168 BPM, urgent and raw-hearted. A unique and specific vocalist, bright agile elastic mid-alto timbre, pushed high and forward, bratty and cracking, belting up into a keening wail where the voice frays, quick head-voice flips, anguished and defiant at once. Distorted rhythm guitars, melodic octave leads, punchy bass, breakneck drums, gang-shout backing far behind. Mid-90s alt-rock crunch with pop-punk gloss, bright and hot, live-room energy. Delivery heartbroken, furious, cathartic — a breakup screamed into a hook you cannot stop singing.
+```
+
+```
+clean crooner vocals, orchestral ballad, trap hats, lo-fi murk, country twang, aggressive edm drop, jazz swing, muddy low end
+```
+
 <!-- END GENERATED -->
 
 ---
