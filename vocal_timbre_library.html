@@ -124,7 +124,6 @@
   #pnow{font-size:12px;color:var(--muted);font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #prand{flex:none;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:12px;padding:5px 9px;cursor:pointer}
   #prand:hover{border-color:var(--amber);color:var(--amber)}
-  #pcover{display:block;width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:8px;background:var(--panel2);border:1px solid var(--line)}
   #pframe{display:block;width:100%;height:180px;border:0;border-radius:8px;background:#000}
   #pempty{font-size:12px;color:var(--dim);text-align:center;padding:26px 8px}
   .gbtn{font-family:var(--mono);font-size:12px;line-height:1;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:2px 6px;cursor:pointer}
@@ -144,7 +143,6 @@
 <div id="player" class="collapsed">
   <div class="pbody">
     <div class="phead"><span id="pnow">Nothing playing</span><button type="button" id="prand" title="Play a random demo from the current filter, and jump to it">🎲 Random</button></div>
-    <img id="pcover" alt="cover art" style="display:none">
     <div id="pempty">▶ any demo, or hit Random</div>
     <iframe id="pframe" src="about:blank" allow="autoplay; encrypted-media" title="Suno player" style="display:none"></iframe>
   </div>
@@ -546,13 +544,11 @@ document.querySelectorAll('.legend span[data-aff]').forEach(sp=>sp.addEventListe
 /* ---------- SIDE PLAYER (Suno embed) ---------- */
 (function(){
   const player=document.getElementById('player'), frame=document.getElementById('pframe'),
-        pnow=document.getElementById('pnow'), pempty=document.getElementById('pempty'), cover=document.getElementById('pcover');
+        pnow=document.getElementById('pnow'), pempty=document.getElementById('pempty');
   const labelOf=card=>card?('#'+card.dataset.n+' '+(card.querySelector('.name')?.textContent||'').trim()):'';
   function play(uuid,lab){
     if(!uuid) return;
     pempty.style.display='none'; frame.style.display='block';
-    cover.onerror=()=>{cover.style.display='none';};   // hide if art missing
-    cover.style.display='block'; cover.src='https://cdn2.suno.ai/image_'+uuid+'.jpeg';
     frame.src='https://suno.com/embed/'+uuid;
     pnow.textContent=lab||'Playing';
     player.classList.remove('collapsed');
