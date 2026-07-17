@@ -268,9 +268,9 @@ const AFF={A:'cool / detached',B:'melancholic / weary',C:'earnest / yearning',D:
   function selectPin(n,g){
     const already=g.classList.contains('sel');
     svg.querySelectorAll('g.sel').forEach(x=>x.classList.remove('sel'));
-    if(already){ if(qbox){qbox.value='';qbox.dispatchEvent(new Event('input'));} return; }
+    if(already){ curNum=''; if(qbox){qbox.value='';qbox.dispatchEvent(new Event('input'));} return; }
     g.classList.add('sel');
-    if(window.__clearAff) window.__clearAff();   // a single-pin pick supersedes any affect-group selection
+    curNum=String(n);   // drilled-in number: suppress (don't clear) any active affect filter so deselecting restores it
     const allTab=document.querySelector('.tab[data-cat="all"]');
     if(allTab&&!allTab.classList.contains('on')) allTab.click();   // clear category so the pin's card can't be hidden
     const gaps=document.getElementById('gaps');
@@ -280,7 +280,7 @@ const AFF={A:'cool / detached',B:'melancholic / weary',C:'earnest / yearning',D:
   // if the search box is edited away from the selected number, drop the pin highlight
   if(qbox) qbox.addEventListener('input',()=>{
     const sel=svg.querySelector('g.sel'); if(!sel) return;
-    if(qbox.value.trim().replace(/^#/,'')!==sel.getAttribute('data-n')) sel.classList.remove('sel');
+    if(qbox.value.trim().replace(/^#/,'')!==sel.getAttribute('data-n')){ sel.classList.remove('sel'); curNum=''; }
   });
   LIB.filter(v=>v.cat==='acoustic'||v.cat==='female').forEach(v=>{
     const cx=sx(v.grit),cy=sy(v.reg),g=el('g',{'data-n':v.n,'data-aff':v.aff||''});
@@ -427,7 +427,7 @@ document.addEventListener('click',e=>{
 syncHearts();
 
 /* ---------- SEARCH + FILTER + SORT ---------- */
-let curCat='all', curQ='', curQHash='', curSort='num', curDir='asc', curGap='', curAff='';
+let curCat='all', curQ='', curQHash='', curSort='num', curDir='asc', curGap='', curAff='', curNum='';
 // Artist keys are SHA-256 hashes (plaintext names never ship). We hash the typed
 // query the SAME way (norm + SHA-256, matching tools/denylist.mjs) and compare
 // hashes; an exact match isolates that study, so common-word names ("live"/"tool")
@@ -460,7 +460,7 @@ function applyFilter(){
       :curGap==='m'?(sids.length>0&&!sids.some(id=>G[id]==='m'))
       :curGap==='f'?(sids.length>0&&!sids.some(id=>G[id]==='f'))
       :true;
-    const okAff=!curAff||c.dataset.aff===curAff;
+    const okAff=!curAff||!!curNum||c.dataset.aff===curAff;   // a drilled-in number overrides the affect group (restored when it clears)
     const show=okCat&&okQ&&okGap&&okAff; c.style.display=show?'':'none'; if(show)shown++;
   });
   hitsEl.textContent=shown+' / '+LIB.length;
@@ -508,6 +508,7 @@ document.querySelectorAll('.legend span[data-aff]').forEach(sp=>sp.addEventListe
   const aff=sp.dataset.aff, already=sp.classList.contains('sel');
   document.querySelectorAll('.legend span.sel').forEach(s=>s.classList.remove('sel'));
   if(window.__clearPinSel) window.__clearPinSel();                      // a group pick supersedes a single-pin pick
+  curNum='';
   const qb=document.getElementById('q'); if(qb&&qb.value){qb.value='';curQ='';curQHash='';}   // clear any number search
   if(already){curAff='';if(window.__mapDimAff)window.__mapDimAff('');applyFilter();return;}
   sp.classList.add('sel'); curAff=aff; if(window.__mapDimAff)window.__mapDimAff(aff); applyFilter();
