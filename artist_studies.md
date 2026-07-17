@@ -648,6 +648,62 @@ Ambient experimental soundscape isolated: tape loops and musique-concrete fragme
 punchy pop production, trap hats, screamed vocals, fast edm build, lo-fi mix, country twang, busy cluttered arrangement, autotuned vocal
 ```
 
+## Study 11 — Harmony folk-rock (blend + 4 roots)
+
+*Generated from library entries #200–204 · 2026-07-17 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: the harmony IS the meaning — a circle of frayed, earnest voices lifting each other, warmth and idealism shot through with melancholy and flashes of anger. Communal, not solo; heart over polish. The four roots isolate the DNA — soaring close-harmony folk-rock, confessional acoustic folk, Laurel Canyon country-rock, and ragged electric protest-rock. Vocals ungendered, a shifting stack of high plain tenors. Play it slick or as a single polished voice and it dies; the point is the imperfect blend and the ache of reaching together.
+
+### Blend (890)
+
+```
+Harmony folk-rock built from its ancestors: soaring three- and four-part close vocal harmony over acoustic warmth, crossed with ragged electric guitar, Laurel Canyon country-rock, and a topical earnestness — bright, aching, and communal, near 96 BPM. The lead is a shifting stack of unique voices: high blended tenors weaving intricate close harmony, one stepping forward plainspoken and yearning then folding back into the choir, warm and slightly frayed at the edges, more heart than polish. Chiming twelve-string and fingerpicked acoustic guitars, a weeping pedal steel, loose warm bass, unfussy drums, a lone electric guitar breaking in raw at the peak. Late-60s and early-70s Laurel Canyon warmth, analog and roomy, sunlit. A dynamic swell from hushed unison to full stacked catharsis. Delivery earnest, yearning, idealistic — a circle of voices reaching for something better together.
+```
+
+```
+autotuned vocals, trap hi-hats, screamed metal vocals, edm drop, glossy modern-pop sheen, lo-fi bedroom mix, drum-machine beat, heavy distortion throughout
+```
+
+### Root 1 · Close-harmony folk-rock (774)
+
+```
+Close-harmony folk-rock isolated: the vocal blend is the whole point — intricate three- and four-part high harmony stacked and interweaving, voices trading the lead and answering in thirds and fifths, soaring and euphoric, near 108 BPM. A shifting stack of unique voices, high clear blended tenors, bright and slightly reedy, tight and airy at once, one lead surfacing then dissolving back into the choir. Chiming twelve-string, brisk fingerpicked acoustic guitars, bright bass, light propulsive drums, tambourine, a hint of organ. Late-60s folk-rock warmth, analog and open, harmonies wide across the stereo field. Structure a bright ascent — verses building to a wall of stacked voices. Delivery exuberant, hopeful, radiant — the sound of voices lifting each other higher.
+```
+
+```
+autotuned vocals, trap hi-hats, screamed vocals, edm drop, glossy modern-pop sheen, lo-fi mix, drum-machine beat, heavy distortion
+```
+
+### Root 2 · Acoustic folk singer-songwriter (725)
+
+```
+Acoustic folk singer-songwriter isolated: a lone fingerpicked acoustic guitar in an open tuning, intimate and unhurried, near 72 BPM, tender and melancholy. A unique and specific vocalist, a warm plain tenor timbre, soft and confessional, close-mic captured with audible breath and string squeak, plainspoken and slightly cracked, more honesty than power, a faint high harmony ghosting in only at the phrase-ends. Fingerpicked acoustic guitar, a whisper of upright bass, a distant harmonium, nothing more. Late-60s home-recording warmth, analog and dry, the room close around the voice. Structure a quiet unfolding — verse after verse, barely a chorus. Delivery weary, tender, unguarded — a private ache sung as if to no one.
+```
+
+```
+autotuned vocals, trap hi-hats, screamed vocals, edm drop, glossy modern-pop sheen, lo-fi bedroom murk, drum-machine beat, distorted guitars
+```
+
+### Root 3 · Laurel Canyon country-rock (677)
+
+```
+Laurel Canyon country-rock isolated: an easy loping mid-tempo sway, weeping pedal steel, warm electric and acoustic guitars interlocking, brushed drums, round bass, near 92 BPM, sunlit and hopeful. A warm harmonized blend of unique voices, plain clear tenors in loose two- and three-part country harmony, gentle and earnest, a lead stepping out conversational then joined close. Pedal steel, Telecaster twang kept soft, acoustic strum, piano, tambourine, an easy backbeat. Early-70s California warmth, analog and roomy, golden. A simple verse-chorus lift, tension-release on the harmonized hook. Delivery gentle, earnest, hopeful — wisdom passed on with a warm ache underneath.
+```
+
+```
+autotuned vocals, trap hi-hats, screamed vocals, edm drop, glossy modern-pop sheen, lo-fi mix, drum-machine beat, heavy distortion
+```
+
+### Root 4 · Ragged electric protest-rock (726)
+
+```
+Ragged electric protest-rock isolated: raw distorted electric guitar, loose hard-hitting drums, thick bass, a churning mid-tempo grind, near 100 BPM, urgent and anguished. A unique and specific vocalist, a reedy cracked tenor timbre, thin and high and pushed to fraying, plaintive and angry at once, more nerve than polish, a stark unison or rough harmony shout on the refrain. Overdriven guitar with a long biting solo, garage-loose drums, driving bass, a little organ. Early-70s protest-rock rawness, analog and hot, live and unpolished. Structure a mounting churn — a verse tightening into a shouted, guitar-torn chorus. Delivery grieving, defiant, raw — a keening cry against something wrong, edges left ragged on purpose.
+```
+
+```
+autotuned vocals, trap hi-hats, clean crooner vocals, edm drop, glossy modern-pop sheen, lo-fi bedroom mix, drum-machine beat, orchestral ballad
+```
+
 <!-- END GENERATED -->
 
 ---
