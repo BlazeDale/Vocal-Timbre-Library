@@ -88,6 +88,8 @@
   pre{margin:0;background:var(--ink);border:1px solid var(--line);border-radius:7px;padding:11px 12px;font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--text);white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word}
   pre.neg{color:var(--muted)}
   pre.lyr{color:#d8d3c6}
+  pre{transition:border-color .12s,box-shadow .12s}
+  pre.copied{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 0 14px rgba(224,166,60,.22)}
   /* suno demo songs (Option A: artwork thumbnail is the play button; links out to
      Suno since the audio file itself is hotlink-protected) */
   .song{margin-top:12px}
@@ -364,6 +366,10 @@ if(recentItems.length){
 /* copy handling (delegated at document level so recent + main cards both work) */
 document.addEventListener('click',e=>{
   const b=e.target.closest('.copy'); if(!b)return;
+  // move the "copied" illumination to this block's text box (only one lit at a time)
+  document.querySelectorAll('pre.copied').forEach(p=>p.classList.remove('copied'));
+  const pre=b.closest('.blk')&&b.closest('.blk').querySelector('pre');
+  if(pre) pre.classList.add('copied');
   const txt=decodeURIComponent(b.dataset.copy);
   const done=()=>{b.textContent='Copied';b.classList.add('done');setTimeout(()=>{b.textContent='Copy';b.classList.remove('done');},1200);};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(()=>{fallback(txt);done();});}
