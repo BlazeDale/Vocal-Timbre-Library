@@ -117,9 +117,9 @@
   @keyframes flashcard{0%{box-shadow:0 0 0 2px var(--amber)}100%{box-shadow:0 0 0 2px transparent}}
   /* collapsible side player (Suno embed) */
   #player{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:40;display:flex;align-items:center}
-  #player .pbody{width:320px;max-width:80vw;background:var(--panel);border:1px solid var(--line);border-left:none;border-radius:0 12px 12px 0;box-shadow:0 12px 44px rgba(0,0,0,.55);padding:12px;transition:margin-left .25s ease,opacity .2s}
-  #player.collapsed .pbody{margin-left:-380px;opacity:0;pointer-events:none}
-  #ptab{background:var(--panel);border:1px solid var(--line);border-left:none;border-radius:0 10px 10px 0;color:var(--amber);width:24px;height:60px;cursor:pointer;font-size:15px;flex:none}
+  #player .pbody{box-sizing:border-box;width:320px;max-width:80vw;background:var(--panel);border:1px solid var(--line);border-left:none;border-radius:0 12px 12px 0;box-shadow:0 12px 44px rgba(0,0,0,.55);padding:12px;overflow:hidden;transition:width .25s ease,padding .25s ease,opacity .2s}
+  #player.collapsed .pbody{width:0;padding:0;border-width:0;opacity:0;pointer-events:none}   /* collapse width (not margin) so the ♪ tab stays at the left edge */
+  #ptab{flex:none;background:var(--panel);border:1px solid var(--line);border-left:none;border-radius:0 10px 10px 0;color:var(--amber);width:24px;height:60px;cursor:pointer;font-size:15px}
   .phead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
   #pnow{font-size:12px;color:var(--muted);font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #prand{flex:none;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:12px;padding:5px 9px;cursor:pointer}
