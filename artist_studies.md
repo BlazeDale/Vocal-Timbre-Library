@@ -480,6 +480,62 @@ Early-80s post-disco boogie and electro-funk isolated: a syncopated slap-and-pop
 rock guitars, screamed vocals, belted power ballad, trap production, lo-fi mix, muddy bass, country twang, aggressive edm drop
 ```
 
+## Study 8 — Reinvention dance-pop (blend + 4 roots)
+
+*Generated from library entries #185–189 · 2026-07-16 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: reinvention as identity — ambition, provocation and control, the dancefloor as self-expression, a bright confident pop voice that leads rather than belts. Play it as generic pop and you lose the nerve. The four roots isolate the eras — early-80s club freestyle, glossy 80s funk-pop, deep-house vogue, and late-90s electronica — mixable to place a specific reinvention. Vocal anchored ungendered, a bright pop-alto to lean feminine.
+
+### Blend (877)
+
+```
+Ambitious reinvention-pop built from its ancestors: early-80s downtown-club dance-pop and Latin freestyle crossed with glossy 80s funk-pop craft, deep-house piano and a late-90s electronica sheen — a shape-shifting dancefloor record that leads with nerve. A unique and specific vocalist, bright confident pop-alto timbre, characterful and clear, provocative and self-assured, expressive and forward rather than powerhouse-belting, a controlled ambitious edge. Verses talky and cool, choruses a bold declarative hook made to be chanted. Punchy drum-machine four-on-the-floor, funk-plucked bass, stabbing synth-brass and piano hits, filtered pads, a single memorable topline motif. Bright, glossy, danceable production, sleek and uncluttered, the dancefloor as self-expression. Provocation and euphoria in equal measure — pop as constant reinvention, transformation on the floor.
+```
+
+```
+belted power-ballad vocals, screamed delivery, rock guitars, trap hi-hats, lo-fi bedroom production, muddy mix, country twang, aggressive edm drop
+```
+
+### Root 1 · Early-80s club freestyle (697)
+
+```
+Early-80s downtown-club dance-pop and Latin freestyle isolated: LinnDrum handclaps and toms, a bouncy synth-bass line, bright stabby synth chords and glassy marimba-ish plinks, a syncopated freestyle groove built for a sweaty club. A unique and specific vocalist, bright confident pop-alto timbre, girlish yet self-assured, playful and provocative, phrasing forward in the pocket rather than belting. Simple insistent song — verse, a chantable hook repeated, a breakdown to just drums and bass before the last lift. Analog drum machines, gated claps, arpeggiated synths, a little vinyl grit. Danceable, euphoric and a touch defiant — the record as an invitation to the floor, ambition worn as fun.
+```
+
+```
+modern trap production, rock guitars, screamed vocals, belted diva runs, lo-fi murk, aggressive edm drop, country twang, cluttered arrangement
+```
+
+### Root 2 · Glossy 80s funk-pop (690)
+
+```
+Glossy mid-80s funk-pop craft isolated: clean chicken-scratch funk guitar, a slap-and-pop bassline, LinnDrum backbeat with bright gated snare, sparkling synth and orchestra-hit stabs, a hooky Motown-descended pop topline. A unique and specific vocalist, bright confident pop-alto timbre, cheeky and self-assured, provocative in the phrasing, expressive and clear rather than belting. Classic pop structure — verse, pre-chorus, big shout-along chorus, a funk breakdown before the final hook. Wide glossy 80s production, tambourine and cowbell, tape sheen, a single catchy synth motif. Bubblegum on the surface, ambition and nerve underneath — irresistible and danceable, material confidence.
+```
+
+```
+rock guitars, screamed vocals, belted power ballad, trap hats, lo-fi bedroom mix, muddy low end, country twang, aggressive edm build
+```
+
+### Root 3 · House-vogue (725)
+
+```
+Late-80s and early-90s deep house and vogue isolated: a four-on-the-floor house kick, a rolling piano-house riff, gospel-tinged organ stabs, a deep filtered bassline, ballroom snap and reverb-huge claps, an uplifting club euphoria. A unique and specific vocalist, bright confident pop-alto timbre, commanding and provocative, half-spoken vogue attitude in the verses opening to a fervent gospel-house lift, expressive rather than powerhouse-belting. Built as a club anthem — spoken-chanted verse, a euphoric piano-and-voice chorus, a stripped breakdown before the drop. Warm analog house production, wide reverb, a single diva-adjacent topline. Empowerment sung as a command — strike a pose, transformation on the dancefloor.
+```
+
+```
+rock guitars, screamed metal vocals, trap hats, lo-fi mix, harsh digital edm, country twang, cluttered busy arrangement, timid delivery
+```
+
+### Root 4 · Late-90s electronica (709)
+
+```
+Late-90s electronica and ambient-techno reinvention isolated: filtered breakbeats and a trance-adjacent pulse, warm ambient pads and swirling arpeggios, a hypnotic mid-tempo groove, glassy delays and a spiritual-club shimmer. A unique and specific vocalist, bright pop-alto timbre softened and introspective, characterful and clear, yearning and self-aware, expressive rather than belting, riding the electronic swell. Structure a slow-building club-trance journey — a hushed verse, a euphoric filtered lift, a long instrumental bloom. Lush late-90s production, tape delay, sidechained pads, a single mantra-like topline. Introspection meets the dancefloor — transcendent, searching, reinvention as awakening.
+```
+
+```
+rock guitars, screamed vocals, belted power ballad, trap production, lo-fi mix, muddy bass, country twang, aggressive brostep drop
+```
+
 <!-- END GENERATED -->
 
 ---
