@@ -101,8 +101,8 @@
      Suno since the audio file itself is hotlink-protected) */
   .song{margin-top:12px}
   .song-tiles{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
-  .song-tile{display:flex;flex-direction:column;align-items:center;gap:3px}
-  .song-art{position:relative;flex:none;width:52px;height:52px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--panel2);display:block}
+  .song-tile{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .song-art{position:relative;flex:none;width:52px;height:52px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--panel2);display:block;padding:0;cursor:pointer}
   .song-art img{width:100%;height:100%;object-fit:cover;display:block}
   .song-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.30);color:#fff;font-size:15px;text-shadow:0 1px 3px rgba(0,0,0,.7);transition:background .12s}
   .song-art:hover{border-color:var(--amber)}
@@ -111,6 +111,21 @@
   .song-g:empty{display:none}
   .song-gedit{display:none;gap:4px}
   body.editgender .song-gedit{display:flex}
+  .song-ext{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);color:var(--amber);font-size:11px;line-height:16px;text-align:center;text-decoration:none;z-index:3}
+  .song-ext:hover{border-color:var(--amber);background:var(--panel)}
+  .card.flash{animation:flashcard 1.2s ease-out}
+  @keyframes flashcard{0%{box-shadow:0 0 0 2px var(--amber)}100%{box-shadow:0 0 0 2px transparent}}
+  /* collapsible side player (Suno embed) */
+  #player{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:40;display:flex;align-items:center}
+  #player .pbody{width:320px;max-width:80vw;background:var(--panel);border:1px solid var(--line);border-left:none;border-radius:0 12px 12px 0;box-shadow:0 12px 44px rgba(0,0,0,.55);padding:12px;transition:margin-left .25s ease,opacity .2s}
+  #player.collapsed .pbody{margin-left:-380px;opacity:0;pointer-events:none}
+  #ptab{background:var(--panel);border:1px solid var(--line);border-left:none;border-radius:0 10px 10px 0;color:var(--amber);width:24px;height:60px;cursor:pointer;font-size:15px;flex:none}
+  .phead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+  #pnow{font-size:12px;color:var(--muted);font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #prand{flex:none;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:12px;padding:5px 9px;cursor:pointer}
+  #prand:hover{border-color:var(--amber);color:var(--amber)}
+  #pframe{display:block;width:100%;height:180px;border:0;border-radius:8px;background:#000}
+  #pempty{font-size:12px;color:var(--dim);text-align:center;padding:26px 8px}
   .gbtn{font-family:var(--mono);font-size:12px;line-height:1;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:2px 6px;cursor:pointer}
   .gbtn:hover{border-color:var(--amber);color:var(--text)}
   .gbtn.on{background:var(--amber);color:#1a1206;border-color:var(--amber);font-weight:700}
@@ -125,6 +140,14 @@
 </style>
 </head>
 <body>
+<div id="player" class="collapsed">
+  <div class="pbody">
+    <div class="phead"><span id="pnow">Nothing playing</span><button type="button" id="prand" title="Play a random demo from the current filter, and jump to it">🎲 Random</button></div>
+    <div id="pempty">▶ any demo, or hit Random</div>
+    <iframe id="pframe" src="about:blank" allow="autoplay; encrypted-media" title="Suno player" style="display:none"></iframe>
+  </div>
+  <button type="button" id="ptab" title="Show / hide the player">♪</button>
+</div>
 <div class="wrap">
   <header class="masthead">
     <p class="eyebrow">Suno · vocal timbre reference</p>
@@ -333,11 +356,12 @@ function sunoIds(suno){
 function sunoTile(raw){
   const {uuid,link,art}=sunoParse(raw);
   return `<span class="song-tile">`+
-    `<a class="song-art" href="${esc(link)}" target="_blank" rel="noopener" title="Play on Suno">`+
+    `<button type="button" class="song-art" data-uuid="${esc(uuid)}" title="Play in the side player">`+
       (art?`<img src="${esc(art)}" alt="" onerror="this.style.display='none'">`:'')+
       `<span class="song-play">▶</span>`+
       `<span class="song-g" data-gid="${esc(uuid)}"></span>`+
-    `</a>`+
+    `</button>`+
+    `<a class="song-ext" href="${esc(link)}" target="_blank" rel="noopener" title="Open on Suno">↗</a>`+
     `<span class="song-gedit">`+
       `<button type="button" class="gbtn" data-set="f" data-gid="${esc(uuid)}" title="Mark feminine">♀</button>`+
       `<button type="button" class="gbtn" data-set="m" data-gid="${esc(uuid)}" title="Mark masculine">♂</button>`+
@@ -516,6 +540,35 @@ document.querySelectorAll('.legend span[data-aff]').forEach(sp=>sp.addEventListe
   if(already){curAff='';if(window.__mapDimAff)window.__mapDimAff('');applyFilter();return;}
   sp.classList.add('sel'); curAff=aff; if(window.__mapDimAff)window.__mapDimAff(aff); applyFilter();
 }));
+
+/* ---------- SIDE PLAYER (Suno embed) ---------- */
+(function(){
+  const player=document.getElementById('player'), frame=document.getElementById('pframe'),
+        pnow=document.getElementById('pnow'), pempty=document.getElementById('pempty');
+  const labelOf=card=>card?('#'+card.dataset.n+' '+(card.querySelector('.name')?.textContent||'').trim()):'';
+  function play(uuid,lab){
+    if(!uuid) return;
+    pempty.style.display='none'; frame.style.display='block';
+    frame.src='https://suno.com/embed/'+uuid;
+    pnow.textContent=lab||'Playing';
+    player.classList.remove('collapsed');
+  }
+  // ▶ on any demo icon -> play in the side panel (delegated: works for main + recent cards)
+  document.addEventListener('click',e=>{
+    const art=e.target.closest('.song-art'); if(!art) return;
+    play(art.dataset.uuid, labelOf(art.closest('.card')));
+  });
+  document.getElementById('ptab').addEventListener('click',()=>player.classList.toggle('collapsed'));
+  document.getElementById('prand').addEventListener('click',()=>{
+    const cards=[...cardsEl.querySelectorAll('.card')].filter(c=>c.style.display!=='none'&&c.dataset.suno);
+    if(!cards.length){ pempty.textContent='No demos in the current filter'; pempty.style.display='block'; frame.style.display='none'; pnow.textContent='Nothing playing'; player.classList.remove('collapsed'); return; }
+    const card=cards[Math.floor(Math.random()*cards.length)];
+    const art=card.querySelector('.song-art');
+    play(art&&art.dataset.uuid, labelOf(card));
+    card.scrollIntoView({behavior:'smooth',block:'center'});
+    card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
+  });
+})();
 applyFilter(); renderCounts(); renderGenders();
 
 /* ---------- ELECTRONIC SHELF ---------- */
