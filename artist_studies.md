@@ -706,7 +706,7 @@ autotuned vocals, trap hi-hats, clean crooner vocals, edm drop, glossy modern-po
 
 ## Study 12 — Baritone stadium grunge (blend + 4 roots)
 
-*Generated from library entries #210–214 · 2026-07-18 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+*Generated from library entries #210–215 · 2026-07-18 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
 
 Temperament: survivor's testimony at stadium scale — grief, anger and moral urgency sung as one thing by a deep vibrato baritone that mumbles low and then tears open. Earnestness is the whole point; play it as detached irony or slick post-grunge radio rock and it collapses into the politest cousin. The four roots isolate the DNA — 70s arena hard rock (the riff strut, the jam coda), proto-punk garage (the sneer and the speed), ragged folk-rock troubadour (the conscience and the untrained crack), and 60s southern soul (the phrasing, the pleading build). Roots 1 and 2 triangulate the heavy early records; roots 3 and 4 triangulate the weathered, more spacious later ones. Vocal ungendered, resonant baritone with wide slow vibrato and swallowed consonants.
 
@@ -758,6 +758,16 @@ Sixties soul isolated: warm horn-driven southern R&B near 92 BPM — a walking b
 
 ```
 autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, distorted guitars, screamed vocals, synth pads
+```
+
+### Track study · Chiming guilt-narrative alt-rock (885)
+
+```
+Urgent mid-tempo alt-rock near 112 BPM, bright and driving with a guilty ache underneath. The lead is a unique and specific vocalist: a resonant ungendered baritone with a wide slow vibrato and swallowed consonants, phrasing conversational and clenched in the verses, opening into a raw cracked howl on the chorus and holding the note past comfort. A chiming arpeggiated electric guitar figure rings out as the main hook, doubled by a warm fuzzed rhythm guitar; melodic bass moving in counterpoint; tight propulsive drums with tumbling tom fills and cymbal wash at the lifts. Live-in-the-room analog rock production, no gloss, guitars wide and bright. Structure builds — restrained verse, detonating chorus, one short keening guitar break, a final chorus sung harder and more frayed. Delivery anguished and morally accusing — a story of betrayal told by someone who cannot put it down.
+```
+
+```
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, rap verses, orchestral strings, lo-fi bedroom mix, whispered vocals
 ```
 
 <!-- END GENERATED -->
