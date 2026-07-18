@@ -704,6 +704,62 @@ Ragged electric protest-rock isolated: raw distorted electric guitar, loose hard
 autotuned vocals, trap hi-hats, clean crooner vocals, edm drop, glossy modern-pop sheen, lo-fi bedroom mix, drum-machine beat, orchestral ballad
 ```
 
+## Study 12 — Baritone stadium grunge (blend + 4 roots)
+
+*Generated from library entries #210–214 · 2026-07-18 — edit the `inspiration` entries in `data.js`, then run `node tools/build.mjs`.*
+
+Temperament: survivor's testimony at stadium scale — grief, anger and moral urgency sung as one thing by a deep vibrato baritone that mumbles low and then tears open. Earnestness is the whole point; play it as detached irony or slick post-grunge radio rock and it collapses into the politest cousin. The four roots isolate the DNA — 70s arena hard rock (the riff strut, the jam coda), proto-punk garage (the sneer and the speed), ragged folk-rock troubadour (the conscience and the untrained crack), and 60s southern soul (the phrasing, the pleading build). Roots 1 and 2 triangulate the heavy early records; roots 3 and 4 triangulate the weathered, more spacious later ones. Vocal ungendered, resonant baritone with wide slow vibrato and swallowed consonants.
+
+### Blend (859)
+
+```
+Baritone stadium grunge built from its ancestors: heavy Pacific-Northwest alt-rock crossed with 70s arena hard rock, proto-punk urgency, ragged folk-rock conscience, and 60s soul phrasing — earnest, ragged and enormous, near 104 BPM. The lead is a unique and specific vocalist: a deep resonant ungendered baritone with a wide slow vibrato and swallowed, half-formed consonants, rising from a brooding low croon to a raw open-throated howl that frays at the top. Thick fuzzed rhythm guitar against a clean chiming counter-line, a loose muscular rhythm section playing behind the beat, organ swelling underneath, a long unresolved guitar outro. Analog and roomy, live-in-the-room, no gloss. Dynamics are the drama: verses held low and coiled, choruses detonating. Delivery anguished and morally urgent — a survivor testifying, grief and anger sung as one thing.
+```
+
+```
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, rap verses, orchestral strings, lo-fi bedroom mix
+```
+
+### Root 1 · Arena hard-rock (715)
+
+```
+Arena hard rock isolated: 70s stadium heaviness — a swung riff-driven strut near 96 BPM, thick overdriven guitar, a thunderous behind-the-beat kit, bass welded to the riff, and long instrumental stretches handed over to soloing. The lead is a unique and specific vocalist: a big chesty ungendered baritone-tenor with bluesy melisma and a strained upper edge, projecting to the back of a hall, more swagger than precision. Wah and slide accents, drawbar organ, a double-time breakdown, an extended jam coda that refuses to end. Warm analog tape, natural room ambience, drums huge and slightly loose. Delivery cocky, physical, celebratory — a band stretching a four-minute song to eight because the room is with them.
+```
+
+```
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, whispered vocals, orchestral strings, programmed loops
+```
+
+### Root 2 · Proto-punk garage-rock (650)
+
+```
+Proto-punk garage rock isolated: fast, snarling and cheap-sounding near 156 BPM — buzzsaw downstroke guitar, a battered snare, bass hammering eighths, arrangements stripped to a riff and a shout. The lead is a unique and specific vocalist: a hoarse ungendered mid-range shout, sneering and half out of breath, phrasing shoved ahead of the beat, gang-shouted backups slamming in on the hook. One squalling atonal solo, a false ending, feedback left in the take. Recorded raw and nearly mono, everything peaking slightly, no polish anywhere. Delivery aggressive, contemptuous, exhilarated — a small sweaty room with no patience for anything ornamental.
+```
+
+```
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, orchestral strings, smooth crooning, extended guitar solos
+```
+
+### Root 3 · Ragged folk-rock troubadour (699)
+
+```
+Ragged folk-rock isolated: a lone plainspoken songwriter with a distorted guitar — loose, unhurried and structurally simple near 88 BPM, an open acoustic strum or a lurching one-chord electric grind, harmonica, tremolo-warped guitar tone. The lead is a unique and specific vocalist: a thin reedy ungendered voice, quavering and untrained, cracking on held notes and letting the crack stand, plain vowels and unvarnished diction. A loose band playing slightly out of tune around it, drums simple and heavy-footed, one long meandering solo built from a handful of notes. Recorded live with the warts kept in. Delivery weary, stubborn, mournful — conscience and grief carried with no performance gloss.
+```
+
+```
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, tight studio polish, orchestral strings, belted power vocals
+```
+
+### Root 4 · Sixties soul croon (700)
+
+```
+Sixties soul isolated: warm horn-driven southern R&B near 92 BPM — a walking bass, brushes giving way to a hard backbeat, tremolo guitar comping, brass stabs, gospel-touched organ. The lead is a unique and specific vocalist: a rich ungendered baritone with grain low in the throat, sliding up into pitch from underneath, ad-libbed pleas and repeated words, building from a confiding murmur to a full-throated cry as the voice frays. Call-and-response backing vocals, the horn section answering every line, a slow build into a repeated begging outro. Mono-warm analog, cut live to tape, close-miked. Delivery earnest, pleading, wide open — everything given away in the phrasing rather than the volume.
+```
+
+```
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, distorted guitars, screamed vocals, synth pads
+```
+
 <!-- END GENERATED -->
 
 ---
