@@ -776,50 +776,50 @@ autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine 
 
 Companion to study #12 (same artist) but on the opposite axis: not what they play but HOW they deliver it — performance craft isolated from genre, and pointedly NOT the live/stadium sound. Temperament: a close-mic'd, studio-intimate baritone whose whole expression is behind-the-beat drag, coiled restraint that ruptures, swallowed grain, and on-the-verge fragility — sung up close into the ear, never projected to a back row. The blend fuses all four; the roots isolate each behavior for pairwise triangulation — Root 1 the late conversational phrasing, Root 2 the withhold-then-detonate dynamics (studio-tight, not crowd-fed), Root 3 the swallowed-consonant grain and melisma-to-growl texture, Root 4 the fragile single-take rawness with the cracks left in. Render it slick, projected, or arena-reverbed and the study dies; the point is the intimacy and the audible risk of the voice failing.
 
-### Blend (894)
+### Blend (999)
 
 ```
-A study in delivery, not genre: how a single ungendered baritone inhabits a song from up close. Near 100 BPM, mid-tempo rock kept deliberately plain so every choice in the voice reads. The vocal sits low and behind the beat, phrasing conversational and half-swallowed — consonants softened, vowels bent, a wide slow vibrato arriving late on held notes. Verses are muttered and coiled, withheld almost to a hush; the build is tight and internal, then the voice tears open into a raw cracked belt and holds past comfort, grain fraying at the top of the push, melisma curdling toward a growl. Close intimate mic, dry and present, breath and throat audible — a studio take, never projected to a room. Backing subordinate: warm fuzzed rhythm guitar, a clean counter-line, bass and drums restrained behind the voice. Delivery anguished and testifying — grief and anger carried in the phrasing itself.
+A study in delivery, not genre: how one ungendered baritone inhabits a song up close. Near 100 BPM, mid-tempo rock kept deliberately plain so every choice in the voice reads. The vocal sits low and behind the beat, phrasing conversational and half-swallowed — consonants softened, vowels bent, a wide slow vibrato arriving late on held notes. Verses are muttered and coiled, withheld almost to a hush; the build is tight and internal, then the voice tears open into a raw cracked belt and holds past comfort, grain fraying at the top of the push, melisma curdling toward a growl. Close intimate mic, dry and present, breath and throat audible — a studio take, never projected to a room. Backing subordinate but vocal: warm fuzzed rhythm guitar, a clean counter-line, bass and drums restrained behind the voice, and an improvised lead guitar answering in bluesy bends rising to one soulful, song-length solo break, not a sprawling jam. Delivery anguished and testifying — grief and anger sung as one.
 ```
 
 ```
-autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, rap verses, orchestral strings, arena reverb, live-crowd ambience, extended jam outro
+autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, rap verses, orchestral strings, arena reverb, live-crowd ambience
 ```
 
-### Root 1 · Behind-the-beat phrasing (831)
+### Root 1 · Behind-the-beat phrasing (955)
 
 ```
-One facet isolated: timing and placement. An ungendered baritone that sits low and drags deliberately behind the beat, unhurried and conversational, letting phrases start late and trail off — the pulse pulls one way, the voice leans back against it. Words come half-mumbled and run together, consonants swallowed, phrase-ends dropping in pitch and dissolving rather than landing cleanly. No urgency and no push here — just the weight of a voice taking its time, talking more than singing, weary and low in the chest. Near 92 BPM, sparse and dry: a simple strummed-and-fuzzed guitar figure, bass and brushed-to-plain drums holding a plain pocket so the vocal's lateness is the whole event. Close intimate mic, present and un-effected. Delivery weary and plainspoken — meaning carried in the drag and the mutter, everything unforced.
+One facet isolated: timing and placement. An ungendered baritone that sits low and drags deliberately behind the beat, unhurried and conversational, letting phrases start late and trail off — the pulse pulls one way, the voice leans back against it. Words come half-mumbled and run together, consonants swallowed, phrase-ends dropping in pitch and dissolving rather than landing cleanly. No urgency and no push here — just the weight of a voice taking its time, talking more than singing, weary and low in the chest. Near 92 BPM, sparse and dry: a simple strummed-and-fuzzed guitar figure, bass and brushed-to-plain drums holding a plain pocket so the vocal's lateness is the whole event, an improvised lead guitar sliding in unhurried bluesy fills between the lines, leaning as far behind the beat as the voice. Close intimate mic, present and un-effected. Delivery weary and plainspoken — meaning carried in the drag and the mutter, everything unforced.
 ```
 
 ```
 belted power vocals, fast clipped phrasing, on-the-beat precision, autotuned vocals, trap hi-hats, glossy modern-pop sheen, arena reverb, live-crowd ambience, operatic projection
 ```
 
-### Root 2 · Restraint-to-rupture dynamics (875)
+### Root 2 · Restraint-to-rupture dynamics (988)
 
 ```
-One facet isolated: dynamics as the whole drama. An ungendered baritone that spends the verse withheld — near-muttered, coiled low and quiet, holding everything back on purpose — then builds tight and deliberate into a sudden unguarded belt, the voice opening full-throated and cracking as it goes. The release is internal and studio-tight, not fed by a crowd: a controlled fuse, not a singalong. Quiet passages are the tension; the eruption is earned by how long it was refused. Near 104 BPM, arrangement following the voice — restrained hush under the verse, then the band leaning in together for the lift and dropping back down for the next withholding. Close present mic, dynamics kept honest and un-compressed so the quiet is truly quiet and the loud truly tears. Delivery earnest and yearning — a voice reaching, breaking on the reach, then pulling back to reach again.
+One facet isolated: dynamics as the whole drama. An ungendered baritone that spends the verse withheld — near-muttered, coiled low and quiet, holding everything back on purpose — then builds tight and deliberate into a sudden unguarded belt, the voice opening full-throated and cracking as it goes. The release is internal and studio-tight, not fed by a crowd: a controlled fuse, not a singalong. Quiet passages are the tension; the eruption is earned by how long it was refused. Near 104 BPM, arrangement following the voice — restrained hush under the verse, then the band leaning in together for the lift and dropping back down for the next withholding, an improvised lead guitar erupting into a wailing solo break at the peak and pulling back to near-silence after. Close present mic, dynamics kept honest and un-compressed so the quiet is truly quiet and the loud truly tears. Delivery earnest and yearning — a voice reaching, breaking on the reach, then pulling back to reach again.
 ```
 
 ```
 constant loud intensity, unchanging level throughout, autotuned vocals, trap hi-hats, edm drop, glossy modern-pop sheen, drum-machine beat, arena reverb, live-crowd ambience, brickwall-compressed mix
 ```
 
-### Root 3 · Swallowed-grain melisma (788)
+### Root 3 · Swallowed-grain melisma (891)
 
 ```
-One facet isolated: the grain of the voice itself. An ungendered baritone whose texture is the signature — consonants swallowed and slurred until words half-dissolve, vowels bent and stretched, a wide slow vibrato wobbling under every held note. As the voice pushes up it roughens: a catch at the top, grit fraying the tone, melisma thickening and curdling toward a low growl before pulling back to pitch. Not clean and not smooth — a throat-forward, worn, damaged-sounding instrument that scrapes as it climbs. Near 98 BPM, backing kept minimal and mid-fuzzed so the vocal texture is fully exposed and close. Close dry mic, grain and rasp captured intact, no smoothing or de-essing. Delivery raw and edged — the roughness deliberate, the growl always threatening at the edge of the note.
+One facet isolated: the grain of the voice itself. An ungendered baritone whose texture is the signature — consonants swallowed and slurred until words half-dissolve, vowels bent and stretched, a wide slow vibrato wobbling under every held note. As the voice pushes up it roughens: a catch at the top, grit fraying the tone, melisma thickening and curdling toward a low growl before pulling back to pitch. Not clean and not smooth — a throat-forward, worn, damaged-sounding instrument that scrapes as it climbs. Near 98 BPM, backing kept minimal and mid-fuzzed so the vocal texture is fully exposed and close, an improvised lead guitar answering in gritty bent flourishes that fray and growl like the voice does. Close dry mic, grain and rasp captured intact, no smoothing or de-essing. Delivery raw and edged — the roughness deliberate, the growl always threatening at the edge of the note.
 ```
 
 ```
 clean smooth tone, polished crooning, de-essed vocal, autotuned vocals, pitch-corrected snap, glossy modern-pop sheen, choir layering, arena reverb, live-crowd ambience, operatic legato
 ```
 
-### Root 4 · On-the-verge close-take (869)
+### Root 4 · On-the-verge close-take (982)
 
 ```
-One facet isolated: fragility and the live-take feel — small-room, never projected. An ungendered baritone recorded close and intimate, sounding like a single unguarded take: the voice trembling at the edge of cracking, notes that could give out at any moment and sometimes do, the crack left in rather than fixed. Breath, throat and mouth detail audible; small pitch wavers and imperfections kept as the point. Emotionally exposed and on the verge, sung almost into the listener's ear — the opposite of a voice thrown to a back row. Near 90 BPM, backing hushed and sparse: a warm fuzzed guitar or quiet strum, minimal rhythm section, plenty of room around the voice. Dry close mic, no arena reverb and no gloss — the imperfect performance preserved whole. Delivery anguished and vulnerable — raw honesty valued over control, the fear of the voice failing left audible.
+One facet isolated: fragility and the live-take feel — small-room, never projected. An ungendered baritone recorded close and intimate, sounding like a single unguarded take: the voice trembling at the edge of cracking, notes that could give out at any moment and sometimes do, the crack left in rather than fixed. Breath, throat and mouth detail audible; small pitch wavers and imperfections kept as the point. Emotionally exposed and on the verge, sung almost into the listener's ear — the opposite of a voice thrown to a back row. Near 90 BPM, backing hushed and sparse: a warm fuzzed guitar or quiet strum, minimal rhythm section, plenty of room around the voice, a lone improvised lead guitar wandering in fragile trembling bends that could fall apart as easily as the vocal. Dry close mic, no arena reverb and no gloss — the imperfect performance preserved whole. Delivery anguished and vulnerable — raw honesty valued over control, the fear of the voice failing left audible.
 ```
 
 ```
